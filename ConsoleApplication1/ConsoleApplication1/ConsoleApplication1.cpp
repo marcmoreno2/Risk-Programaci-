@@ -11,6 +11,89 @@
 using namespace std;
 namespace con = JadedHoboConsole;
 
+char mapa[80][200] = {
+	"                                                                                                                                                                                                       ",
+	" XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" X                                                                                                                                                                                                   X ",
+	" XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX ",
+	"                                                                                                                                                                                                       "
+};
+
 void gotoxy(int x, int y){
 	HANDLE hcon;
 	hcon = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -29,11 +112,11 @@ struct Territoris{
 
 class Mapa {
 private:
-	
+	char mapa[80][200];
 	list<Territoris> territoris;
 	list<Territoris>::iterator it;
 public:
-	char mapa[130][200];
+	
 	/*void initializeMap(){
 	
 		mapa[130][200] = {
@@ -170,9 +253,9 @@ public:
 
 	}*/
 	void print(){
-		for (int i = 0; i <= 80; i++){
+		for (int i = 0; i <= 78; i++){
 			for (int j = 0; j <= 200; j++){
-				if (i == 0 || i == 80)
+				/*if (i == 0 || i == 80)
 				{
 					cout << ' ';
 				}
@@ -184,24 +267,28 @@ public:
 				{
 					cout << con::fg_red << 'X';
 				}
-				else cout << ' ';
+				else cout << ' ';*/
 
-				/*switch (mapa[i][j])
+				switch (mapa[i][j])
 				{
 				case 'X':
-					cout << 'X';
+					cout << con::fg_yellow << 'X';
 					break;
 				default:
-					cout << 'P';
+					cout << con::fg_white << ' ';
 					break;
 
 				}
-				cout << con::bg_black << con::fg_white << mapa[i][j];*/
+				//cout << con::bg_black << con::fg_white << mapa[i][j];
 			}
 			cout << endl;
 		}
 	}
-	Mapa(){};
+	Mapa(char m[][200])
+	{
+		int cb = sizeof(char)* 80 * 200;
+		memcpy(mapa, m, cb);
+	};
 	~Mapa(){};
 
 };
@@ -209,7 +296,7 @@ public:
 int _tmain(int argc, _TCHAR* argv[])
 {
 
-	Mapa a;
+	Mapa a(mapa);
 	//a.initialiseMap();
 	a.print();
 	system("pause>>NULL");
