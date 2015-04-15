@@ -1,0 +1,35 @@
+// ASCII-Paint 0.3 config file
+window {
+	width = 80
+	height = 50
+	fullscreen = false
+	background_color = "64, 64, 64"
+	fps = 60
+}
+
+font {
+	file = "fonts/default-8x8-incol.png"
+	layout = "incol"
+	type = "normal"
+}
+
+canvas {
+	width = 80
+	height = 50
+}
+
+brushes {
+	fore1 = "0, 0, 0"
+	back1 = "255, 255, 255"
+	symbol1 = 'a'
+	fore2 = "255, 255, 255"
+	back2 = "0, 0, 0"
+	symbol2 = 'b'
+}
+
+gui {
+	background_color1 = "200, 200, 200"
+	background_color2 = "255, 255, 255"
+	foreground_color1 = "64, 64, 180"
+	foreground_color2 = "64, 64, 255"
+}
