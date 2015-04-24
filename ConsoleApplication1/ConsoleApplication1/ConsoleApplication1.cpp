@@ -3,6 +3,7 @@
 
 #include "stdafx.h"
 #include <iostream>
+#include <string>
 #include <list>
 #include <array>
 #include "Console.h"
@@ -75,11 +76,11 @@ char mapa[80][200] = {
 	" X      XpppppXsssssssssssssssssssssXXXX                 XXX        XiiiiiiX                     XggggggggggggggggggggggXX                                 X                                        X",
 	" X      XpppppXsssssssssssssssssssssX          XX       XXiX        XiiiiiX                      XgggggggggggggggggggggggX                                 X                                        X",
 	" X     XppppppXssssssssssssssssssssX          XX        XiiX        XiiiiiX                     XgggggggggggggggggggggggggXX                               X                                        X",
-	" X    XpppppppXssssssssssssssssssssX     XXXX          XXiiX       XiiiiiiX                     XgggggggggggggggggggggggggggX                              X                                        X",
+	" X    XpppppppXssssssssssssssssssssX      XX           XXiiX       XiiiiiiX                     XgggggggggggggggggggggggggggX                              X                                        X",
 	" X   XppppppppXssssssssssssssssssssX     XssX          XiiiX       XiiiiiX                     XgggggggggggggggggggggggggggggX                             X                                        X",
-	" X   XpppppppXssssssssssssssssssssX      XXXX          XiiiX       XiiiiiX                    XgggggggggggggggggggggggggggggX                              X                                        X",
+	" X   XpppppppXssssssssssssssssssssX       XX           XiiiX       XiiiiiX                    XgggggggggggggggggggggggggggggX                              X                                        X",
 	" X    XXpppppXsssssssssssssssssssXX                   XXiiiX      XiiiiiiX                    XXggggggggggggggggXggggggggggX X         XXXXXX            XXX                                        X",
-	" X   XXpppppXXssssssssssssssssssX      XX             XXiiX       XiiiiiiX                      XXggggggggggggXXXggggggggXX    X      XXggggXX        XXXttX                                        X",
+	" X   XppppppXXssssssssssssssssssX      XX             XXiiX       XiiiiiiX                      XXggggggggggggXXXggggggggXX    X      XXggggXX        XXXttX                                        X",
 	" X   XXppppXXsssssssssssssssssssX       X              XXXX      XiiiiiiX                         XXgggggggggX  XggggggXX       XXXXXXXggggggXXXXXXXXXtttttX                                        X",
 	" X     XXpXXsssssssssssssssssssX       X                        XiiiiiiiX                           XXgggggXX   XgggggX         XggggggggggggXXttttttttttttX                                        X",
 	" X       XXsssssssssssssssssssX                                 XiiiiiiiX                             XXggX     XgggXX          XggggggggggggXtttttttttttttX                                        X",
@@ -111,9 +112,15 @@ void gotoxy(int x, int y){
 	SetConsoleCursorPosition(hcon, dwPos);
 }
 
+void printInterface()
+{
+	int posy = 5;
+	for (int i = 0; i < 10; i++){ gotoxy(158, posy); cout << con::fg_white << con::bg_black << "Interfaz placeholder: XXXXX"; posy++; posy++; }
+}
+
 struct Territoris{
 	string nom;
-	int posX_Ex1, posY_Ex1, posX_Ex2, posY_Ex2;
+	int posX_Ex1, posY_Ex1, posX_Ex2, posY_Ex2, id;
 	int idPropietari;
 	bool exPresent, castell;
 };
@@ -184,8 +191,8 @@ public:
 	{
 		int cb = sizeof(char)* 80 * 200;
 		memcpy(mapa, m, cb);
-	};
-	~Mapa(){};
+	}
+	~Mapa(){}
 
 	void iniciaTerritoris(){
 		Territoris s;
@@ -199,74 +206,74 @@ public:
 		s.posY_Ex2 = 50;
 
 		Territoris p;
-		s.nom = "Portugal";
-		s.castell = false;
-		s.exPresent = true;
-		s.idPropietari = 2;
-		s.posX_Ex1 = 18;
-		s.posY_Ex1 = 55;
-		s.posX_Ex2 = 25;
-		s.posY_Ex2 = 55;
+		p.nom = "Portugal";
+		p.castell = false;
+		p.exPresent = true;
+		p.idPropietari = 2;
+		p.posX_Ex1 = 18;
+		p.posY_Ex1 = 55;
+		p.posX_Ex2 = 25;
+		p.posY_Ex2 = 55;
 
 		Territoris f;
-		s.nom = "França";
-		s.castell = true;
-		s.exPresent = true;
-		s.idPropietari = 3;
-		s.posX_Ex1 = 50;
-		s.posY_Ex1 = 20;
-		s.posX_Ex2 = 58;
-		s.posY_Ex2 = 20;
+		f.nom = "França";
+		f.castell = true;
+		f.exPresent = true;
+		f.idPropietari = 3;
+		f.posX_Ex1 = 50;
+		f.posY_Ex1 = 20;
+		f.posX_Ex2 = 58;
+		f.posY_Ex2 = 20;
 
 		Territoris i;
-		s.nom = "Italia";
-		s.castell = false;
-		s.exPresent = true;
-		s.idPropietari = 4;
-		s.posX_Ex1 = 72;
-		s.posY_Ex1 = 40;
-		s.posX_Ex2 = 78;
-		s.posY_Ex2 = 40;
+		i.nom = "Italia";
+		i.castell = false;
+		i.exPresent = true;
+		i.idPropietari = 4;
+		i.posX_Ex1 = 72;
+		i.posY_Ex1 = 40;
+		i.posX_Ex2 = 78;
+		i.posY_Ex2 = 40;
 
 		Territoris a;
-		s.nom = "Alemania";
-		s.castell = true;
-		s.exPresent = true;
-		s.idPropietari = 5;
-		s.posX_Ex1 = 100;
-		s.posY_Ex1 = 15;
-		s.posX_Ex2 = 109;
-		s.posY_Ex2 = 15;
+		a.nom = "Alemania";
+		a.castell = true;
+		a.exPresent = true;
+		a.idPropietari = 5;
+		a.posX_Ex1 = 100;
+		a.posY_Ex1 = 15;
+		a.posX_Ex2 = 109;
+		a.posY_Ex2 = 15;
 
 		Territoris r;
-		s.nom = "Russia";
-		s.castell = true;
-		s.exPresent = true;
-		s.idPropietari = 6;
-		s.posX_Ex1 = 128;
-		s.posY_Ex1 = 15;
-		s.posX_Ex2 = 135;
-		s.posY_Ex2 = 15;
+		r.nom = "Russia";
+		r.castell = true;
+		r.exPresent = true;
+		r.idPropietari = 6;
+		r.posX_Ex1 = 128;
+		r.posY_Ex1 = 15;
+		r.posX_Ex2 = 135;
+		r.posY_Ex2 = 15;
 
 		Territoris g;
-		s.nom = "Grecia";
-		s.castell = true;
-		s.exPresent = true;
-		s.idPropietari = 7;
-		s.posX_Ex1 = 118;
-		s.posY_Ex1 = 40;
-		s.posX_Ex2 = 125;
-		s.posY_Ex2 = 40;
+		g.nom = "Grecia";
+		g.castell = true;
+		g.exPresent = true;
+		g.idPropietari = 7;
+		g.posX_Ex1 = 118;
+		g.posY_Ex1 = 40;
+		g.posX_Ex2 = 125;
+		g.posY_Ex2 = 40;
 
 		Territoris t;
-		s.nom = "Turquia";
-		s.castell = false;
-		s.exPresent = true;
-		s.idPropietari = 8;
-		s.posX_Ex1 = 145;
-		s.posY_Ex1 = 60;
-		s.posX_Ex2 = 150;
-		s.posY_Ex2 = 60;
+		t.nom = "Turquia";
+		t.castell = false;
+		t.exPresent = true;
+		t.idPropietari = 8;
+		t.posX_Ex1 = 145;
+		t.posY_Ex1 = 60;
+		t.posX_Ex2 = 150;
+		t.posY_Ex2 = 60;
 
 		territoris.push_back(s);
 		territoris.push_back(p);
@@ -279,21 +286,162 @@ public:
 
 	}
 
+	void pintaNoms()
+	{
+		for (it = territoris.begin(); it != territoris.end(); it++)
+		{
+			cout << con::fg_white << it->nom << endl;
+		}
+	}
 };
 
-class Factions{
+struct Unitats{
+	
+
+};
+
+struct General :Unitats{
+
+
+};
+
+class Excercit{
+private:
+	int territoriActual, mantenimentEx;
+	list<Unitats>units;
+	list<Unitats>::iterator it;
+	General general;
+	float bonus;
+	int totalUnits;
+	bool movimentD;
+	float fTotal, dTotal;
+public:
+	void calculaManteniment(){};
+	int getTerritoriAct()
+	{
+		return territoriActual;
+	}
+	void setTerritoriAct(int idT)
+	{
+		territoriActual = idT;
+	}
+	void setGeneral(General g)
+	{
+		general = g;
+	}
+	General getGeneral()
+	{
+		return general;
+	}
+	list<Unitats> getUnitats()
+	{
+		return units;
+	}
+	void moure(){}
+	void reclutar(){}
+	void desbandar(){}
+	void calculaBonusDef(){}
+	void calculaBonusOff(){}
+	bool atacar(Excercit e){}
+	void update(){}
+	Excercit(){}
+	Excercit(int terAct, General gen, list<Unitats>uni)
+	{
+		territoriActual = terAct;
+		general = gen;
+		units = uni;
+	}
+	~Excercit(){}
+};
+
+class Faction{
 private:
 	int or, ingressos, gastos, id;
 	bool player, viva;
+	list <Excercit> exercits;
+	list <Excercit>::iterator it;
 	string nom;
-	list<Territoris> territoris;
-	list<Territoris>::iterator it;
-	Territoris capital;
+	int no_ter;
+	int territoris[12];
+	int id_capital;
 public:
-	string getNom();
-	void setNom();
-	int getId();
-	void setId();
+	void setIdCap(int id)
+	{
+		id_capital = id;
+	}
+	int getIdCap()
+	{
+		return id_capital;
+	}
+	string getNom()
+	{
+		return nom;
+	}
+	void setNom(string n)
+	{
+		nom = n;
+	}
+	int getId()
+	{
+		return id;
+	}
+	void setId(int id)
+	{
+		this->id = id;
+	}
+	void update()
+	{
+		calculaManteniment();
+		calculaGastos();
+		calculaIngressos();
+	
+
+		
+
+
+	}
+	void setOr(int or)
+	{
+		this->or = or;
+	}
+	int getOr()
+	{
+		return or;
+	}
+	void setIngressos(int ing)
+	{
+		ingressos = ing;
+	}
+	int getIngressos()
+	{
+		return ingressos;
+	}
+	void calculaIngressos()
+	{
+		
+	}
+	void setGastos(int gas)
+	{
+		gastos = gas;
+	}
+	int getGastos()
+	{
+		return gastos;
+	}
+	void calculaGastos(){}
+	void calculaManteniment()
+	{
+		
+	}
+	Faction(){}
+	Faction(int idcap, int or, bool player, int id, string nom)
+	{
+		this->id = id; this->or = or;
+		this->player = player; this->nom = nom;
+		id_capital = idcap;
+
+	}
+	~Faction(){}
 
 };
 
@@ -301,8 +449,10 @@ int _tmain(int argc, _TCHAR* argv[])
 {
 
 	Mapa a(mapa);
-	a.iniciaTerritoris();
 	a.print();
+	a.iniciaTerritoris();
+	printInterface();
+	//a.pintaNoms();
 	system("pause>>NULL");
 	return 0;
 }
