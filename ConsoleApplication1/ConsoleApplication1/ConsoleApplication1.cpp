@@ -337,7 +337,56 @@ public:
 	{
 		return units;
 	}
-	void moure(){}
+	void moure(int idOr, int idDe, bool mov)
+	{
+		int posTid[4];
+		//posTid.fill(NULL);
+		//bool ok = posTid.empty();
+		//cout << endl << ok << endl;
+
+		switch (idOr)
+		{
+		case 1:
+			posTid[0] = 2;
+			break;
+		case 2:
+			posTid[0] = 1;
+			posTid[1] = 3;
+			break;
+		case 3:
+			posTid[0] = 2;
+			posTid[1] = 4;
+			posTid[2] = 5;
+			break;
+		case 4:
+			posTid[0] = 3;
+			posTid[1] = 5;
+			posTid[2] = 6;
+			break;
+		case 5:
+			posTid[0] = 3;
+			posTid[1] = 4;
+			posTid[2] = 6;
+			posTid[3] = 7;
+			break;
+		case 6:
+			posTid[0] = 4;
+			posTid[1] = 5;
+			posTid[2] = 7;
+			posTid[3] = 8;
+			break;
+		case 7:
+			posTid[0] = 5;
+			posTid[1] = 6;
+			break;
+		case 8:
+			posTid[0] = 6;
+			break;
+		}
+		/*cout << endl;
+		for (int elem : posTid)
+			cout << elem << endl;*/
+	}
 	void reclutar(){}
 	void desbandar(){}
 	void calculaBonusDef(){}
@@ -453,6 +502,8 @@ int _tmain(int argc, _TCHAR* argv[])
 	a.iniciaTerritoris();
 	printInterface();
 	//a.pintaNoms();
+	Excercit e;
+	e.moure(5, 2, true);
 	system("pause>>NULL");
 	return 0;
 }
