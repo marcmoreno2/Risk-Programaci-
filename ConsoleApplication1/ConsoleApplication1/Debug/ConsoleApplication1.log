@@ -1,4 +1,4 @@
-﻿Compilación iniciada a las 25/04/2015 23:17:23.
+﻿Compilación iniciada a las 26/04/2015 20:03:18.
      1>Proyecto "J:\marc\Treballs programacio\Risk-Programaci-\ConsoleApplication1\ConsoleApplication1\ConsoleApplication1.vcxproj" en el nodo 2 (Build destinos).
      1>ClCompile:
          D:\Archivos de programa (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\ConsoleApplication1.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ConsoleApplication1.cpp
@@ -11,4 +11,4 @@
 
 Compilación correcta.
 
-Tiempo transcurrido 00:00:02.05
+Tiempo transcurrido 00:00:01.87
