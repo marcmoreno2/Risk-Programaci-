@@ -285,11 +285,18 @@ public:
 		territoris.push_back(t);
 
 	}
-
+	void update()
+	{
+		for ()
+	}
 	void pintaNoms()
 	{
 		for (itt = territoris.begin(); itt != territoris.end(); itt++)
 		{
+			if (itt->exPresent){
+				gotoxy(itt->posX_Ex1, itt->posY_Ex1);
+				cout << con::bg_green << ' ';
+			}
 			cout << con::fg_white << itt->nom << endl;
 		}
 	}
@@ -297,11 +304,16 @@ public:
 
 struct Unitats{
 	int def, atack, exp, lvl, costRec, costMan;
+	int bonusVsCav, bonusVsInf, bonusVsSpear, bonusVsArq, bonusVsBuild;
 	string nom;
 };
 
 struct General :Unitats{
 	int comandament;
+};
+
+struct Arquer :Unitats{
+	static const int def = 10, atack = 25, costRec = 50, costMan = 15, bonusVsCav = 10, bonusVsInf = 0, bonusVsSpear = 15, bonusVsArq = 10, bonusVsBuild = 15;
 };
 
 class Excercit{
@@ -319,7 +331,7 @@ public:
 	{
 		for (itu = units.begin(); itu != units.end(); itu++)
 		{
-			//if itu->
+			if (itu->)
 		}
 	}
 	int getId()
@@ -396,30 +408,35 @@ public:
 			posTid[0] = 6;
 			break;
 		}
+		bool act1 = false, corr = false;
 		for (int i = 0; i < 4; i++)
 		{
 			if (idDe == territoriActual)
-			{
-				gotoxy(158, 25); cout << con::fg_red << "L'excercit ja es troba al territori objectiu";
-			}
+				act1 = true;
 			else if (idDe == posTid[i])
+				corr = true;
+		}
+		if (act1)
+		{
+			gotoxy(158, 25); cout << con::fg_red << "L'excercit ja es troba al territori objectiu";
+		}
+		else if (corr)
+		{
+			if (movimentD)
 			{
-				if (movimentD)
-				{
-					gotoxy(158, 25); cout << con::fg_green << "L'excercit es mou al territori objectiu";
-					territoriActual = idDe;
-					movimentD = false;
-				}
-				else
-				{
-					gotoxy(158, 25); cout << con::fg_red << "Aquest excercit ja s'ha mogut aquest torn";
-				}
+				gotoxy(158, 25); cout << con::fg_green << "L'excercit es mou al territori objectiu";
+				territoriActual = idDe;
+				movimentD = false;
 			}
-			else if (!movimentD){ gotoxy(158, 25); cout << con::fg_red << "Aquest excercit ja s'ha mogut aquest torn"; }
-			else { gotoxy(158, 25); cout << con::fg_red << "L'excercit no es pot moure al territori desitjat,";
-			gotoxy(158, 26); cout << "el territori de desti ha d'estar en contacte";
-			gotoxy(158, 27); cout << "directe amb el d'origen";
+			else
+			{
+				gotoxy(158, 25); cout << con::fg_red << "Aquest excercit ja s'ha mogut aquest torn";
 			}
+		}
+		else if (!movimentD){ gotoxy(158, 25); cout << con::fg_red << "Aquest excercit ja s'ha mogut aquest torn"; }
+		else { gotoxy(158, 25); cout << con::fg_red << "L'excercit no es pot moure al territori desitjat,";
+		gotoxy(158, 26); cout << "el territori de desti ha d'estar en contacte";
+		gotoxy(158, 27); cout << "directe amb el d'origen";
 		}
 
 		system("Pause>>NULL");
@@ -434,17 +451,30 @@ public:
 	{
 		units.push_back(u);
 	}
+	void mostrarUnits()
+	{
+		gotoxy(158, 25);
+		cout << con::fg_cyan << "Unitats de l'excercit " << id << ":";
+		int i = 0;
+		for (itu = units.begin(); itu != units.end(); itu++)
+		{
+			gotoxy(158, 26 + i);
+			i++;
+			cout << itu->nom;
+		}
+	}
 	void desbandar(){}
 	void calculaBonusDef(){}
 	void calculaBonusOff(){}
 	bool atacar(Excercit e){}
 	void update(){}
 	Excercit(){}
-	Excercit(int terAct, General gen, list<Unitats>uni)
+	Excercit(int terAct, General gen, list<Unitats>uni, int ide)
 	{
 		territoriActual = terAct;
 		general = gen;
 		units = uni;
+		id = ide;
 	}
 	~Excercit(){}
 };
@@ -460,8 +490,13 @@ private:
 	int territoris[12];
 	int id_capital;
 public:
-	list<Excercit>::iterator getIterEx()
+	list<Excercit>::iterator getIterEx(int idEx)
 	{
+		for (ite = excercits.begin(); ite != excercits.end(); ite++)
+		{
+			if (ite->getId() == idEx)
+				break;
+		}
 		return ite;
 	}
 	void setExcercit(Excercit e)
@@ -497,6 +532,15 @@ public:
 				gotoxy(158, 25); cout << con::fg_red << "No tens prou or per a reclutar la unitat!";
 			}
 		}
+	}
+	void mostrarUnitats(int idEx)
+	{
+		for (ite = excercits.begin(); ite != excercits.end(); ite++)
+		{
+			if (ite->getId() == idEx)
+				break;
+		}
+		ite->mostrarUnits();
 	}
 	void setIdCap(int id)
 	{
@@ -582,6 +626,17 @@ public:
 
 };
 
+void update(Mapa &a, list<Faction> &l)
+{
+	list<Faction>::iterator it;
+	for (it = l.begin(); it != l.end(); it++)
+	{
+		//if ()
+		it->getIterEx(0)->getTerritoriAct();
+	}
+	a.update();
+}
+
 int _tmain(int argc, _TCHAR* argv[])
 {
 
@@ -605,12 +660,20 @@ int _tmain(int argc, _TCHAR* argv[])
 	g.comandament = 4;
 	g.exp = 1200;
 	list<Unitats> u;
-	Excercit e(1,g,u);
+	Excercit e(1,g,u,1);
+	Arquer uni;
+	uni.exp = 1500;
+	uni.lvl = 2;
+	uni.nom = "Arquer";
+	e.afegirUnitat(uni);
+	//e.mostrarUnits();
 	f.setExcercit(e);
-	//f.reclutar();
+	update();
+	f.reclutar(uni, 1);
+	//e.moure(2);
 	//e.reclutar(g, itf);
 	//e.setTerritoriAct(1);
-	f.getIterEx()->moure(2);
+	f.getIterEx(1)->moure(2);
 	system("pause>>NULL");
 	return 0;
 }
