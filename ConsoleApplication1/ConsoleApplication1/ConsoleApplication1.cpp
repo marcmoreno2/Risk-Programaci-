@@ -121,7 +121,7 @@ void printInterface()
 struct Territoris{
 	string nom;
 	int posX_Ex1, posY_Ex1, posX_Ex2, posY_Ex2, id;
-	int idPropietari;
+	int idPropietari, idPropietariTornAnt;
 	bool exPresent, castell;
 };
 
@@ -133,6 +133,17 @@ private:
 public:
 	
 	void print(){
+		int propietat1, propietat2, propietat3, propietat4, propietat5, propietat6, propietat7, propietat8;
+		for (itt = territoris.begin(); itt != territoris.end(); itt++)
+		{
+			if (itt->idPropietari != itt->idPropietariTornAnt)
+			{
+				if (itt->id == 1)
+				{
+					gy
+				}
+			}
+		}
 		for (int i = 0; i < 80; i++){
 			for (int j = 0; j < 210; j++){
 				/*if (i == 0 || i == 80)
@@ -154,6 +165,7 @@ public:
 					cout << con::bg_gray << ' ';
 					break;
 				case 's':
+					if
 					cout << con::bg_yellow  << ' ';
 					break;
 				case 'p':
@@ -287,7 +299,10 @@ public:
 	}
 	void update()
 	{
-		for ()
+		for (itt = territoris.begin(); itt != territoris.end(); itt++)
+		{
+			
+		}
 	}
 	void pintaNoms()
 	{
