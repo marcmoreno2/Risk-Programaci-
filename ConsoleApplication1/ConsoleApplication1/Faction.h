@@ -23,6 +23,7 @@ private:
 	int no_ter;
 	int territoris[12];
 	int id_capital;
+	string color;
 public:
 	list<Excercit>::iterator getIterEx(int idEx);
 	void setExcercit(Excercit e);

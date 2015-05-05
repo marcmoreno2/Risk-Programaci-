@@ -3,6 +3,9 @@
 #include <stdio.h>  
 #include <conio.h>
 #include <windows.h>  
+#include "Console.h"
+
+namespace con = JadedHoboConsole;
 
 namespace Util
 {
@@ -26,7 +29,8 @@ namespace Util
 	{
 		int posy = 5;
 		for (int i = 0; i < 10; i++){
-			gotoxy(158, posy); cout << con::fg_white << con::bg_black << "Interfaz placeholder: XXXXX"; posy++; posy++;
+			gotoxy(158, posy);
+			cout << con::fg_white << con::bg_black << "Interfaz placeholder: XXXXX"; posy++; posy++;
 		}
 	}
 };

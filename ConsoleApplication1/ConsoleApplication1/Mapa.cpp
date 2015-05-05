@@ -7,6 +7,7 @@ using namespace Util;
 
 using namespace std;
 namespace con = JadedHoboConsole;
+using namespace con;
 
 
 Mapa::Mapa(char m[][210])
@@ -22,15 +23,36 @@ Mapa::~Mapa()
 
 
 void Mapa::print(){
-	int propietat1, propietat2, propietat3, propietat4, propietat5, propietat6, propietat7, propietat8;
-	for (itt = territoris.begin(); itt != territoris.end(); itt++)
+	WORD propietat1, propietat2, propietat3, propietat4, propietat5, propietat6, propietat7, propietat8;
+	int i = 1;
+	for (itt = territoris.begin(); itt != territoris.end(); itt++, i++)
 	{
-		if (itt->idPropietari != itt->idPropietariTornAnt)
+		switch (itt->idPropietari)
 		{
-			if (itt->id == 1)
-			{
-				gy
-			}
+		case 1:
+			itt->color = bgHiYellow;
+			break;
+		case 2:
+			itt->color = bgHiCyan;
+			break;
+		case 3:
+			itt->color = bgHiBlue;
+			break;
+		case 4:
+			itt->color = bgHiRed;
+			break;
+		case 5:
+			itt->color = bgBlack;
+			break;
+		case 6:
+			itt->color = bgHiWhite;
+			break;
+		case 7:
+			itt->color = bgHiMagenta;
+			break;
+		case 8:
+			itt->color = bgHiGreen;
+			break;
 		}
 	}
 	for (int i = 0; i < 80; i++){
@@ -54,29 +76,36 @@ void Mapa::print(){
 				cout << con::bg_gray << ' ';
 				break;
 			case 's':
-				if ()
-					cout << con::bg_yellow << ' ';
+				console.SetColor(propietat1, fgMask);
+				cout << ' ';
 				break;
 			case 'p':
-				cout << con::bg_cyan << ' ';
+				console.SetColor(propietat2, fgMask);
+				cout << ' ';
 				break;
 			case 'f':
-				cout << con::bg_blue << ' ';
+				console.SetColor(propietat3, fgMask);
+				cout << ' ';
 				break;
 			case 'i':
-				cout << con::bg_red << ' ';
+				console.SetColor(propietat4, fgMask);
+				cout << ' ';
 				break;
 			case 'a':
-				cout << con::bg_black << ' ';
+				console.SetColor(propietat5, fgMask);
+				cout << ' ';
 				break;
 			case 'r':
-				cout << con::bg_white << ' ';
+				console.SetColor(propietat6, fgMask);
+				cout << ' ';
 				break;
 			case 'g':
-				cout << con::bg_magenta << ' ';
+				console.SetColor(propietat7, fgMask);
+				cout << ' ';
 				break;
 			case 't':
-				cout << con::bg_green << ' ';
+				console.SetColor(propietat8, fgMask);
+				cout << ' ';
 				break;
 			default:
 				cout << con::bg_black << ' ';
@@ -95,6 +124,8 @@ void Mapa::iniciaTerritoris(){
 	s.castell = true;
 	s.exPresent = true;
 	s.idPropietari = 1;
+	s.id = 1;
+	s.color = bgHiYellow;
 	s.posX_Ex1 = 28;
 	s.posY_Ex1 = 50;
 	s.posX_Ex2 = 40;
@@ -105,6 +136,8 @@ void Mapa::iniciaTerritoris(){
 	p.castell = false;
 	p.exPresent = true;
 	p.idPropietari = 2;
+	p.id = 2;
+	p.color = bgHiCyan;
 	p.posX_Ex1 = 18;
 	p.posY_Ex1 = 55;
 	p.posX_Ex2 = 25;
@@ -115,6 +148,8 @@ void Mapa::iniciaTerritoris(){
 	f.castell = true;
 	f.exPresent = true;
 	f.idPropietari = 3;
+	f.id = 3;
+	f.color = bgHiBlue;
 	f.posX_Ex1 = 50;
 	f.posY_Ex1 = 20;
 	f.posX_Ex2 = 58;
@@ -125,6 +160,8 @@ void Mapa::iniciaTerritoris(){
 	i.castell = false;
 	i.exPresent = true;
 	i.idPropietari = 4;
+	i.id = 4;
+	i.color = bgHiRed;
 	i.posX_Ex1 = 72;
 	i.posY_Ex1 = 40;
 	i.posX_Ex2 = 78;
@@ -135,6 +172,8 @@ void Mapa::iniciaTerritoris(){
 	a.castell = true;
 	a.exPresent = true;
 	a.idPropietari = 5;
+	a.id = 5;
+	a.color = bgBlack;
 	a.posX_Ex1 = 100;
 	a.posY_Ex1 = 15;
 	a.posX_Ex2 = 109;
@@ -145,6 +184,8 @@ void Mapa::iniciaTerritoris(){
 	r.castell = true;
 	r.exPresent = true;
 	r.idPropietari = 6;
+	r.id = 6;
+	r.color = bgHiWhite;
 	r.posX_Ex1 = 128;
 	r.posY_Ex1 = 15;
 	r.posX_Ex2 = 135;
@@ -155,6 +196,8 @@ void Mapa::iniciaTerritoris(){
 	g.castell = true;
 	g.exPresent = true;
 	g.idPropietari = 7;
+	g.id = 7;
+	g.color = bgHiMagenta;
 	g.posX_Ex1 = 118;
 	g.posY_Ex1 = 40;
 	g.posX_Ex2 = 125;
@@ -165,6 +208,8 @@ void Mapa::iniciaTerritoris(){
 	t.castell = false;
 	t.exPresent = true;
 	t.idPropietari = 8;
+	t.id = 8;
+	t.color = bgHiGreen;
 	t.posX_Ex1 = 145;
 	t.posY_Ex1 = 60;
 	t.posX_Ex2 = 150;

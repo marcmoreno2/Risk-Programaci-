@@ -149,7 +149,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	e.afegirUnitat(uni);
 	//e.mostrarUnits();
 	f.setExcercit(e);
-	update();
+	//update();
 	f.reclutar(uni, 1);
 	//e.moure(2);
 	//e.reclutar(g, itf);
