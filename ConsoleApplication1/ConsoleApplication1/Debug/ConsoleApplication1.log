@@ -1,14 +1,173 @@
-﻿Compilación iniciada a las 29/04/2015 21:28:21.
-     1>Proyecto "C:\Users\marc.moreno\Desktop\Risk-Programaci-\ConsoleApplication1\ConsoleApplication1\ConsoleApplication1.vcxproj" en el nodo 2 (Build destinos).
+﻿Compilación iniciada a las 04/05/2015 23:52:40.
+     1>Proyecto "J:\marc\Treballs programacio\Risk-Programaci-\ConsoleApplication1\ConsoleApplication1\ConsoleApplication1.vcxproj" en el nodo 2 (Build destinos).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\ConsoleApplication1.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ConsoleApplication1.cpp
+         D:\Archivos de programa (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp"Debug\ConsoleApplication1.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
+         stdafx.cpp
+         D:\Archivos de programa (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\ConsoleApplication1.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ConsoleApplication1.cpp Mapa.cpp
+         Mapa.cpp
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.h(16): error C2143: error de sintaxis : falta ';' delante de '<'
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.h(16): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.h(16): error C2238: símbolos (token) inesperados delante de ';'
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.h(17): error C2143: error de sintaxis : falta ';' delante de '<'
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.h(17): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.h(17): error C2039: 'iterator' : no es un miembro de '`global namespace''
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.h(17): error C2238: símbolos (token) inesperados delante de ';'
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(19): error C2065: 'itt' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(19): error C2065: 'territoris' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(19): error C2228: el operando izquierdo de '.begin' debe tener class/struct/union
+                 el tipo es 'unknown-type'
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(19): error C2228: el operando izquierdo de '.end' debe tener class/struct/union
+                 el tipo es 'unknown-type'
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(21): error C2065: 'itt' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(21): error C2227: el operando izquierdo de '->idPropietari' debe señalar al tipo class/struct/union/generic
+                 el tipo es 'unknown-type'
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(21): error C2227: el operando izquierdo de '->idPropietariTornAnt' debe señalar al tipo class/struct/union/generic
+                 el tipo es 'unknown-type'
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(23): error C2065: 'itt' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(23): error C2227: el operando izquierdo de '->id' debe señalar al tipo class/struct/union/generic
+                 el tipo es 'unknown-type'
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(26): error C2065: 'gy' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(26): error C2143: error de sintaxis : falta ';' delante de '}'
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(47): error C2065: 'cout' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(47): error C2653: 'con' : no es un nombre de clase o espacio de nombres
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(47): error C2065: 'bg_gray' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(51): error C2061: error de sintaxis : identificador 'cout'
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(51): error C2653: 'con' : no es un nombre de clase o espacio de nombres
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(54): error C2065: 'cout' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(54): error C2653: 'con' : no es un nombre de clase o espacio de nombres
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(54): error C2065: 'bg_cyan' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(57): error C2065: 'cout' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(57): error C2653: 'con' : no es un nombre de clase o espacio de nombres
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(57): error C2065: 'bg_blue' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(60): error C2065: 'cout' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(60): error C2653: 'con' : no es un nombre de clase o espacio de nombres
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(60): error C2065: 'bg_red' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(63): error C2065: 'cout' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(63): error C2653: 'con' : no es un nombre de clase o espacio de nombres
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(63): error C2065: 'bg_black' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(66): error C2065: 'cout' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(66): error C2653: 'con' : no es un nombre de clase o espacio de nombres
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(66): error C2065: 'bg_white' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(69): error C2065: 'cout' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(69): error C2653: 'con' : no es un nombre de clase o espacio de nombres
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(69): error C2065: 'bg_magenta' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(72): error C2065: 'cout' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(72): error C2653: 'con' : no es un nombre de clase o espacio de nombres
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(72): error C2065: 'bg_green' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(75): error C2065: 'cout' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(75): error C2653: 'con' : no es un nombre de clase o espacio de nombres
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(75): error C2065: 'bg_black' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(81): error C2065: 'cout' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(81): error C2065: 'endl' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(86): error C2065: 'Territoris' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(86): error C2146: error de sintaxis : falta ';' delante del identificador 's'
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(86): error C2065: 's' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(87): error C2065: 's' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(87): error C2228: el operando izquierdo de '.nom' debe tener class/struct/union
+                 el tipo es 'unknown-type'
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(88): error C2065: 's' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(88): error C2228: el operando izquierdo de '.castell' debe tener class/struct/union
+                 el tipo es 'unknown-type'
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(89): error C2065: 's' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(89): error C2228: el operando izquierdo de '.exPresent' debe tener class/struct/union
+                 el tipo es 'unknown-type'
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(90): error C2065: 's' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(90): error C2228: el operando izquierdo de '.idPropietari' debe tener class/struct/union
+                 el tipo es 'unknown-type'
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(91): error C2065: 's' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(91): error C2228: el operando izquierdo de '.posX_Ex1' debe tener class/struct/union
+                 el tipo es 'unknown-type'
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(92): error C2065: 's' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(92): error C2228: el operando izquierdo de '.posY_Ex1' debe tener class/struct/union
+                 el tipo es 'unknown-type'
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(93): error C2065: 's' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(93): error C2228: el operando izquierdo de '.posX_Ex2' debe tener class/struct/union
+                 el tipo es 'unknown-type'
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(94): error C2065: 's' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(94): error C2228: el operando izquierdo de '.posY_Ex2' debe tener class/struct/union
+                 el tipo es 'unknown-type'
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(96): error C2065: 'Territoris' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(96): error C2146: error de sintaxis : falta ';' delante del identificador 'p'
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(96): error C2065: 'p' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(97): error C2065: 'p' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(97): error C2228: el operando izquierdo de '.nom' debe tener class/struct/union
+                 el tipo es 'unknown-type'
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(98): error C2065: 'p' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(98): error C2228: el operando izquierdo de '.castell' debe tener class/struct/union
+                 el tipo es 'unknown-type'
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(99): error C2065: 'p' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(99): error C2228: el operando izquierdo de '.exPresent' debe tener class/struct/union
+                 el tipo es 'unknown-type'
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(100): error C2065: 'p' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(100): error C2228: el operando izquierdo de '.idPropietari' debe tener class/struct/union
+                 el tipo es 'unknown-type'
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(101): error C2065: 'p' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(101): error C2228: el operando izquierdo de '.posX_Ex1' debe tener class/struct/union
+                 el tipo es 'unknown-type'
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(102): error C2065: 'p' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(102): error C2228: el operando izquierdo de '.posY_Ex1' debe tener class/struct/union
+                 el tipo es 'unknown-type'
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(103): error C2065: 'p' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(103): error C2228: el operando izquierdo de '.posX_Ex2' debe tener class/struct/union
+                 el tipo es 'unknown-type'
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(104): error C2065: 'p' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(104): error C2228: el operando izquierdo de '.posY_Ex2' debe tener class/struct/union
+                 el tipo es 'unknown-type'
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(106): error C2065: 'Territoris' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(106): error C2146: error de sintaxis : falta ';' delante del identificador 'f'
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(106): error C2065: 'f' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(107): error C2065: 'f' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(107): error C2228: el operando izquierdo de '.nom' debe tener class/struct/union
+                 el tipo es 'unknown-type'
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(108): error C2065: 'f' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(108): error C2228: el operando izquierdo de '.castell' debe tener class/struct/union
+                 el tipo es 'unknown-type'
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(109): error C2065: 'f' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(109): error C2228: el operando izquierdo de '.exPresent' debe tener class/struct/union
+                 el tipo es 'unknown-type'
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(110): error C2065: 'f' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(110): error C2228: el operando izquierdo de '.idPropietari' debe tener class/struct/union
+                 el tipo es 'unknown-type'
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(111): error C2065: 'f' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(111): error C2228: el operando izquierdo de '.posX_Ex1' debe tener class/struct/union
+                 el tipo es 'unknown-type'
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(112): error C2065: 'f' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(112): error C2228: el operando izquierdo de '.posY_Ex1' debe tener class/struct/union
+                 el tipo es 'unknown-type'
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(113): error C2065: 'f' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\mapa.cpp(113): fatal error C1003: el recuento de errores supera 100; se detiene la compilación
          ConsoleApplication1.cpp
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\marc.moreno\Desktop\Risk-Programaci-\ConsoleApplication1\Debug\ConsoleApplication1.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\marc.moreno\Desktop\Risk-Programaci-\ConsoleApplication1\Debug\ConsoleApplication1.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\marc.moreno\Desktop\Risk-Programaci-\ConsoleApplication1\Debug\ConsoleApplication1.lib" /MACHINE:X86 Debug\ConsoleApplication1.obj
-         Debug\stdafx.obj
-         ConsoleApplication1.vcxproj -> C:\Users\marc.moreno\Desktop\Risk-Programaci-\ConsoleApplication1\Debug\ConsoleApplication1.exe
-     1>Compilación del proyecto terminada "C:\Users\marc.moreno\Desktop\Risk-Programaci-\ConsoleApplication1\ConsoleApplication1\ConsoleApplication1.vcxproj" (Build destinos).
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\consoleapplication1.cpp(153): error C2059: error de sintaxis : ')'
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\consoleapplication1.cpp(158): error C2039: 'id' : no es un miembro de 'Unitats'
+                 j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\consoleapplication1.cpp(124) : vea la declaración de 'Unitats'
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\consoleapplication1.cpp(162): error C2039: 'territoriActual' : no es un miembro de 'Unitats'
+                 j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\consoleapplication1.cpp(124) : vea la declaración de 'Unitats'
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\consoleapplication1.cpp(166): error C2039: 'territoriActual' : no es un miembro de 'Unitats'
+                 j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\consoleapplication1.cpp(124) : vea la declaración de 'Unitats'
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\consoleapplication1.cpp(166): error C2039: 'idT' : no es un miembro de 'Unitats'
+                 j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\consoleapplication1.cpp(124) : vea la declaración de 'Unitats'
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\consoleapplication1.cpp(448): error C2065: 'Mapa' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\consoleapplication1.cpp(448): error C2065: 'a' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\consoleapplication1.cpp(448): error C2065: 'l' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\consoleapplication1.cpp(448): error C2275: 'std::list<Faction,std::allocator<_Ty>>' : uso no válido de este tipo como expresión
+                 with
+                 [
+                     _Ty=Faction
+                 ]
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\consoleapplication1.cpp(449): error C2448: 'update' : el inicializador de estilo de función parece ser una definición de función
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\consoleapplication1.cpp(462): error C2065: 'Mapa' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\consoleapplication1.cpp(462): error C2146: error de sintaxis : falta ';' delante del identificador 'a'
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\consoleapplication1.cpp(462): error C3861: 'a': no se encontró el identificador
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\consoleapplication1.cpp(463): error C2065: 'a' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\consoleapplication1.cpp(463): error C2228: el operando izquierdo de '.print' debe tener class/struct/union
+                 el tipo es 'unknown-type'
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\consoleapplication1.cpp(464): error C2065: 'a' : identificador no declarado
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\consoleapplication1.cpp(464): error C2228: el operando izquierdo de '.iniciaTerritoris' debe tener class/struct/union
+                 el tipo es 'unknown-type'
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\consoleapplication1.cpp(490): error C3861: 'update': no se encontró el identificador
+         Generando código...
+     1>Compilación del proyecto terminada "J:\marc\Treballs programacio\Risk-Programaci-\ConsoleApplication1\ConsoleApplication1\ConsoleApplication1.vcxproj" (Build destinos) -- ERROR.
 
-Compilación correcta.
+ERROR al compilar.
 
-Tiempo transcurrido 00:00:01.06
+Tiempo transcurrido 00:00:03.51
