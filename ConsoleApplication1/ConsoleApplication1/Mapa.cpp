@@ -53,6 +53,8 @@ void Mapa::print(){
 		case 8:
 			itt->color = bgHiGreen;
 			break;
+		default:
+			break;
 		}
 	}
 	for (int i = 0; i < 80; i++){

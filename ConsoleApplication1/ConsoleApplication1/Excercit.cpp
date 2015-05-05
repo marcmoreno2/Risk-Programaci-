@@ -29,7 +29,7 @@ void Excercit::calculaManteniment()
 {
 	for (itu = units.begin(); itu != units.end(); itu++)
 	{
-		if (itu->)
+		//if (itu->)
 	}
 }
 
