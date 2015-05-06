@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "Mapa.h"
-#include "Console.h"
-#include "Util.h"
+
 using namespace Util;
 
 
@@ -23,7 +22,7 @@ Mapa::~Mapa()
 
 
 void Mapa::print(){
-	WORD propietat1, propietat2, propietat3, propietat4, propietat5, propietat6, propietat7, propietat8;
+	WORD propietat[8];
 	int i = 1;
 	for (itt = territoris.begin(); itt != territoris.end(); itt++, i++)
 	{
@@ -56,6 +55,7 @@ void Mapa::print(){
 		default:
 			break;
 		}
+		propietat[i] = itt->color;
 	}
 	for (int i = 0; i < 80; i++){
 		for (int j = 0; j < 210; j++){
@@ -78,35 +78,35 @@ void Mapa::print(){
 				cout << con::bg_gray << ' ';
 				break;
 			case 's':
-				console.SetColor(propietat1, fgMask);
+				console.SetColor(propietat[0], fgMask);
 				cout << ' ';
 				break;
 			case 'p':
-				console.SetColor(propietat2, fgMask);
+				console.SetColor(propietat[1], fgMask);
 				cout << ' ';
 				break;
 			case 'f':
-				console.SetColor(propietat3, fgMask);
+				console.SetColor(propietat[2], fgMask);
 				cout << ' ';
 				break;
 			case 'i':
-				console.SetColor(propietat4, fgMask);
+				console.SetColor(propietat[3], fgMask);
 				cout << ' ';
 				break;
 			case 'a':
-				console.SetColor(propietat5, fgMask);
+				console.SetColor(propietat[4], fgMask);
 				cout << ' ';
 				break;
 			case 'r':
-				console.SetColor(propietat6, fgMask);
+				console.SetColor(propietat[5], fgMask);
 				cout << ' ';
 				break;
 			case 'g':
-				console.SetColor(propietat7, fgMask);
+				console.SetColor(propietat[6], fgMask);
 				cout << ' ';
 				break;
 			case 't':
-				console.SetColor(propietat8, fgMask);
+				console.SetColor(propietat[7], fgMask);
 				cout << ' ';
 				break;
 			default:

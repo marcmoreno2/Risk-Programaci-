@@ -1,10 +1,12 @@
 #pragma once
 
+#include "stdafx.h"
 #include <stdio.h>  
 #include <conio.h>
-#include <windows.h>  
+//#include <windows.h>  
 #include "Console.h"
 
+using namespace std;
 namespace con = JadedHoboConsole;
 
 namespace Util

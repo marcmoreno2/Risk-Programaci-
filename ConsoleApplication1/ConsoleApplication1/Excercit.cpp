@@ -1,7 +1,5 @@
 #include "stdafx.h"
 #include "Excercit.h"
-#include <string>
-#include <list>
 
 using namespace Util;
 using namespace std;
@@ -175,6 +173,10 @@ void Excercit::mostrarUnits()
 void Excercit::desbandar(){}
 void Excercit::calculaBonusDef(){}
 void Excercit::calculaBonusOff(){}
-bool Excercit::atacar(Excercit e){}
+bool Excercit::atacar(Excercit e)
+{
+	bool result = false;
+	return result;
+}
 void Excercit::update(){}
 

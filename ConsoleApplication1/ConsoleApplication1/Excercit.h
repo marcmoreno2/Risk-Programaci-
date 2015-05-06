@@ -1,11 +1,11 @@
 #pragma once
 
-#include "stdafx.h"
-#include "Util.h"
+//#include "stdafx.h"
+//#include "Util.h"
 #include <string>
 #include <list>
 #include "Unitats.h"
-#include "Console.h"
+//#include "Console.h"
 #include "Unitats.h"
 #include "Mapa.h"
 

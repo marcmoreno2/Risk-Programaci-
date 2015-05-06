@@ -1,13 +1,13 @@
 #pragma once
 
-#include "stdafx.h"
-#include "Console.h"
+//#include "stdafx.h"
+//#include "Console.h"
 #include <string>
 #include <list>
-#include "Util.h"
+//#include "Util.h"
 #include "Excercit.h"
-#include "Unitats.h"
-#include "Mapa.h"
+//#include "Unitats.h"
+//#include "Mapa.h"
 
 using namespace std;
 using namespace Util;

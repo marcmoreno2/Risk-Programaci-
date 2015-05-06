@@ -3,13 +3,6 @@
 
 #include "stdafx.h"
 #include <iostream>
-#include <string>
-#include <list>
-#include <array>
-#include "Console.h"
-#include "Mapa.h"
-#include "Util.h"
-#include "Excercit.h"
 #include "Faction.h"
 
 using namespace std;
