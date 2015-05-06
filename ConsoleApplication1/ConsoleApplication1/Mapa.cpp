@@ -53,6 +53,8 @@ void Mapa::print(){
 			itt->color = bgHiGreen;
 			break;
 		default:
+			gotoxy(156, 50);
+			cout << con::fg_red << "Fatal Error!";
 			break;
 		}
 		propietat[i] = itt->color;
