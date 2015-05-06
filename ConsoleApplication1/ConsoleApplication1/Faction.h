@@ -10,7 +10,7 @@
 //#include "Mapa.h"
 
 using namespace std;
-using namespace Util;
+//using namespace Util;
 
 
 class Faction{

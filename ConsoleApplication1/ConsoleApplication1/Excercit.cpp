@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Excercit.h"
 
-using namespace Util;
+//using namespace Util;
 using namespace std;
 
 Excercit::Excercit()
@@ -122,32 +122,32 @@ void Excercit::moure(int idDe)
 	}
 	if (act1)
 	{
-		gotoxy(158, 25); cout << con::fg_red << "L'excercit ja es troba al territori objectiu";
+		Util::gotoxy(158, 25); cout << con::fg_red << "L'excercit ja es troba al territori objectiu";
 	}
 	else if (corr)
 	{
 		if (movimentD)
 		{
-			gotoxy(158, 25); cout << con::fg_green << "L'excercit es mou al territori objectiu";
+			Util::gotoxy(158, 25); cout << con::fg_green << "L'excercit es mou al territori objectiu";
 			territoriActual = idDe;
 			movimentD = false;
 		}
 		else
 		{
-			gotoxy(158, 25); cout << con::fg_red << "Aquest excercit ja s'ha mogut aquest torn";
+			Util::gotoxy(158, 25); cout << con::fg_red << "Aquest excercit ja s'ha mogut aquest torn";
 		}
 	}
-	else if (!movimentD){ gotoxy(158, 25); cout << con::fg_red << "Aquest excercit ja s'ha mogut aquest torn"; }
+	else if (!movimentD){ Util::gotoxy(158, 25); cout << con::fg_red << "Aquest excercit ja s'ha mogut aquest torn"; }
 	else {
-		gotoxy(158, 25); cout << con::fg_red << "L'excercit no es pot moure al territori desitjat,";
-		gotoxy(158, 26); cout << "el territori de desti ha d'estar en contacte";
-		gotoxy(158, 27); cout << "directe amb el d'origen";
+		Util::gotoxy(158, 25); cout << con::fg_red << "L'excercit no es pot moure al territori desitjat,";
+		Util::gotoxy(158, 26); cout << "el territori de desti ha d'estar en contacte";
+		Util::gotoxy(158, 27); cout << "directe amb el d'origen";
 	}
 
 	system("Pause>>NULL");
-	gotoxy(158, 25); cout << con::fg_red << "                                                 ";
-	gotoxy(158, 26); cout << "                                                 ";
-	gotoxy(158, 27); cout << "                                  ";
+	Util::gotoxy(158, 25); cout << con::fg_red << "                                                 ";
+	Util::gotoxy(158, 26); cout << "                                                 ";
+	Util::gotoxy(158, 27); cout << "                                  ";
 	/*cout << endl;
 	for (int elem : posTid)
 	cout << elem << endl;*/
@@ -160,12 +160,12 @@ void Excercit::afegirUnitat(Unitats u)
 
 void Excercit::mostrarUnits()
 {
-	gotoxy(158, 25);
+	Util::gotoxy(158, 25);
 	cout << con::fg_cyan << "Unitats de l'excercit " << id << ":";
 	int i = 0;
 	for (itu = units.begin(); itu != units.end(); itu++)
 	{
-		gotoxy(158, 26 + i);
+		Util::gotoxy(158, 26 + i);
 		i++;
 		cout << itu->nom;
 	}

@@ -10,7 +10,7 @@
 #include "Mapa.h"
 
 namespace con = JadedHoboConsole;
-using namespace Util;
+//using namespace Util;
 using namespace std;
 
 class Excercit{

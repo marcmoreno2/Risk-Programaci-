@@ -9,10 +9,10 @@
 using namespace std;
 namespace con = JadedHoboConsole;
 
-namespace Util
+static class Util
 {
-
-	void gotoxy(int x, int y){
+public:
+	static void Util::gotoxy(int x, int y){
 		HANDLE hcon;
 		hcon = GetStdHandle(STD_OUTPUT_HANDLE);
 		COORD dwPos;
@@ -21,13 +21,13 @@ namespace Util
 		SetConsoleCursorPosition(hcon, dwPos);
 	}
 
-	void teclado(){
+	static void Util::teclado(){
 		if (_kbhit()){
 			char tecla = _getch();
 		}
 	}
 
-	void printInterface()
+	static void Util::printInterface()
 	{
 		int posy = 5;
 		for (int i = 0; i < 10; i++){

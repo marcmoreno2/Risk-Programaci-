@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Mapa.h"
 
-using namespace Util;
+//using namespace Util;
 
 
 using namespace std;
@@ -23,7 +23,7 @@ Mapa::~Mapa()
 
 void Mapa::print(){
 	WORD propietat[8];
-	int i = 1;
+	int i = 0;
 	for (itt = territoris.begin(); itt != territoris.end(); itt++, i++)
 	{
 		switch (itt->idPropietari)
@@ -53,7 +53,7 @@ void Mapa::print(){
 			itt->color = bgHiGreen;
 			break;
 		default:
-			gotoxy(156, 50);
+			Util::gotoxy(156, 50);
 			cout << con::fg_red << "Fatal Error!";
 			break;
 		}
@@ -112,9 +112,8 @@ void Mapa::print(){
 				cout << ' ';
 				break;
 			default:
-				cout << con::bg_black << ' ';
+				cout << bg_black << ' ';
 				break;
-
 			}
 			//cout << con::bg_black << con::fg_white << mapa[i][j];
 		}
@@ -241,7 +240,7 @@ void Mapa::pintaNoms()
 	for (itt = territoris.begin(); itt != territoris.end(); itt++)
 	{
 		if (itt->exPresent){
-			gotoxy(itt->posX_Ex1, itt->posY_Ex1);
+			Util::gotoxy(itt->posX_Ex1, itt->posY_Ex1);
 			cout << con::bg_green << ' ';
 		}
 		cout << con::fg_white << itt->nom << endl;

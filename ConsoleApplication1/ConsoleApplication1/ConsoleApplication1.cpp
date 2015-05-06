@@ -6,7 +6,7 @@
 #include "Faction.h"
 
 using namespace std;
-using namespace Util;
+//using namespace Util;
 namespace con = JadedHoboConsole;
 
 
@@ -105,19 +105,21 @@ void update(Mapa &a, list<Faction> &l)
 	list<Faction>::iterator it;
 	for (it = l.begin(); it != l.end(); it++)
 	{
+		it->update();
 		//if ()
 		it->getIterEx(0)->getTerritoriAct();
 	}
 	a.update();
+	a.print();
 }
 
 int _tmain(int argc, _TCHAR* argv[])
 {
 
 	Mapa a(mapa);
-	a.print();
 	a.iniciaTerritoris();
-	printInterface();
+	a.print();
+	Util::printInterface();
 	//a.pintaNoms();
 	list<Faction> faccions;
 	list<Faction>::iterator itf;

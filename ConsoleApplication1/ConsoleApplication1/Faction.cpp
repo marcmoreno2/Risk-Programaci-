@@ -56,13 +56,13 @@ void Faction::reclutar(Unitats u, int idEx)
 		}
 		ite->afegirUnitat(u);
 		if (player){
-			gotoxy(158, 25); cout << con::fg_green << "Unitat reclutada correctament";
+			Util::gotoxy(158, 25); cout << con::fg_green << "Unitat reclutada correctament";
 		}
 	}
 	else if (or < u.costRec)
 	{
 		if (player){
-			gotoxy(158, 25); cout << con::fg_red << "No tens prou or per a reclutar la unitat!";
+			Util::gotoxy(158, 25); cout << con::fg_red << "No tens prou or per a reclutar la unitat!";
 		}
 	}
 }
