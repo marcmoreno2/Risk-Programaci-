@@ -129,7 +129,7 @@ void Mapa::iniciaTerritoris(){
 	s.idPropietari = 1;
 	s.id = 1;
 	s.color = bgHiYellow;
-	s.posX_Ex1 = 28;
+	s.posX_Ex1 = 20;
 	s.posY_Ex1 = 50;
 	s.posX_Ex2 = 40;
 	s.posY_Ex2 = 50;
@@ -141,13 +141,13 @@ void Mapa::iniciaTerritoris(){
 	p.idPropietari = 2;
 	p.id = 2;
 	p.color = bgHiCyan;
-	p.posX_Ex1 = 18;
-	p.posY_Ex1 = 55;
+	p.posX_Ex1 = 7;
+	p.posY_Ex1 = 57;
 	p.posX_Ex2 = 25;
 	p.posY_Ex2 = 55;
 
 	Territoris f;
-	f.nom = "França";
+	f.nom = "Francia";
 	f.castell = true;
 	f.exPresent = true;
 	f.idPropietari = 3;
@@ -177,7 +177,7 @@ void Mapa::iniciaTerritoris(){
 	a.idPropietari = 5;
 	a.id = 5;
 	a.color = bgBlack;
-	a.posX_Ex1 = 100;
+	a.posX_Ex1 = 70;
 	a.posY_Ex1 = 15;
 	a.posX_Ex2 = 109;
 	a.posY_Ex2 = 15;
@@ -201,8 +201,8 @@ void Mapa::iniciaTerritoris(){
 	g.idPropietari = 7;
 	g.id = 7;
 	g.color = bgHiMagenta;
-	g.posX_Ex1 = 118;
-	g.posY_Ex1 = 40;
+	g.posX_Ex1 = 108;
+	g.posY_Ex1 = 50;
 	g.posX_Ex2 = 125;
 	g.posY_Ex2 = 40;
 
@@ -214,7 +214,7 @@ void Mapa::iniciaTerritoris(){
 	t.id = 8;
 	t.color = bgHiGreen;
 	t.posX_Ex1 = 145;
-	t.posY_Ex1 = 60;
+	t.posY_Ex1 = 70;
 	t.posX_Ex2 = 150;
 	t.posY_Ex2 = 60;
 
@@ -241,7 +241,7 @@ void Mapa::pintaNoms()
 	{
 		if (itt->exPresent){
 			Util::gotoxy(itt->posX_Ex1, itt->posY_Ex1);
-			cout << con::bg_green << ' ';
+			cout << con::bg_black << ' ';
 		}
 		cout << con::fg_white << itt->nom << endl;
 	}

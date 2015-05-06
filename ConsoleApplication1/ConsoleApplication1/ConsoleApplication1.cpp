@@ -119,6 +119,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	Mapa a(mapa);
 	a.iniciaTerritoris();
 	a.print();
+	a.pintaNoms();
 	Util::printInterface();
 	//a.pintaNoms();
 	list<Faction> faccions;
