@@ -35,5 +35,14 @@ public:
 			cout << con::fg_white << con::bg_black << "Interfaz placeholder: XXXXX"; posy++; posy++;
 		}
 	}
+
+	static void Util::flushInterface()
+	{
+		system("pause>>NULL");
+		for (int i = 2; i < 78; i++)
+		{
+			Util::gotoxy(158, i); cout << "                                                 ";
+		}
+	}
 };
 

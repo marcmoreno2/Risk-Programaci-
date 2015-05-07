@@ -147,10 +147,12 @@ int _tmain(int argc, _TCHAR* argv[])
 	f.setExcercit(e);
 	//update();
 	f.reclutar(uni, 1);
+	Util::flushInterface();
 	//e.moure(2);
 	//e.reclutar(g, itf);
 	//e.setTerritoriAct(1);
 	f.getIterEx(1)->moure(2);
+	Util::flushInterface();
 	system("pause>>NULL");
 	return 0;
 }
