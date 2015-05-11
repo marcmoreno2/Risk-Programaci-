@@ -1,19 +1,33 @@
-﻿Compilación iniciada a las 07/05/2015 18:01:51.
+﻿Compilación iniciada a las 11/05/2015 21:12:44.
      1>Proyecto "C:\Users\marc.moreno\Desktop\Risk-Programaci-\ConsoleApplication1\ConsoleApplication1\ConsoleApplication1.vcxproj" en el nodo 2 (Build destinos).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\ConsoleApplication1.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Excercit.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\ConsoleApplication1.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ConsoleApplication1.cpp Excercit.cpp Faction.cpp Mapa.cpp Util.cpp
+         Util.cpp
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\util.h(21): error C2061: error de sintaxis : identificador 'string'
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\util.h(22): error C2061: error de sintaxis : identificador 'string'
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\util.h(22): error C2535: 'void Util::printInterface(void)' : función miembro ya definida o declarada
+                 c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\util.h(21) : vea la declaración de 'Util::printInterface'
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\util.h(25): warning C4091: 'static ' : se ha omitido a la izquierda de 'Util' cuando no hay ninguna variable declarada
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\util.cpp(29): error C2511: 'void Util::printInterface(std::string,WORD)' : la función miembro sobrecargada no se ha encontrado en 'Util'
+                 c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\util.h(14) : vea la declaración de 'Util'
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\util.cpp(36): error C2511: 'void Util::printInterface(std::string)' : la función miembro sobrecargada no se ha encontrado en 'Util'
+                 c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\util.h(14) : vea la declaración de 'Util'
+         Mapa.cpp
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\util.h(21): error C2061: error de sintaxis : identificador 'string'
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\util.h(22): error C2061: error de sintaxis : identificador 'string'
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\util.h(22): error C2535: 'void Util::printInterface(void)' : función miembro ya definida o declarada
+                 c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\util.h(21) : vea la declaración de 'Util::printInterface'
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\util.h(25): warning C4091: 'static ' : se ha omitido a la izquierda de 'Util' cuando no hay ninguna variable declarada
+         Generando código...
+         Compilando...
+         ConsoleApplication1.cpp
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\util.h(25): warning C4091: 'static ' : se ha omitido a la izquierda de 'Util' cuando no hay ninguna variable declarada
+         Generando código...
+         Omitiendo... (no se detectaron cambios relevantes)
+         Faction.cpp
          Excercit.cpp
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\util.h(47): warning C4091: 'static ' : se ha omitido a la izquierda de 'Util' cuando no hay ninguna variable declarada
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\marc.moreno\Desktop\Risk-Programaci-\ConsoleApplication1\Debug\ConsoleApplication1.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\marc.moreno\Desktop\Risk-Programaci-\ConsoleApplication1\Debug\ConsoleApplication1.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\marc.moreno\Desktop\Risk-Programaci-\ConsoleApplication1\Debug\ConsoleApplication1.lib" /MACHINE:X86 Debug\ConsoleApplication1.res
-         Debug\ConsoleApplication1.obj
-         Debug\Excercit.obj
-         Debug\Faction.obj
-         Debug\Mapa.obj
-         Debug\stdafx.obj
-         ConsoleApplication1.vcxproj -> C:\Users\marc.moreno\Desktop\Risk-Programaci-\ConsoleApplication1\Debug\ConsoleApplication1.exe
-     1>Compilación del proyecto terminada "C:\Users\marc.moreno\Desktop\Risk-Programaci-\ConsoleApplication1\ConsoleApplication1\ConsoleApplication1.vcxproj" (Build destinos).
+     1>Compilación del proyecto terminada "C:\Users\marc.moreno\Desktop\Risk-Programaci-\ConsoleApplication1\ConsoleApplication1\ConsoleApplication1.vcxproj" (Build destinos) -- ERROR.
 
-Compilación correcta.
+ERROR al compilar.
 
-Tiempo transcurrido 00:00:00.80
+Tiempo transcurrido 00:00:01.54

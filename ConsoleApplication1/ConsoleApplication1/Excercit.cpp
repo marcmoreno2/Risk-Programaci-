@@ -122,29 +122,35 @@ void Excercit::moure(int idDe)
 	}
 	if (act1)
 	{
-		Util::gotoxy(158, 27); cout << con::fg_red << "L'excercit ja es troba al territori objectiu";
+		//Util::gotoxy(158, 27); cout << con::fg_red << "L'excercit ja es troba al territori objectiu";
+		Util::printInterface("L'excercit ja es troba al territori objectiu", con::fgHiRed);
+		Util::resetPosY();
+	}
+	else if (!movimentD)
+	{
+		//Util::gotoxy(158, 25); cout << con::fg_red << "Aquest excercit ja s'ha mogut aquest torn";
+		Util::printInterface("Aquest excercit ja s'ha mogut aquest torn", con::fgHiRed);
+		Util::resetPosY();
 	}
 	else if (corr)
 	{
-		if (movimentD)
-		{
-			Util::gotoxy(158, 27); cout << con::fg_green << "L'excercit es mou al territori objectiu";
+			//Util::gotoxy(158, 27); cout << con::fg_green << "L'excercit es mou al territori objectiu";
+			Util::printInterface("L'excercit es mou al territori objectiu");
+			Util::resetPosY();
 			territoriActual = idDe;
 			movimentD = false;
-		}
-		else
-		{
-			Util::gotoxy(158, 27); cout << con::fg_red << "Aquest excercit ja s'ha mogut aquest torn";
-		}
 	}
-	else if (!movimentD){ Util::gotoxy(158, 25); cout << con::fg_red << "Aquest excercit ja s'ha mogut aquest torn"; }
 	else {
-		Util::gotoxy(158, 27); cout << con::fg_red << "L'excercit no es pot moure al territori desitjat,";
-		Util::gotoxy(158, 28); cout << "el territori de desti ha d'estar en contacte";
-		Util::gotoxy(158, 29); cout << "directe amb el d'origen";
+		//Util::gotoxy(158, 27); cout << con::fg_red << "L'excercit no es pot moure al territori desitjat,";
+		//Util::gotoxy(158, 28); cout << "el territori de desti ha d'estar en contacte";
+		//Util::gotoxy(158, 29); cout << "directe amb el d'origen";
+
+		Util::printInterface("L'excercit no es pot moure al territori desitjat,", con::fgHiRed);
+		Util::printInterface("el territori de desti ha d'estar en contacte");
+		Util::printInterface("directe amb el d'origen");
+		Util::resetPosY();
 	}
 
-	system("Pause>>NULL");
 	/*Util::gotoxy(158, 25); cout << con::fg_red << "                                                 ";
 	Util::gotoxy(158, 26); cout << "                                                 ";
 	Util::gotoxy(158, 27); cout << "                                  ";*/
@@ -168,6 +174,19 @@ void Excercit::mostrarUnits()
 		Util::gotoxy(158, 26 + i);
 		i++;
 		cout << itu->nom;
+	}
+}
+void Excercit::desbandar(string u, int q)
+{
+	int i = 0;
+	for (itu = units.begin(); itu != units.end(); itu++)
+	{
+		if (itu->nom == u && i < q)
+		{
+			units.erase(itu);
+			i++;
+		}
+		//else 
 	}
 }
 void Excercit::desbandar(){}

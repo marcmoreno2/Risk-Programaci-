@@ -36,6 +36,7 @@ public:
 	void afegirUnitat(Unitats u);
 	void mostrarUnits();
 	void desbandar();
+	void desbandar(string, int);
 	void calculaBonusDef();
 	void calculaBonusOff();
 	bool atacar(Excercit e);

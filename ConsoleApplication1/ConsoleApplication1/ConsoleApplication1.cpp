@@ -9,7 +9,6 @@ using namespace std;
 //using namespace Util;
 namespace con = JadedHoboConsole;
 
-
 char mapa[80][210] = {
 	"                                                                                                                                                                                                                 ",
 	" XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
@@ -115,12 +114,15 @@ void update(Mapa &a, list<Faction> &l)
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-
+	Util::resetPosY();
 	Mapa a(mapa);
 	a.iniciaTerritoris();
 	a.print();
 	a.pintaNoms();
-	Util::printInterface();
+	Util::printInterface("Inicialitzacio de mapa completa,", con::fgHiMagenta);
+	Util::printInterface("inicialitzant faccions...", con::fgHiMagenta);
+	Util::flushInterface();
+	Util::resetPosY();
 	//a.pintaNoms();
 	list<Faction> faccions;
 	list<Faction>::iterator itf;
@@ -147,11 +149,11 @@ int _tmain(int argc, _TCHAR* argv[])
 	f.setExcercit(e);
 	//update();
 	f.reclutar(uni, 1);
-	Util::flushInterface();
+	//Util::flushInterface();
 	//e.moure(2);
 	//e.reclutar(g, itf);
 	//e.setTerritoriAct(1);
-	f.getIterEx(1)->moure(2);
+	f.getIterEx(1)->moure(5);
 	Util::flushInterface();
 	system("pause>>NULL");
 	return 0;

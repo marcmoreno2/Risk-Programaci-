@@ -65,6 +65,7 @@ void Faction::reclutar(Unitats u, int idEx)
 			Util::gotoxy(158, 25); cout << con::fg_red << "No tens prou or per a reclutar la unitat!";
 		}
 	}
+	Util::flushInterface();
 }
 
 void Faction::mostrarUnitats(int idEx)

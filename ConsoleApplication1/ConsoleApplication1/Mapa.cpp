@@ -243,6 +243,7 @@ void Mapa::pintaNoms()
 			Util::gotoxy(itt->posX_Ex1, itt->posY_Ex1);
 			cout << con::bg_black << ' ';
 		}
+		Util::gotoxy(itt->posX_Ex1, itt->posY_Ex1);
 		cout << con::fg_white << itt->nom << endl;
 	}
 }
