@@ -7,19 +7,19 @@
 //#include <windows.h>  
 #include "Console.h"
 
-//using namespace std;
+using namespace std;
 //namespace con = JadedHoboConsole;
 
 	static class Util
 	{
 	private:
-		static int Util::posy;
+		static int posy;
 
 	public:
-		static void Util::gotoxy(int x, int y);
-		static void Util::teclado();
-		static void Util::printInterface(string, WORD);
-		static void Util::printInterface(string);
-		static void Util::resetPosY();
-		static void Util::flushInterface();
+		static void gotoxy(int x, int y);
+		static void teclado();
+		static void printInterface(string, WORD);
+		static void printInterface(string);
+		static void resetPosY();
+		static void flushInterface();
 	};
