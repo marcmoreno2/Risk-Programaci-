@@ -61,19 +61,6 @@ void Mapa::print(){
 	}
 	for (int i = 0; i < 80; i++){
 		for (int j = 0; j < 210; j++){
-			/*if (i == 0 || i == 80)
-			{
-			cout << ' ';
-			}
-			else if (j == 1 || j == 199)
-			{
-			cout << con::fg_red << 'X';
-			}
-			else if ((i == 1 || i == 79) && j != 0 && j!= 200)
-			{
-			cout << con::fg_red << 'X';
-			}
-			else cout << ' ';*/
 			switch (mapa[i][j])
 			{
 			case 'X':

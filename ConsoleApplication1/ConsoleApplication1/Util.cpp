@@ -28,7 +28,7 @@ void Util::teclado(){
 void Util::printInterface(string frase, WORD color)
 {
 	Util::gotoxy(158, posy);
-	console.SetColor(color, fgMask);
+	console.SetColor(color, bgMask);
 	cout << bg_black << frase;
 	Util::posy++; //Util::posy++;
 }

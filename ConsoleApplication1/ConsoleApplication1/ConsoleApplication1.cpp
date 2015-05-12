@@ -8,6 +8,7 @@
 using namespace std;
 //using namespace Util;
 namespace con = JadedHoboConsole;
+using namespace con;
 
 char mapa[80][210] = {
 	"                                                                                                                                                                                                                 ",
@@ -119,8 +120,8 @@ int _tmain(int argc, _TCHAR* argv[])
 	a.iniciaTerritoris();
 	a.print();
 	a.pintaNoms();
-	Util::printInterface("Inicialitzacio de mapa completa,", con::fgHiMagenta);
-	Util::printInterface("inicialitzant faccions...", con::fgHiMagenta);
+	Util::printInterface("Inicialitzacio de mapa completa,", fgLoCyan);
+	Util::printInterface("inicialitzant faccions...");
 	Util::flushInterface();
 	Util::resetPosY();
 	//a.pintaNoms();
@@ -145,16 +146,19 @@ int _tmain(int argc, _TCHAR* argv[])
 	uni.lvl = 2;
 	uni.nom = "Arquer";
 	e.afegirUnitat(uni);
-	//e.mostrarUnits();
+	e.mostrarUnits();
+	e.desbandar("Arquer", 1);
 	f.setExcercit(e);
-	//update();
 	f.reclutar(uni, 1);
+	f.getIterEx(1)->mostrarUnits();
+	//update();
+	
 	//Util::flushInterface();
 	//e.moure(2);
 	//e.reclutar(g, itf);
 	//e.setTerritoriAct(1);
 	f.getIterEx(1)->moure(5);
-	Util::flushInterface();
+		Util::flushInterface();
 	system("pause>>NULL");
 	return 0;
 }

@@ -135,7 +135,7 @@ void Excercit::moure(int idDe)
 	else if (corr)
 	{
 			//Util::gotoxy(158, 27); cout << con::fg_green << "L'excercit es mou al territori objectiu";
-			Util::printInterface("L'excercit es mou al territori objectiu");
+			Util::printInterface("L'excercit es mou al territori objectiu", con::fgHiGreen);
 			Util::resetPosY();
 			territoriActual = idDe;
 			movimentD = false;
@@ -157,6 +157,7 @@ void Excercit::moure(int idDe)
 	/*cout << endl;
 	for (int elem : posTid)
 	cout << elem << endl;*/
+	Util::flushInterface();
 }
 
 void Excercit::afegirUnitat(Unitats u)
@@ -166,28 +167,41 @@ void Excercit::afegirUnitat(Unitats u)
 
 void Excercit::mostrarUnits()
 {
-	Util::gotoxy(158, 25);
-	cout << con::fg_cyan << "Unitats de l'excercit " << id << ":";
-	int i = 0;
+
+	Util::printInterface("Unitats de l'excercit " + to_string(id) + ":", con::fgHiCyan);
 	for (itu = units.begin(); itu != units.end(); itu++)
 	{
-		Util::gotoxy(158, 26 + i);
-		i++;
-		cout << itu->nom;
+		Util::printInterface(itu->nom);
 	}
+	Util::resetPosY();
+	Util::flushInterface();
 }
 void Excercit::desbandar(string u, int q)
 {
+	bool elim = false;
 	int i = 0;
-	for (itu = units.begin(); itu != units.end(); itu++)
+	for (itu = units.begin(); itu != units.end();)
 	{
 		if (itu->nom == u && i < q)
 		{
-			units.erase(itu);
+			elim = true;
+			itu = units.erase(itu);
 			i++;
+			
 		}
-		//else 
+		else
+		{
+			itu++;
+		}
 	}
+	if (elim){
+		Util::printInterface("Eliminades " + to_string(i) + " unitat/s de " + u + ".", con::fgHiYellow);
+	}
+	else{
+		Util::printInterface("No s'ha trobat cap unitat del tipus desitjat a l'excercit en questio.", con::fgHiYellow);
+	}
+	Util::flushInterface();
+	Util::resetPosY();
 }
 void Excercit::desbandar(){}
 void Excercit::calculaBonusDef(){}
