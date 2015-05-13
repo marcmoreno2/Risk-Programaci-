@@ -44,10 +44,10 @@ void Faction::setExcercit(Excercit e)
 	excercits.push_back(e);
 }
 
-void Faction::reclutar(Unitats u, int idEx)
+void Faction::reclutar(Unitats *u, int idEx)
 {
 
-	if (or >= u.costRec)
+	if (or >= u->costRec)
 	{
 		for (ite = excercits.begin(); ite != excercits.end(); ite++)
 		{
@@ -61,7 +61,7 @@ void Faction::reclutar(Unitats u, int idEx)
 			Util::printInterface("Unitat reclutada correctament!", con::fgLoGreen);
 		}
 	}
-	else if (or < u.costRec)
+	else if (or < u->costRec)
 	{
 		if (player){
 			//Util::gotoxy(158, 25); cout << con::fg_red << "No tens prou or per a reclutar la unitat!";

@@ -5,10 +5,33 @@
 
 using namespace std;
 
-struct Unitats{
+/*class*/ struct Unitats{
+//protected:
+
 	int def, atack, exp, lvl, costRec, costMan;
 	int bonusVsCav, bonusVsInf, bonusVsSpear, bonusVsArq, bonusVsBuild;
 	string nom;
+
+	virtual void setCostMan(int cost)
+	{
+		costMan = cost;
+	}
+	
+	virtual void setNom(string n)
+	{
+		nom = n;
+	}
+
+	virtual void setCostRec(int cost)
+	{
+		costRec = cost;
+	}
+
+	virtual void setExp(int ex)
+	{
+		exp = ex;
+	}
+
 };
 
 struct General :Unitats{
@@ -16,5 +39,10 @@ struct General :Unitats{
 };
 
 struct Arquer :Unitats{
-	static const int def = 10, atack = 25, costRec = 50, costMan = 15, bonusVsCav = 10, bonusVsInf = 0, bonusVsSpear = 15, bonusVsArq = 10, bonusVsBuild = 15;
+//private:
+	int def = 10;
+	int atack = 25, costRec = 50;
+	int costMan = 15;
+	int bonusVsCav = 10, bonusVsInf = 0, bonusVsSpear = 15, bonusVsArq = 10, bonusVsBuild = 15;
+
 };

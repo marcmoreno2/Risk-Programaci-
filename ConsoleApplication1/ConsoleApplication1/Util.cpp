@@ -42,7 +42,7 @@ void Util::printInterface(string frase)
 
 void Util::resetPosY()
 {
-	Util::posy = 5;
+	posy = 5;
 }
 
 void Util::flushInterface()
@@ -53,3 +53,16 @@ void Util::flushInterface()
 		Util::gotoxy(158, i); cout << "                                                  ";
 	}
 }
+
+void Util::flushInterface(bool f)
+{
+	for (int i = 2; i < 78; i++)
+	{
+		Util::gotoxy(158, i); cout << "                                                  ";
+	}
+}
+
+/*void Util::iniciaFi()
+{
+	Util::fin = false;
+}*/

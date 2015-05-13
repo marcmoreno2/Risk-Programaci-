@@ -115,6 +115,8 @@ void update(Mapa &a, list<Faction> &l)
 
 int _tmain(int argc, _TCHAR* argv[])
 {
+
+	//Util::iniciaFi();
 	Util::resetPosY();
 	Mapa a(mapa);
 	a.iniciaTerritoris();
@@ -139,26 +141,40 @@ int _tmain(int argc, _TCHAR* argv[])
 	g.lvl = 7;
 	g.comandament = 4;
 	g.exp = 1200;
-	list<Unitats> u;
+	list<Unitats *> u;
 	Excercit e(1,g,u,1);
 	Arquer uni;
 	uni.exp = 1500;
 	uni.lvl = 2;
-	uni.nom = "Arquer";
-	e.afegirUnitat(uni);
+	uni.setNom("Arquer");
+	uni.setCostMan(200);
+	e.afegirUnitat(&uni);
+	e.afegirUnitat(&uni);
 	e.mostrarUnits();
 	e.desbandar("Arquer", 1);
 	f.setExcercit(e);
-	f.reclutar(uni, 1);
+	f.reclutar(&uni, 1);
 	f.getIterEx(1)->mostrarUnits();
 	//update();
-	
 	//Util::flushInterface();
 	//e.moure(2);
 	//e.reclutar(g, itf);
 	//e.setTerritoriAct(1);
-	f.getIterEx(1)->moure(5);
-		Util::flushInterface();
+	f.getIterEx(1)->moure(2);
+	f.getIterEx(1)->calculaManteniment();
+	int mante = f.getIterEx(1)->getManteniment();
+	Util::printInterface("El cost de manteniment de l'excercit " + to_string(f.getIterEx(1)->getId()), fgLoCyan);
+	Util::printInterface("de la faccio " + to_string(f.getId()) + " es de " + to_string(mante));
+	Util::flushInterface();
+
+
+	/*while (!Util::fin)
+	{
+
+		break;
+	}*/
+
+
 	system("pause>>NULL");
 	return 0;
 }

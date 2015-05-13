@@ -9,7 +9,7 @@ Excercit::Excercit()
 }
 
 
-Excercit::Excercit(int terAct, General gen, list<Unitats>uni, int ide)
+Excercit::Excercit(int terAct, General gen, list<Unitats *>uni, int ide)
 {
 	territoriActual = terAct;
 	general = gen;
@@ -25,9 +25,11 @@ Excercit::~Excercit()
 
 void Excercit::calculaManteniment()
 {
+	mantenimentEx = 0;
 	for (itu = units.begin(); itu != units.end(); itu++)
 	{
-		//if (itu->)
+		mantenimentEx += (*itu)->costMan;
+		//Util::printInterface(/*to_string(*/(*itu)->nom, con::fgHiWhite)/*)*/;
 	}
 }
 
@@ -56,12 +58,12 @@ General Excercit::getGeneral()
 	return general;
 }
 
-list<Unitats> Excercit::getUnitats()
+list<Unitats *> Excercit::getUnitats()
 {
 	return units;
 }
 
-void Excercit::setUnitats(list<Unitats> u)
+void Excercit::setUnitats(list<Unitats *> u)
 {
 	units = u;
 }
@@ -160,9 +162,10 @@ void Excercit::moure(int idDe)
 	Util::flushInterface();
 }
 
-void Excercit::afegirUnitat(Unitats u)
+void Excercit::afegirUnitat(Unitats *u)
 {
-	units.push_back(u);
+	units.emplace_back(u);
+	//units.push_back(u);
 }
 
 void Excercit::mostrarUnits()
@@ -171,7 +174,9 @@ void Excercit::mostrarUnits()
 	Util::printInterface("Unitats de l'excercit " + to_string(id) + ":", con::fgHiCyan);
 	for (itu = units.begin(); itu != units.end(); itu++)
 	{
-		Util::printInterface(itu->nom);
+		Util::printInterface((*itu)->nom);
+		Util::printInterface(to_string((*itu)->costMan));
+		Util::printInterface(to_string((*itu)->lvl));
 	}
 	Util::resetPosY();
 	Util::flushInterface();
@@ -182,12 +187,11 @@ void Excercit::desbandar(string u, int q)
 	int i = 0;
 	for (itu = units.begin(); itu != units.end();)
 	{
-		if (itu->nom == u && i < q)
+		if ((*itu)->nom == u && i < q)
 		{
 			elim = true;
 			itu = units.erase(itu);
 			i++;
-			
 		}
 		else
 		{
@@ -213,3 +217,8 @@ bool Excercit::atacar(Excercit e)
 }
 void Excercit::update(){}
 
+int Excercit::getManteniment()
+{
+	//Util::printInterface(to_string(mantenimentEx));
+	return mantenimentEx;
+}
