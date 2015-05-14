@@ -143,12 +143,13 @@ int _tmain(int argc, _TCHAR* argv[])
 	g.exp = 1200;
 	list<Unitats *> u;
 	Excercit e(1,g,u,1);
-	Arquer uni;
-	uni.exp = 1500;
-	uni.lvl = 2;
-	uni.setNom("Arquer");
-	uni.setCostMan(200);
+	Arquer uni(1);
 	e.afegirUnitat(&uni);
+	//uni.lvlUp();
+	Util::printInterface(to_string(uni.lvl) + "  " + uni.nom, fgHiYellow);
+	uni.exp = 1500;
+	uni.Update();
+	Util::printInterface(to_string(uni.lvl)+"  "+uni.nom, fgHiYellow);
 	e.afegirUnitat(&uni);
 	e.mostrarUnits();
 	e.desbandar("Arquer", 1);
@@ -163,8 +164,8 @@ int _tmain(int argc, _TCHAR* argv[])
 	f.getIterEx(1)->moure(2);
 	f.getIterEx(1)->calculaManteniment();
 	int mante = f.getIterEx(1)->getManteniment();
-	Util::printInterface("El cost de manteniment de l'excercit " + to_string(f.getIterEx(1)->getId()), fgLoCyan);
-	Util::printInterface("de la faccio " + to_string(f.getId()) + " es de " + to_string(mante));
+	//Util::printInterface("El cost de manteniment de l'excercit " + to_string(f.getIterEx(1)->getId()), fgLoCyan);
+	//Util::printInterface("de la faccio " + to_string(f.getId()) + " es de " + to_string(mante));
 	Util::flushInterface();
 
 

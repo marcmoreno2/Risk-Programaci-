@@ -183,6 +183,7 @@ void Excercit::mostrarUnits()
 }
 void Excercit::desbandar(string u, int q)
 {
+	//Util::printInterface(to_string(units.size()), con::fgHiYellow);
 	bool elim = false;
 	int i = 0;
 	for (itu = units.begin(); itu != units.end();)
@@ -204,6 +205,7 @@ void Excercit::desbandar(string u, int q)
 	else{
 		Util::printInterface("No s'ha trobat cap unitat del tipus desitjat a l'excercit en questio.", con::fgHiYellow);
 	}
+	//Util::printInterface(to_string(units.size()), con::fgHiYellow);
 	Util::flushInterface();
 	Util::resetPosY();
 }
