@@ -93,6 +93,30 @@ char mapa[80][210] = {
 	"                                                                                                                                                                                                                 "
 };
 
+list<Faction> faccions;
+list<Faction>::iterator itf;
+
+void inicialitzaFaccions()
+{
+	Faction p(1, 500, true, 2, "Portugal");
+	Faction e(2, 500, false, 1, "Espanya");
+	Faction f(3, 500, false, 3, "Francia");
+	Faction i(4, 500, false, 4, "Italia");
+	Faction a(5, 500, false, 5, "Alemania");
+	Faction r(6, 500, false, 6, "Russia");
+	Faction g(7, 500, false, 7, "Grecia");
+	Faction t(8, 500, false, 8, "Turquia");
+	faccions.push_back(p);
+	faccions.push_back(e);
+	faccions.push_back(f);
+	faccions.push_back(i);
+	faccions.push_back(a);
+	faccions.push_back(r);
+	faccions.push_back(g);
+	faccions.push_back(t);
+}
+
+void tornJugador(int num);
 
 
 
@@ -117,6 +141,8 @@ int _tmain(int argc, _TCHAR* argv[])
 {
 
 	//Util::iniciaFi();
+	Util U;
+	U.fin = false;
 	Util::resetPosY();
 	Mapa a(mapa);
 	a.iniciaTerritoris();
@@ -126,54 +152,56 @@ int _tmain(int argc, _TCHAR* argv[])
 	Util::printInterface("inicialitzant faccions...");
 	Util::flushInterface();
 	Util::resetPosY();
-	//a.pintaNoms();
-	list<Faction> faccions;
-	list<Faction>::iterator itf;
-	Faction f(1,500,true,1,"Portugal");
-	faccions.push_back(f);
-	itf = faccions.begin();
+	//list<Faction> faccions;
+	//list<Faction>::iterator itf;
+	inicialitzaFaccions();
+	//Faction f(1,500,true,1,"Portugal");
+	//faccions.push_back(f);
+	//itf = faccions.begin();
 	General g;
-	g.atack = 10;
-	g.def = 5;
-	g.costMan = 50;
-	g.costRec = 250;
-	g.nom = "General1";
-	g.lvl = 7;
-	g.comandament = 4;
-	g.exp = 1200;
 	list<Unitats *> u;
 	Excercit e(1,g,u,1);
-	Arquer uni(1);
-	e.afegirUnitat(&uni);
-	//uni.lvlUp();
-	Util::printInterface(to_string(uni.lvl) + "  " + uni.nom, fgHiYellow);
-	uni.exp = 1500;
-	uni.Update();
-	Util::printInterface(to_string(uni.lvl)+"  "+uni.nom, fgHiYellow);
-	e.afegirUnitat(&uni);
+	Arquer arq;
+	Soldat sol;
+	Cavalleria cav;
+	Llancer llan;
+	Siege set;
+	u.emplace_back(&arq);
+	u.emplace_back(&sol);
+	u.emplace_back(&cav);
+	u.emplace_back(&llan);
+	u.emplace_back(&set);
+	e.afegirUnitats(u);
+	//e.afegirUnitat(&uni);
+	//e.afegirUnitat(&arq);
 	e.mostrarUnits();
-	e.desbandar("Arquer", 1);
-	f.setExcercit(e);
-	f.reclutar(&uni, 1);
-	f.getIterEx(1)->mostrarUnits();
+	//e.desbandar("Arquer", 1);
+	//f.setExcercit(e);
+	//f.reclutar(&arq, 1);
+	//f.getIterEx(1)->mostrarUnits();
 	//update();
 	//Util::flushInterface();
 	//e.moure(2);
 	//e.reclutar(g, itf);
 	//e.setTerritoriAct(1);
-	f.getIterEx(1)->moure(2);
-	f.getIterEx(1)->calculaManteniment();
-	int mante = f.getIterEx(1)->getManteniment();
+	//f.getIterEx(1)->moure(2);
+	//f.getIterEx(1)->calculaManteniment();
+	//int mante = f.getIterEx(1)->getManteniment();
 	//Util::printInterface("El cost de manteniment de l'excercit " + to_string(f.getIterEx(1)->getId()), fgLoCyan);
 	//Util::printInterface("de la faccio " + to_string(f.getId()) + " es de " + to_string(mante));
 	Util::flushInterface();
 
 
-	/*while (!Util::fin)
+	while (!U.fin)
 	{
+		tornJugador(1);
+		tornJugador(2);
+
+
+
 
 		break;
-	}*/
+	}
 
 
 	system("pause>>NULL");

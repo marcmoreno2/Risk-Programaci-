@@ -16,7 +16,7 @@ using namespace std;
 		static int posy;
 
 	public:
-		//static bool fin;
+		bool fin;
 
 		static void gotoxy(int x, int y);
 		static void teclado();

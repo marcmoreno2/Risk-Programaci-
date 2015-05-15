@@ -29,7 +29,7 @@ void Excercit::calculaManteniment()
 	for (itu = units.begin(); itu != units.end(); itu++)
 	{
 		mantenimentEx += (*itu)->costMan;
-		//Util::printInterface(/*to_string(*/(*itu)->nom, con::fgHiWhite)/*)*/;
+		//Util::printInterface(to_string((*itu)->nom, con::fgHiWhite));
 	}
 }
 
@@ -168,6 +168,15 @@ void Excercit::afegirUnitat(Unitats *u)
 	//units.push_back(u);
 }
 
+void Excercit::afegirUnitats(list<Unitats *> u)
+{
+
+	for (list<Unitats *>::iterator it = u.begin(); it != u.end(); it++)
+	{
+		units.emplace_back(*it);
+	}
+}
+
 void Excercit::mostrarUnits()
 {
 
@@ -175,8 +184,11 @@ void Excercit::mostrarUnits()
 	for (itu = units.begin(); itu != units.end(); itu++)
 	{
 		Util::printInterface((*itu)->nom);
-		Util::printInterface(to_string((*itu)->costMan));
-		Util::printInterface(to_string((*itu)->lvl));
+		Util::printInterface("Nivell: " + to_string((*itu)->lvl));
+		Util::printInterface("Experiencia: " + to_string((*itu)->exp));
+		Util::printInterface("Atac: " + to_string((*itu)->atack));
+		Util::printInterface("Defensa: " + to_string((*itu)->def));
+		Util::printInterface("                                              ");
 	}
 	Util::resetPosY();
 	Util::flushInterface();

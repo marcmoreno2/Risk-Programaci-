@@ -36,6 +36,7 @@ public:
 	void setUnitats(list<Unitats *> u);
 	void moure(int idDe);
 	void afegirUnitat(Unitats *u);
+	void afegirUnitats(list<Unitats *> u);
 	void mostrarUnits();
 	void desbandar();
 	void desbandar(string, int);

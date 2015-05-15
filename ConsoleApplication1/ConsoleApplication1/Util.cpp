@@ -64,5 +64,5 @@ void Util::flushInterface(bool f)
 
 /*void Util::iniciaFi()
 {
-	Util::fin = false;
+	fin = false;
 }*/
