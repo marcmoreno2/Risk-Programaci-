@@ -190,6 +190,7 @@ void Excercit::mostrarUnits()
 		Util::printInterface("Defensa: " + to_string((*itu)->def));
 		Util::printInterface("                                              ");
 	}
+	system("pause>>null");
 	Util::resetPosY();
 	Util::flushInterface();
 }

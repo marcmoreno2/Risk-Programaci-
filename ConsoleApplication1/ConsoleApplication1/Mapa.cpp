@@ -54,7 +54,7 @@ void Mapa::print(){
 			break;
 		default:
 			Util::gotoxy(156, 50);
-			cout << con::fg_red << "Fatal Error!";
+			cout << fg_red << "Fatal Error!";
 			break;
 		}
 		propietat[i] = itt->color;
@@ -64,7 +64,7 @@ void Mapa::print(){
 			switch (mapa[i][j])
 			{
 			case 'X':
-				cout << con::bg_gray << ' ';
+				cout << bg_gray << ' ';
 				break;
 			case 's':
 				console.SetColor(propietat[0], fgMask);

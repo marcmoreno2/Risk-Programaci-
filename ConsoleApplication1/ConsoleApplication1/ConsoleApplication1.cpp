@@ -96,6 +96,17 @@ char mapa[80][210] = {
 list<Faction> faccions;
 list<Faction>::iterator itf;
 
+//Creem un iterador predefinit per a cada faccio, ens estalviarà treball més tard
+
+list<Faction>::iterator itf1;
+list<Faction>::iterator itf2;
+list<Faction>::iterator itf3;
+list<Faction>::iterator itf4;
+list<Faction>::iterator itf5;
+list<Faction>::iterator itf6;
+list<Faction>::iterator itf7;
+list<Faction>::iterator itf8;
+
 void inicialitzaFaccions()
 {
 	Faction p(1, 500, true, 2, "Portugal");
@@ -114,9 +125,131 @@ void inicialitzaFaccions()
 	faccions.push_back(r);
 	faccions.push_back(g);
 	faccions.push_back(t);
+
+	for (itf = faccions.begin(); itf != faccions.end(); itf++)
+	{
+		switch (itf->getId())
+		{
+		case 1:
+			itf1 = itf;
+			break;
+		case 2:
+			itf2 = itf;
+			break;
+		case 3:
+			itf3 = itf;
+			break;
+		case 4:
+			itf4 = itf;
+			break;
+		case 5:
+			itf5 = itf;
+			break;
+		case 6:
+			itf6 = itf;
+			break;
+		case 7:
+			itf7 = itf;
+			break;
+		case 8:
+			itf8 = itf;
+			break;
+		}
+	}
 }
 
-void tornJugador(int num);
+int menuPrinc()
+{
+	int op = 1, opA, iter = 0;
+	bool fiMenu = false, ok = true;
+	char tecla;
+	string op1 = "Mostrar Unitats de l'excercit 1";
+	string op2 = "Moure excercit d'un territori a un altre";
+	string op3 = "Reclutar unitats per a l'excercit 1";
+	while (!fiMenu)
+	{
+		if (iter == 1)
+		{
+			iter--;
+			ok = false;
+		}
+		if (ok)
+		{
+			switch (op)
+			{
+			case 1:
+				Util::printInterfacebg(op1, fgBlack);
+				Util::posyMas();
+				Util::printInterface(op2, fgHiWhite);
+				Util::posyMas();
+				Util::printInterface(op3);
+				Util::posyMas();
+				break;
+			case 2:
+				Util::printInterface(op1, fgHiWhite);
+				Util::posyMas();
+				Util::printInterfacebg(op2, fgBlack);
+				Util::posyMas();
+				Util::printInterface(op3, fgHiWhite);
+				Util::posyMas();
+				break;
+			case 3:
+				Util::printInterface(op1, fgHiWhite);
+				Util::posyMas();
+				Util::printInterface(op2);
+				Util::posyMas();
+				Util::printInterfacebg(op3, fgBlack);
+				Util::posyMas();
+				break;
+			case 4:
+				break;
+			case 5:
+				break;
+			default:
+				fiMenu = true;
+				ok = false;
+				break;
+			}
+			if (ok)
+			{
+				opA = op;
+				op = Util::teclado(op);
+				Util::resetPosY();
+				Util::flushInterface();
+				iter++;
+			}
+		}
+		ok = true;
+		//system("PAUSE>>NULL");
+		//Util::printInterface(to_string(tecla));
+		//cout << tecla;
+
+	}
+	return opA;
+}
+
+void tornJugador(int num)
+{
+	int op;
+	switch (num)
+	{
+	case 1:
+		op = menuPrinc();
+		break;
+	/*case 2:
+		menu();
+		break;*/
+	}
+
+	//for (itf = faccions.begin())
+	cout << con::bg_white << fg_black << op;
+	switch (op)
+	{
+	case 1:
+		itf1->getIterEx(1)->mostrarUnits();
+		break;
+	}
+}
 
 
 
@@ -148,8 +281,9 @@ int _tmain(int argc, _TCHAR* argv[])
 	a.iniciaTerritoris();
 	a.print();
 	a.pintaNoms();
-	Util::printInterface("Inicialitzacio de mapa completa,", fgLoCyan);
-	Util::printInterface("inicialitzant faccions...");
+	//Util::printInterface("Inicialitzacio de mapa completa,", fgLoCyan);
+	//Util::printInterface("inicialitzant faccions...");
+	//Sleep(700);
 	Util::flushInterface();
 	Util::resetPosY();
 	//list<Faction> faccions;
@@ -174,9 +308,10 @@ int _tmain(int argc, _TCHAR* argv[])
 	e.afegirUnitats(u);
 	//e.afegirUnitat(&uni);
 	//e.afegirUnitat(&arq);
-	e.mostrarUnits();
+	//e.mostrarUnits();
+	//Sleep(700);
 	//e.desbandar("Arquer", 1);
-	//f.setExcercit(e);
+	itf1->setExcercit(e);
 	//f.reclutar(&arq, 1);
 	//f.getIterEx(1)->mostrarUnits();
 	//update();
@@ -191,11 +326,11 @@ int _tmain(int argc, _TCHAR* argv[])
 	//Util::printInterface("de la faccio " + to_string(f.getId()) + " es de " + to_string(mante));
 	Util::flushInterface();
 
-
+	//menuPrinc();
 	while (!U.fin)
 	{
 		tornJugador(1);
-		tornJugador(2);
+		//tornJugador(2);
 
 
 

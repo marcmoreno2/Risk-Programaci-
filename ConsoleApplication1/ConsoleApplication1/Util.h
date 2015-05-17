@@ -19,10 +19,13 @@ using namespace std;
 		bool fin;
 
 		static void gotoxy(int x, int y);
-		static void teclado();
+		static int teclado(int);
 		static void printInterface(string, WORD);
 		static void printInterface(string);
+		static void printInterfacebg(string, WORD);
+		static void printMenu(int);
 		static void resetPosY();
+		static void posyMas();
 		static void flushInterface();
 		static void iniciaFi();
 		static void flushInterface(bool f);
