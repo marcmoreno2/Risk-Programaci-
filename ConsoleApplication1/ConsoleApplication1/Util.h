@@ -19,7 +19,7 @@ using namespace std;
 		bool fin;
 
 		static void gotoxy(int x, int y);
-		static int teclado(int);
+		static bool teclado(int ord);
 		static void printInterface(string, WORD);
 		static void printInterface(string);
 		static void printInterfacebg(string, WORD);

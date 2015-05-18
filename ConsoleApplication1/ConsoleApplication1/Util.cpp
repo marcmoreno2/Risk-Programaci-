@@ -19,8 +19,9 @@ void Util::gotoxy(int x, int y){
 	SetConsoleCursorPosition(hcon, dwPos);
 }
 
-int Util::teclado(int ord){
+bool Util::teclado(int ord){
 	//if (_kbhit()){
+	bool fiM = false;
 		char tecla = _getch();
 		if (tecla == 'H' && ord > 1)
 		{
@@ -31,8 +32,8 @@ int Util::teclado(int ord){
 			ord++;
 		}
 		else if (tecla == 13)
-			ord = -1;
-		return ord;
+			fiM = true;
+		return fiM;
 	//}
 }
 

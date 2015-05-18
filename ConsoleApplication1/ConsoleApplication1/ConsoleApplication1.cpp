@@ -10,6 +10,8 @@ using namespace std;
 namespace con = JadedHoboConsole;
 using namespace con;
 
+Util U;
+
 char mapa[80][210] = {
 	"                                                                                                                                                                                                                 ",
 	" XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
@@ -171,9 +173,8 @@ int menuPrinc()
 		if (iter == 1)
 		{
 			iter--;
-			ok = false;
 		}
-		if (ok)
+		else
 		{
 			switch (op)
 			{
@@ -206,14 +207,12 @@ int menuPrinc()
 			case 5:
 				break;
 			default:
-				fiMenu = true;
-				ok = false;
 				break;
 			}
 			if (ok)
 			{
 				opA = op;
-				op = Util::teclado(op);
+				ok = Util::teclado(&op);
 				Util::resetPosY();
 				Util::flushInterface();
 				iter++;
@@ -248,6 +247,9 @@ void tornJugador(int num)
 	case 1:
 		itf1->getIterEx(1)->mostrarUnits();
 		break;
+	case 2:
+		itf->ge
+		break;
 	}
 }
 
@@ -274,7 +276,6 @@ int _tmain(int argc, _TCHAR* argv[])
 {
 
 	//Util::iniciaFi();
-	Util U;
 	U.fin = false;
 	Util::resetPosY();
 	Mapa a(mapa);
@@ -335,7 +336,7 @@ int _tmain(int argc, _TCHAR* argv[])
 
 
 
-		break;
+		//break;
 	}
 
 
