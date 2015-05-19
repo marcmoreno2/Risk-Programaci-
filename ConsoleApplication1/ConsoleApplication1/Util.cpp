@@ -19,7 +19,7 @@ void Util::gotoxy(int x, int y){
 	SetConsoleCursorPosition(hcon, dwPos);
 }
 
-bool Util::teclado(int ord){
+bool Util::teclado(int &ord, int nO){
 	//if (_kbhit()){
 	bool fiM = false;
 		char tecla = _getch();
@@ -27,7 +27,7 @@ bool Util::teclado(int ord){
 		{
 			ord--;
 		}
-		else if (tecla == 'P' && ord < 3)
+		else if (tecla == 'P' && ord < nO)
 		{
 			ord++;
 		}
@@ -113,6 +113,16 @@ void Util::flushInterface()
 	for (int i = 2; i < 78; i++)
 	{
 		Util::gotoxy(158, i); cout << "                                                  ";
+	}
+}
+
+void Util::flushMenu(int L)
+{
+	console.SetColor(bgBlack, fgMask);
+	for (int i = 2; i < L * 2; i++)
+	{
+		Util::gotoxy(158, i); cout << "                                                  ";
+		i++;
 	}
 }
 

@@ -34,7 +34,7 @@ public:
 	General getGeneral();
 	list<Unitats *> getUnitats();
 	void setUnitats(list<Unitats *> u);
-	void moure(int idDe);
+	void moure();
 	void afegirUnitat(Unitats *u);
 	void afegirUnitats(list<Unitats *> u);
 	void mostrarUnits();

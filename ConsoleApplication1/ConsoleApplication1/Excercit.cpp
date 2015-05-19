@@ -68,13 +68,9 @@ void Excercit::setUnitats(list<Unitats *> u)
 	units = u;
 }
 
-void Excercit::moure(int idDe)
+void Excercit::moure()
 {
 	int posTid[4];
-	//posTid.fill(NULL);
-	//bool ok = posTid.empty();
-	//cout << endl << ok << endl;
-
 	switch (territoriActual)
 	{
 	case 1:
@@ -114,6 +110,17 @@ void Excercit::moure(int idDe)
 		posTid[0] = 6;
 		break;
 	}
+
+	int idDe = 1;
+	bool menuok = false;
+	while (!menuok){
+		Util::printInterface("Sel·lecciona el territori de destí de l'excercit:", con::fgHiCyan);
+		Util::posyMas();
+		menuok = Util::teclado(idDe, 8);
+		fflush(cin);
+		Util::printInterface(to_string(idDe));
+	}
+
 	bool act1 = false, corr = false;
 	for (int i = 0; i < 4; i++)
 	{

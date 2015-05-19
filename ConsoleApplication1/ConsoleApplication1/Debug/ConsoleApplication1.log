@@ -1,38 +1,7 @@
-﻿Compilación iniciada a las 18/05/2015 21:22:18.
+﻿Compilación iniciada a las 19/05/2015 21:20:24.
      1>Proyecto "C:\Users\marc.moreno\Desktop\Risk-Programaci-\ConsoleApplication1\ConsoleApplication1\ConsoleApplication1.vcxproj" en el nodo 2 (Build destinos).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\ConsoleApplication1.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ConsoleApplication1.cpp Excercit.cpp Faction.cpp Mapa.cpp Util.cpp
-         Util.cpp
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\util.cpp(26): error C2446: >' : no hay conversión de 'int' en 'int *'
-                 La conversión de un tipo entero a un tipo de puntero requiere reinterpret_cast, conversión de estilo de C o conversión de estilo de función
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\util.cpp(26): error C2040: '> : 'int *' se diferencia en los niveles de direccionamiento indirecto de 'int'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\util.cpp(30): error C2446: <' : no hay conversión de 'int' en 'int *'
-                 La conversión de un tipo entero a un tipo de puntero requiere reinterpret_cast, conversión de estilo de C o conversión de estilo de función
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\util.cpp(30): error C2040: '< : 'int *' se diferencia en los niveles de direccionamiento indirecto de 'int'
-         ConsoleApplication1.cpp
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(122): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(123): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(168): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(169): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(172): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(214): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(215): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(219): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(220): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(261): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(265): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(266): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(267): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(306): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(311): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(312): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(313): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\consoleapplication1.cpp(167): warning C4101: 'tecla' : variable local sin referencia
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\consoleapplication1.cpp(252): error C2039: 'ge' : no es un miembro de 'Faction'
-                 c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\faction.h(16) : vea la declaración de 'Faction'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\consoleapplication1.cpp(252): error C2143: error de sintaxis : falta ';' delante de 'break'
-         Generando código...
-         Compilando...
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\ConsoleApplication1.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Excercit.cpp
          Excercit.cpp
      1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(122): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
      1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(123): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
@@ -51,12 +20,9 @@
      1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(311): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
      1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(312): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
      1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(313): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-         Generando código...
-         Omitiendo... (no se detectaron cambios relevantes)
-         Mapa.cpp
-         Faction.cpp
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\excercit.cpp(120): error C2660: 'fflush' : la función no acepta 0 argumentos
      1>Compilación del proyecto terminada "C:\Users\marc.moreno\Desktop\Risk-Programaci-\ConsoleApplication1\ConsoleApplication1\ConsoleApplication1.vcxproj" (Build destinos) -- ERROR.
 
 ERROR al compilar.
 
-Tiempo transcurrido 00:00:01.84
+Tiempo transcurrido 00:00:00.57

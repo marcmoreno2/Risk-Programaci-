@@ -10,8 +10,6 @@ using namespace std;
 namespace con = JadedHoboConsole;
 using namespace con;
 
-Util U;
-
 char mapa[80][210] = {
 	"                                                                                                                                                                                                                 ",
 	" XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
@@ -95,6 +93,8 @@ char mapa[80][210] = {
 	"                                                                                                                                                                                                                 "
 };
 
+Util U;
+
 list<Faction> faccions;
 list<Faction>::iterator itf;
 
@@ -162,7 +162,7 @@ void inicialitzaFaccions()
 
 int menuPrinc()
 {
-	int op = 1, opA, iter = 0;
+	int op = 1, opA, nO = 3;
 	bool fiMenu = false, ok = true;
 	char tecla;
 	string op1 = "Mostrar Unitats de l'excercit 1";
@@ -170,37 +170,31 @@ int menuPrinc()
 	string op3 = "Reclutar unitats per a l'excercit 1";
 	while (!fiMenu)
 	{
-		if (iter == 1)
-		{
-			iter--;
-		}
-		else
-		{
 			switch (op)
 			{
 			case 1:
-				Util::printInterfacebg(op1, fgBlack);
-				Util::posyMas();
-				Util::printInterface(op2, fgHiWhite);
-				Util::posyMas();
-				Util::printInterface(op3);
-				Util::posyMas();
+				U.printInterfacebg(op1, fgBlack);
+				U.posyMas();
+				U.printInterface(op2, fgHiWhite);
+				U.posyMas();
+				U.printInterface(op3);
+				U.posyMas();
 				break;
 			case 2:
-				Util::printInterface(op1, fgHiWhite);
-				Util::posyMas();
-				Util::printInterfacebg(op2, fgBlack);
-				Util::posyMas();
-				Util::printInterface(op3, fgHiWhite);
-				Util::posyMas();
+				U.printInterface(op1, fgHiWhite);
+				U.posyMas();
+				U.printInterfacebg(op2, fgBlack);
+				U.posyMas();
+				U.printInterface(op3, fgHiWhite);
+				U.posyMas();
 				break;
 			case 3:
-				Util::printInterface(op1, fgHiWhite);
-				Util::posyMas();
-				Util::printInterface(op2);
-				Util::posyMas();
-				Util::printInterfacebg(op3, fgBlack);
-				Util::posyMas();
+				U.printInterface(op1, fgHiWhite);
+				U.posyMas();
+				U.printInterface(op2);
+				U.posyMas();
+				U.printInterfacebg(op3, fgBlack);
+				U.posyMas();
 				break;
 			case 4:
 				break;
@@ -209,21 +203,12 @@ int menuPrinc()
 			default:
 				break;
 			}
-			if (ok)
-			{
-				opA = op;
-				ok = Util::teclado(&op);
-				Util::resetPosY();
-				Util::flushInterface();
-				iter++;
-			}
+			opA = op;
+			fiMenu = U.teclado(op, nO);
+			U.resetPosY();
+			U.flushMenu(nO);
 		}
-		ok = true;
-		//system("PAUSE>>NULL");
-		//Util::printInterface(to_string(tecla));
-		//cout << tecla;
-
-	}
+	U.flushInterface();
 	return opA;
 }
 
@@ -241,14 +226,14 @@ void tornJugador(int num)
 	}
 
 	//for (itf = faccions.begin())
-	cout << con::bg_white << fg_black << op;
+	//cout << con::bg_white << fg_black << op;
 	switch (op)
 	{
 	case 1:
 		itf1->getIterEx(1)->mostrarUnits();
 		break;
 	case 2:
-		itf->ge
+		itf1->getIterEx(1)->moure();
 		break;
 	}
 }
@@ -277,16 +262,16 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	//Util::iniciaFi();
 	U.fin = false;
-	Util::resetPosY();
+	U.resetPosY();
 	Mapa a(mapa);
 	a.iniciaTerritoris();
 	a.print();
 	a.pintaNoms();
-	//Util::printInterface("Inicialitzacio de mapa completa,", fgLoCyan);
-	//Util::printInterface("inicialitzant faccions...");
-	//Sleep(700);
-	Util::flushInterface();
-	Util::resetPosY();
+	U.printInterface("Inicialitzacio de mapa completa,", fgLoCyan);
+	U.printInterface("inicialitzant faccions...");
+	Sleep(700);
+	U.flushInterface();
+	U.resetPosY();
 	//list<Faction> faccions;
 	//list<Faction>::iterator itf;
 	inicialitzaFaccions();
@@ -325,7 +310,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	//int mante = f.getIterEx(1)->getManteniment();
 	//Util::printInterface("El cost de manteniment de l'excercit " + to_string(f.getIterEx(1)->getId()), fgLoCyan);
 	//Util::printInterface("de la faccio " + to_string(f.getId()) + " es de " + to_string(mante));
-	Util::flushInterface();
+	U.flushInterface();
 
 	//menuPrinc();
 	while (!U.fin)

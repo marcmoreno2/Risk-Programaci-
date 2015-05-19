@@ -10,7 +10,7 @@
 using namespace std;
 //namespace con = JadedHoboConsole;
 
-	/*static*/ class Util
+	class Util
 	{
 	private:
 		static int posy;
@@ -19,7 +19,7 @@ using namespace std;
 		bool fin;
 
 		static void gotoxy(int x, int y);
-		static bool teclado(int ord);
+		static bool teclado(int &ord, int nO);
 		static void printInterface(string, WORD);
 		static void printInterface(string);
 		static void printInterfacebg(string, WORD);
@@ -27,6 +27,7 @@ using namespace std;
 		static void resetPosY();
 		static void posyMas();
 		static void flushInterface();
+		static void flushMenu(int L);
 		static void iniciaFi();
 		static void flushInterface(bool f);
 	};
