@@ -6,8 +6,6 @@
 #include <list>
 //#include "Util.h"
 #include "Excercit.h"
-//#include "Unitats.h"
-//#include "Mapa.h"
 
 using namespace std;
 //using namespace Util;

@@ -39,7 +39,7 @@ void Faction::setExcercit(Excercit e)
 void Faction::reclutar(Unitats *u, int idEx)
 {
 	Util::resetPosY(13);
-//	if (or >= u->costRec) comentat
+	if (or >= u->costRec)
 	{
 		for (ite = excercits.begin(); ite != excercits.end(); ite++)
 		{

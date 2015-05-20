@@ -1,17 +1,12 @@
 #pragma once
 
-//#include "stdafx.h"
-//#include "Util.h"
 #include <string>
 #include <list>
 #include "Unitats.h"
 #include <memory>
-//#include "Console.h"
-//#include "Unitats.h"
 #include "Mapa.h"
 
 namespace con = JadedHoboConsole;
-//using namespace Util;
 using namespace std;
 
 class Excercit{
