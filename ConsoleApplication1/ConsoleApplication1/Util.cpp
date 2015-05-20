@@ -96,10 +96,16 @@ void Util::printInterface(string frase)
 	}
 }*/
 
+void Util::resetPosY(int pos)
+{
+	posy = 5 + pos;
+}
+
 void Util::resetPosY()
 {
 	posy = 5;
 }
+
 
 void Util::posyMas()
 {
@@ -108,7 +114,6 @@ void Util::posyMas()
 
 void Util::flushInterface()
 {
-	//system("pause>>NULL");
 	console.SetColor(bgBlack, fgMask);
 	for (int i = 2; i < 78; i++)
 	{
@@ -120,6 +125,16 @@ void Util::flushMenu(int L)
 {
 	console.SetColor(bgBlack, fgMask);
 	for (int i = 2; i < L * 2; i++)
+	{
+		Util::gotoxy(158, i); cout << "                                                  ";
+		i++;
+	}
+}
+
+void Util::flushMenu(int O, int L)
+{
+	console.SetColor(bgBlack, fgMask);
+	for (int i = O; i < (O + (L * 2)); i++)
 	{
 		Util::gotoxy(158, i); cout << "                                                  ";
 		i++;

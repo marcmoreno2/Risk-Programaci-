@@ -111,8 +111,8 @@ list<Faction>::iterator itf8;
 
 void inicialitzaFaccions()
 {
-	Faction p(1, 500, true, 2, "Portugal");
-	Faction e(2, 500, false, 1, "Espanya");
+	Faction p(1, 500, false, 2, "Portugal");
+	Faction e(2, 500, true, 1, "Espanya");
 	Faction f(3, 500, false, 3, "Francia");
 	Faction i(4, 500, false, 4, "Italia");
 	Faction a(5, 500, false, 5, "Alemania");
@@ -160,14 +160,119 @@ void inicialitzaFaccions()
 	}
 }
 
+Unitats *menuUnitats()
+{
+	U.flushInterface();
+	U.resetPosY();
+	U.printInterface("Reclutar unitat:", fgHiCyan);
+	U.posyMas();
+	int op = 1, opA, nO = 5;
+	bool fiMenu = false;
+	string op1 = "Arquer";
+	string op2 = "Soldat";
+	string op3 = "Llancer";
+	string op4 = "Cavaller";
+	string op5 = "Arma de setge";
+	while (!fiMenu)
+	{
+		switch (op)
+		{
+		case 1:
+			U.printInterfacebg(op1, fgBlack);
+			U.posyMas();
+			U.printInterface(op2, fgHiCyan);
+			U.posyMas();
+			U.printInterface(op3);
+			U.posyMas();
+			U.printInterface(op4);
+			U.posyMas();
+			U.printInterface(op5);
+			U.posyMas();
+			break;
+		case 2:
+			U.printInterface(op1, fgHiCyan);
+			U.posyMas();
+			U.printInterfacebg(op2, fgBlack);
+			U.posyMas();
+			U.printInterface(op3, fgHiCyan);
+			U.posyMas();
+			U.printInterface(op4);
+			U.posyMas();
+			U.printInterface(op5);
+			U.posyMas();
+			break;
+		case 3:
+			U.printInterface(op1, fgHiCyan);
+			U.posyMas();
+			U.printInterface(op2);
+			U.posyMas();
+			U.printInterfacebg(op3, fgBlack);
+			U.posyMas();
+			U.printInterface(op4, fgHiCyan);
+			U.posyMas();
+			U.printInterface(op5);
+			U.posyMas();
+			break;
+		case 4:
+			U.printInterface(op1, fgHiCyan);
+			U.posyMas();
+			U.printInterface(op2);
+			U.posyMas();
+			U.printInterface(op3);
+			U.posyMas();
+			U.printInterfacebg(op4, fgBlack);
+			U.posyMas();
+			U.printInterface(op5, fgHiCyan);
+			U.posyMas();
+			break;
+		case 5:
+			U.printInterface(op1, fgHiCyan);
+			U.posyMas();
+			U.printInterface(op2);
+			U.posyMas();
+			U.printInterface(op3);
+			U.posyMas();
+			U.printInterface(op4);
+			U.posyMas();
+			U.printInterfacebg(op5, fgBlack);
+			U.posyMas();
+			break;
+		default:
+			break;
+		}
+		opA = op;
+		fiMenu = U.teclado(op, nO);
+		U.resetPosY(2);
+		U.flushMenu(nO);
+	}
+
+	Arquer arq;
+	Soldat sol;
+	Cavalleria cav;
+	Llancer llan;
+	Siege set;
+
+	if (opA == 1) {
+		return &arq;
+	} else if (opA == 2) {
+		return &sol;
+	} else if (opA == 3) {
+		return &llan;
+	} else if (opA == 4) {
+		return &cav;
+	} else if (opA == 5) {
+		return &set;
+	}
+}
+
 int menuPrinc()
 {
-	int op = 1, opA, nO = 3;
-	bool fiMenu = false, ok = true;
-	char tecla;
-	string op1 = "Mostrar Unitats de l'excercit 1";
-	string op2 = "Moure excercit d'un territori a un altre";
-	string op3 = "Reclutar unitats per a l'excercit 1";
+	int op = 1, opA, nO = 4;
+	bool fiMenu = false;
+	string op1 = "Mostrar Unitats d'un excercit";
+	string op2 = "Moure un excercit d'un territori a un altre";
+	string op3 = "Reclutar unitats per a un excercit";
+	string op4 = "Acabar el torn";
 	while (!fiMenu)
 	{
 			switch (op)
@@ -179,6 +284,8 @@ int menuPrinc()
 				U.posyMas();
 				U.printInterface(op3);
 				U.posyMas();
+				U.printInterface(op4);
+				U.posyMas();
 				break;
 			case 2:
 				U.printInterface(op1, fgHiWhite);
@@ -186,6 +293,8 @@ int menuPrinc()
 				U.printInterfacebg(op2, fgBlack);
 				U.posyMas();
 				U.printInterface(op3, fgHiWhite);
+				U.posyMas();
+				U.printInterface(op4);
 				U.posyMas();
 				break;
 			case 3:
@@ -195,8 +304,18 @@ int menuPrinc()
 				U.posyMas();
 				U.printInterfacebg(op3, fgBlack);
 				U.posyMas();
+				U.printInterface(op4, fgHiWhite);
+				U.posyMas();
 				break;
 			case 4:
+				U.printInterface(op1, fgHiWhite);
+				U.posyMas();
+				U.printInterface(op2);
+				U.posyMas();
+				U.printInterface(op3);
+				U.posyMas();
+				U.printInterfacebg(op4, fgBlack);
+				U.posyMas();
 				break;
 			case 5:
 				break;
@@ -212,30 +331,88 @@ int menuPrinc()
 	return opA;
 }
 
-void tornJugador(int num)
+bool tornJugador(int num)
 {
+	bool fi = false;
 	int op;
 	switch (num)
 	{
 	case 1:
 		op = menuPrinc();
 		break;
-	/*case 2:
-		menu();
-		break;*/
+	case 2:
+		op = menuPrinc();
+		break;
 	}
 
 	//for (itf = faccions.begin())
 	//cout << con::bg_white << fg_black << op;
+	int numEx = 1;
+	bool menuok = false;
 	switch (op)
 	{
 	case 1:
-		itf1->getIterEx(1)->mostrarUnits();
+		U.printInterface("Selecciona l'excercit que vols mostrar:", con::fgHiCyan);
+		U.posyMas();
+		while (!menuok){
+			U.resetPosY(3);
+			U.printInterface(to_string(numEx));
+			menuok = U.teclado(numEx, 2);
+		}
+		U.posyMas();
+		switch (num){
+		case 1:
+			itf1->getIterEx(numEx)->mostrarUnits();
+			break;
+		case 2: 
+			itf2->getIterEx(numEx)->mostrarUnits();
+			break;
+		default:
+			break;
+		}
 		break;
 	case 2:
-		itf1->getIterEx(1)->moure();
+		U.printInterface("Selecciona l'excercit que vols moure:", con::fgHiCyan);
+		U.posyMas();
+		while (!menuok){
+			U.resetPosY(3);
+			U.printInterface(to_string(numEx));
+			menuok = U.teclado(numEx, 2);
+		}
+		U.posyMas();
+		switch (num){
+		case 1:
+			itf1->getIterEx(numEx)->moure();
+			break;
+		case 2:
+			itf2->getIterEx(numEx)->moure();
+			break;
+		}
+		break;
+	case 3:
+		U.printInterface("Selecciona l'excercit per al que vols reclutar:", con::fgHiCyan);
+		U.posyMas();
+		while (!menuok){
+			U.resetPosY(3);
+			U.printInterface(to_string(numEx));
+			menuok = U.teclado(numEx, 2);
+		}
+		U.posyMas();
+
+		switch (num){
+		case 1:
+			itf1->reclutar(menuUnitats(), numEx);
+			break;
+		case 2:
+			itf2->reclutar(menuUnitats(), numEx);
+			break;
+		}
+		break;
+	case 4:
+		fi = true;
 		break;
 	}
+	return fi;
 }
 
 
@@ -260,7 +437,6 @@ void update(Mapa &a, list<Faction> &l)
 int _tmain(int argc, _TCHAR* argv[])
 {
 
-	//Util::iniciaFi();
 	U.fin = false;
 	U.resetPosY();
 	Mapa a(mapa);
@@ -272,15 +448,11 @@ int _tmain(int argc, _TCHAR* argv[])
 	Sleep(700);
 	U.flushInterface();
 	U.resetPosY();
-	//list<Faction> faccions;
-	//list<Faction>::iterator itf;
 	inicialitzaFaccions();
-	//Faction f(1,500,true,1,"Portugal");
-	//faccions.push_back(f);
-	//itf = faccions.begin();
 	General g;
 	list<Unitats *> u;
-	Excercit e(1,g,u,1);
+	Excercit e(1, g, u, 1);
+	Excercit b(1, g, u, 2);
 	Arquer arq;
 	Soldat sol;
 	Cavalleria cav;
@@ -292,36 +464,30 @@ int _tmain(int argc, _TCHAR* argv[])
 	u.emplace_back(&llan);
 	u.emplace_back(&set);
 	e.afegirUnitats(u);
-	//e.afegirUnitat(&uni);
-	//e.afegirUnitat(&arq);
-	//e.mostrarUnits();
-	//Sleep(700);
-	//e.desbandar("Arquer", 1);
+	u.emplace_back(&arq);
+	u.emplace_back(&sol);
+	b.afegirUnitats(u);
 	itf1->setExcercit(e);
-	//f.reclutar(&arq, 1);
-	//f.getIterEx(1)->mostrarUnits();
-	//update();
-	//Util::flushInterface();
-	//e.moure(2);
-	//e.reclutar(g, itf);
-	//e.setTerritoriAct(1);
-	//f.getIterEx(1)->moure(2);
-	//f.getIterEx(1)->calculaManteniment();
-	//int mante = f.getIterEx(1)->getManteniment();
-	//Util::printInterface("El cost de manteniment de l'excercit " + to_string(f.getIterEx(1)->getId()), fgLoCyan);
-	//Util::printInterface("de la faccio " + to_string(f.getId()) + " es de " + to_string(mante));
+	itf1->setExcercit(b);
+	itf2->setExcercit(e);
+	itf2->setExcercit(b);
 	U.flushInterface();
+	bool torn_acabat;
 
 	//menuPrinc();
 	while (!U.fin)
 	{
-		tornJugador(1);
+		//update(a, faccions);
+		torn_acabat = false;
+		while (!torn_acabat)
+		{
+			torn_acabat = tornJugador(1);
+		}
 		//tornJugador(2);
 
 
 
 
-		//break;
 	}
 
 

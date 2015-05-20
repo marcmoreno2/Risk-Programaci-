@@ -16,7 +16,7 @@ using namespace std;
 class Faction{
 private:
 	int or, ingressos, gastos, id;
-	bool player, viva;
+	bool player, viva, tornAcabat;
 	list <Excercit> excercits;
 	list <Excercit>::iterator ite;
 	string nom;
@@ -46,6 +46,8 @@ public:
 	int getGastos();
 	void calculaGastos();
 	void calculaManteniment();
+	bool getTorn();
+	void setTorn(bool);
 	Faction();
 	Faction(int idcap, int or, bool player, int id, string nom);
 	~Faction();

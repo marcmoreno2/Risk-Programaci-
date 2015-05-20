@@ -29,7 +29,6 @@ void Excercit::calculaManteniment()
 	for (itu = units.begin(); itu != units.end(); itu++)
 	{
 		mantenimentEx += (*itu)->costMan;
-		//Util::printInterface(to_string((*itu)->nom, con::fgHiWhite));
 	}
 }
 
@@ -113,14 +112,14 @@ void Excercit::moure()
 
 	int idDe = 1;
 	bool menuok = false;
+	Util::printInterface("Selecciona el territori de desti de l'excercit:", con::fgHiCyan);
+	Util::posyMas();
 	while (!menuok){
-		Util::printInterface("Sel·lecciona el territori de destí de l'excercit:", con::fgHiCyan);
-		Util::posyMas();
-		menuok = Util::teclado(idDe, 8);
-		fflush(cin);
+		Util::resetPosY(8);
 		Util::printInterface(to_string(idDe));
+		menuok = Util::teclado(idDe, 8);
 	}
-
+	Util::posyMas();
 	bool act1 = false, corr = false;
 	for (int i = 0; i < 4; i++)
 	{
@@ -131,53 +130,43 @@ void Excercit::moure()
 	}
 	if (act1)
 	{
-		//Util::gotoxy(158, 27); cout << con::fg_red << "L'excercit ja es troba al territori objectiu";
 		Util::printInterface("L'excercit ja es troba al territori objectiu", con::fgHiRed);
 		Util::resetPosY();
 	}
 	else if (!movimentD)
 	{
-		//Util::gotoxy(158, 25); cout << con::fg_red << "Aquest excercit ja s'ha mogut aquest torn";
 		Util::printInterface("Aquest excercit ja s'ha mogut aquest torn", con::fgHiRed);
 		Util::resetPosY();
 	}
 	else if (corr)
 	{
-			//Util::gotoxy(158, 27); cout << con::fg_green << "L'excercit es mou al territori objectiu";
-			Util::printInterface("L'excercit es mou al territori objectiu", con::fgHiGreen);
-			Util::resetPosY();
-			territoriActual = idDe;
-			movimentD = false;
+		Util::printInterface("L'excercit es mou al territori objectiu", con::fgHiGreen);
+		Util::resetPosY();
+		territoriActual = idDe;
+		movimentD = false;
 	}
 	else {
-		//Util::gotoxy(158, 27); cout << con::fg_red << "L'excercit no es pot moure al territori desitjat,";
-		//Util::gotoxy(158, 28); cout << "el territori de desti ha d'estar en contacte";
-		//Util::gotoxy(158, 29); cout << "directe amb el d'origen";
-
 		Util::printInterface("L'excercit no es pot moure al territori desitjat,", con::fgHiRed);
 		Util::printInterface("el territori de desti ha d'estar en contacte");
 		Util::printInterface("directe amb el d'origen");
 		Util::resetPosY();
 	}
 
-	/*Util::gotoxy(158, 25); cout << con::fg_red << "                                                 ";
-	Util::gotoxy(158, 26); cout << "                                                 ";
-	Util::gotoxy(158, 27); cout << "                                  ";*/
 	/*cout << endl;
 	for (int elem : posTid)
 	cout << elem << endl;*/
+
+	system("pause>>null");
 	Util::flushInterface();
 }
 
 void Excercit::afegirUnitat(Unitats *u)
 {
 	units.emplace_back(u);
-	//units.push_back(u);
 }
 
 void Excercit::afegirUnitats(list<Unitats *> u)
 {
-
 	for (list<Unitats *>::iterator it = u.begin(); it != u.end(); it++)
 	{
 		units.emplace_back(*it);
@@ -186,7 +175,6 @@ void Excercit::afegirUnitats(list<Unitats *> u)
 
 void Excercit::mostrarUnits()
 {
-
 	Util::printInterface("Unitats de l'excercit " + to_string(id) + ":", con::fgHiCyan);
 	for (itu = units.begin(); itu != units.end(); itu++)
 	{
@@ -203,7 +191,6 @@ void Excercit::mostrarUnits()
 }
 void Excercit::desbandar(string u, int q)
 {
-	//Util::printInterface(to_string(units.size()), con::fgHiYellow);
 	bool elim = false;
 	int i = 0;
 	for (itu = units.begin(); itu != units.end();)
@@ -225,7 +212,7 @@ void Excercit::desbandar(string u, int q)
 	else{
 		Util::printInterface("No s'ha trobat cap unitat del tipus desitjat a l'excercit en questio.", con::fgHiYellow);
 	}
-	//Util::printInterface(to_string(units.size()), con::fgHiYellow);
+	system("pause>>null");
 	Util::flushInterface();
 	Util::resetPosY();
 }

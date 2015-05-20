@@ -33,21 +33,13 @@ list<Excercit>::iterator Faction::getIterEx(int idEx)
 
 void Faction::setExcercit(Excercit e)
 {
-	/*for (ite = excercits.begin(); ite != excercits.end(); ite++)
-	{
-	if (ite->getId() == e.getId())
-	{
-	excercits.erase(ite);
-	excercits.push_back(e);
-	}
-	}*/
 	excercits.push_back(e);
 }
 
 void Faction::reclutar(Unitats *u, int idEx)
 {
-
-	if (or >= u->costRec)
+	Util::resetPosY(13);
+//	if (or >= u->costRec) comentat
 	{
 		for (ite = excercits.begin(); ite != excercits.end(); ite++)
 		{
@@ -57,17 +49,16 @@ void Faction::reclutar(Unitats *u, int idEx)
 		ite->afegirUnitat(u);
 		if (player)
 		{
-			//Util::gotoxy(158, 25); cout << con::fg_green << "Unitat reclutada correctament";
 			Util::printInterface("Unitat reclutada correctament!", con::fgLoGreen);
 		}
 	}
 	else if (or < u->costRec)
 	{
 		if (player){
-			//Util::gotoxy(158, 25); cout << con::fg_red << "No tens prou or per a reclutar la unitat!";
 			Util::printInterface("No tens prou or per a reclutar la unitat!", con::fgLoRed);
 		}
 	}
+	system("pause>>null");
 	Util::resetPosY();
 	Util::flushInterface();
 }
@@ -112,11 +103,23 @@ void Faction::setId(int id)
 	this->id = id;
 }
 
+bool Faction::getTorn()
+{
+	return tornAcabat;
+}
+
+void Faction::setTorn(bool t)
+{
+	tornAcabat = t;
+}
+
 void Faction::update()
 {
 	calculaManteniment();
 	calculaGastos();
 	calculaIngressos();
+	tornAcabat = false;
+
 
 
 
