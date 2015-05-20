@@ -30,7 +30,7 @@ public:
 	list<Unitats *> getUnitats();
 	void setUnitats(list<Unitats *> u);
 	void moure();
-	void afegirUnitat(Unitats *u);
+	void afegirUnitat(Unitats u);
 	void afegirUnitats(list<Unitats *> u);
 	void mostrarUnits();
 	void desbandar();

@@ -33,13 +33,19 @@ list<Excercit>::iterator Faction::getIterEx(int idEx)
 
 void Faction::setExcercit(Excercit e)
 {
+	for (ite = excercits.begin(); ite != excercits.end();)
+	{
+		if (ite->getId() == e.getId())
+			ite = excercits.erase(ite);
+		else ite++;
+	}
 	excercits.push_back(e);
 }
 
-void Faction::reclutar(Unitats *u, int idEx)
+void Faction::reclutar(Unitats u, int idEx)
 {
 	Util::resetPosY(13);
-	if (or >= u->costRec)
+	if (or >= u.costRec)
 	{
 		for (ite = excercits.begin(); ite != excercits.end(); ite++)
 		{
@@ -47,12 +53,13 @@ void Faction::reclutar(Unitats *u, int idEx)
 				break;
 		}
 		ite->afegirUnitat(u);
+		or -= u.costRec;
 		if (player)
 		{
 			Util::printInterface("Unitat reclutada correctament!", con::fgLoGreen);
 		}
 	}
-	else if (or < u->costRec)
+	else if (or < u.costRec)
 	{
 		if (player){
 			Util::printInterface("No tens prou or per a reclutar la unitat!", con::fgLoRed);

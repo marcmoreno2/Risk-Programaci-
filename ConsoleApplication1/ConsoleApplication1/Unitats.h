@@ -57,9 +57,7 @@ public:
 		lvl = 1;
 		exp = 0;
 	}
-	~Unitats()
-	{}
-
+	
 };
 
 class General : public Unitats{

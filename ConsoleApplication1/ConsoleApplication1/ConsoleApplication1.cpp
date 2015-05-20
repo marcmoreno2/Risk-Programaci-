@@ -160,7 +160,7 @@ void inicialitzaFaccions()
 	}
 }
 
-Unitats *menuUnitats()
+Unitats menuUnitats()
 {
 	U.flushInterface();
 	U.resetPosY();
@@ -252,16 +252,17 @@ Unitats *menuUnitats()
 	Llancer llan;
 	Siege set;
 
-	if (opA == 1) {
-		return &arq;
-	} else if (opA == 2) {
-		return &sol;
-	} else if (opA == 3) {
-		return &llan;
-	} else if (opA == 4) {
-		return &cav;
-	} else if (opA == 5) {
-		return &set;
+	switch (opA) {
+	case 1:
+		return arq;
+	case 2:
+		return sol;
+	case 3:
+		return llan;
+	case 4:
+		return cav;
+	case 5:
+		return set;
 	}
 }
 
@@ -344,9 +345,9 @@ bool tornJugador(int num)
 		op = menuPrinc();
 		break;
 	}
-
-	//for (itf = faccions.begin())
-	//cout << con::bg_white << fg_black << op;
+	Excercit ex;
+	Arquer aa;
+	Faction ff;
 	int numEx = 1;
 	bool menuok = false;
 	switch (op)
@@ -401,7 +402,17 @@ bool tornJugador(int num)
 
 		switch (num){
 		case 1:
-			itf1->reclutar(menuUnitats(), numEx);
+			//itf1->reclutar(menuUnitats(), numEx);
+			//Afegir directament a la llista d'unitats a veure si ha sort
+			ff = (*itf1);
+			ex = (*ff.getIterEx(numEx));
+			ex.afegirUnitat(aa);
+			ff.setExcercit(ex);
+			*itf1 = ff;
+
+			/*ex = (*itf1->getIterEx(1));
+			ex.afegirUnitat(aa);
+			itf1->setExcercit(ex);*/
 			break;
 		case 2:
 			itf2->reclutar(menuUnitats(), numEx);

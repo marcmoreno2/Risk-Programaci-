@@ -160,9 +160,9 @@ void Excercit::moure()
 	Util::flushInterface();
 }
 
-void Excercit::afegirUnitat(Unitats *u)
+void Excercit::afegirUnitat(Unitats u)
 {
-	units.emplace_back(u);
+	units.push_back(&u);
 }
 
 void Excercit::afegirUnitats(list<Unitats *> u)
