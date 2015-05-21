@@ -33,7 +33,7 @@ public:
 		exp = ex;
 	}
 
-	void Update()
+	virtual void Update()
 	{
 		if (exp >= (1500 + (500 * (lvl - 1))))
 		{
@@ -41,7 +41,7 @@ public:
 		}
 	}
 
-	void lvlUp(int lvlup)
+	virtual void lvlUp(int lvlup)
 	{
 		lvl += lvlup;
 		//Update();

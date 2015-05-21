@@ -42,24 +42,26 @@ void Faction::setExcercit(Excercit e)
 	excercits.push_back(e);
 }
 
-void Faction::reclutar(Unitats u, int idEx)
+void Faction::reclutar(Unitats* u, int idEx)
 {
+	//list<Unitats *> un;
 	Util::resetPosY(13);
-	if (or >= u.costRec)
+	if (or >= u->costRec)
 	{
 		for (ite = excercits.begin(); ite != excercits.end(); ite++)
 		{
 			if (ite->getId() == idEx)
 				break;
 		}
+		//un.push_back(&u);
 		ite->afegirUnitat(u);
-		or -= u.costRec;
+		or -= u->costRec;
 		if (player)
 		{
 			Util::printInterface("Unitat reclutada correctament!", con::fgLoGreen);
 		}
 	}
-	else if (or < u.costRec)
+	else if (or < u->costRec)
 	{
 		if (player){
 			Util::printInterface("No tens prou or per a reclutar la unitat!", con::fgLoRed);

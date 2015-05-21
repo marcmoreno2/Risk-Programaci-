@@ -15,6 +15,7 @@ class Faction{
 private:
 	int or, ingressos, gastos, id;
 	bool player, viva, tornAcabat;
+	
 	list <Excercit> excercits;
 	list <Excercit>::iterator ite;
 	string nom;
@@ -25,7 +26,7 @@ private:
 public:
 	list<Excercit>::iterator getIterEx(int idEx);
 	void setExcercit(Excercit e);
-	void reclutar(Unitats u, int idEx);
+	void reclutar(Unitats* u, int idEx);
 	void mostrarUnitats(int idEx);
 	void setIdCap(int id);
 	int getIdCap();

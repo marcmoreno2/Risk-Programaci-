@@ -32,25 +32,25 @@ void Mapa::print(){
 			itt->color = bgHiYellow;
 			break;
 		case 2:
-			itt->color = bgHiCyan;
-			break;
-		case 3:
-			itt->color = bgHiBlue;
-			break;
-		case 4:
 			itt->color = bgHiRed;
 			break;
+		case 3:
+			itt->color = bgLoBlue;
+			break;
+		case 4:
+			itt->color = bgHiGreen;
+			break;
 		case 5:
-			itt->color = bgBlack;
+			itt->color = bgLoRed;
 			break;
 		case 6:
 			itt->color = bgHiWhite;
 			break;
 		case 7:
-			itt->color = bgHiMagenta;
+			itt->color = bgLoMagenta;
 			break;
 		case 8:
-			itt->color = bgHiGreen;
+			itt->color = bgLoGreen;
 			break;
 		default:
 			Util::gotoxy(156, 50);
@@ -98,11 +98,20 @@ void Mapa::print(){
 				console.SetColor(propietat[7], fgMask);
 				cout << ' ';
 				break;
-			default:
+			case 'Y':
 				cout << bg_black << ' ';
 				break;
+
+			default:
+				if (j < 155)
+				{
+					console.SetColor(bgHiBlue, fgMask);
+					cout << ' ';
+				}
+				else 
+					cout << bg_black << ' ';
+				break;
 			}
-			//cout << con::bg_black << con::fg_white << mapa[i][j];
 		}
 		cout << endl;
 	}
@@ -127,7 +136,7 @@ void Mapa::iniciaTerritoris(){
 	p.exPresent = true;
 	p.idPropietari = 2;
 	p.id = 2;
-	p.color = bgHiCyan;
+	p.color = bgHiRed;
 	p.posX_Ex1 = 7;
 	p.posY_Ex1 = 57;
 	p.posX_Ex2 = 25;
@@ -139,7 +148,7 @@ void Mapa::iniciaTerritoris(){
 	f.exPresent = true;
 	f.idPropietari = 3;
 	f.id = 3;
-	f.color = bgHiBlue;
+	f.color = bgLoBlue;
 	f.posX_Ex1 = 50;
 	f.posY_Ex1 = 20;
 	f.posX_Ex2 = 58;
@@ -151,7 +160,7 @@ void Mapa::iniciaTerritoris(){
 	i.exPresent = true;
 	i.idPropietari = 4;
 	i.id = 4;
-	i.color = bgHiRed;
+	i.color = bgHiGreen;
 	i.posX_Ex1 = 72;
 	i.posY_Ex1 = 40;
 	i.posX_Ex2 = 78;
@@ -163,7 +172,7 @@ void Mapa::iniciaTerritoris(){
 	a.exPresent = true;
 	a.idPropietari = 5;
 	a.id = 5;
-	a.color = bgBlack;
+	a.color = bgLoRed;
 	a.posX_Ex1 = 70;
 	a.posY_Ex1 = 15;
 	a.posX_Ex2 = 109;
@@ -187,7 +196,7 @@ void Mapa::iniciaTerritoris(){
 	g.exPresent = true;
 	g.idPropietari = 7;
 	g.id = 7;
-	g.color = bgHiMagenta;
+	g.color = bgLoMagenta;
 	g.posX_Ex1 = 108;
 	g.posY_Ex1 = 50;
 	g.posX_Ex2 = 125;
@@ -199,7 +208,7 @@ void Mapa::iniciaTerritoris(){
 	t.exPresent = true;
 	t.idPropietari = 8;
 	t.id = 8;
-	t.color = bgHiGreen;
+	t.color = bgLoGreen;
 	t.posX_Ex1 = 145;
 	t.posY_Ex1 = 70;
 	t.posX_Ex2 = 150;
