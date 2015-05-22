@@ -228,6 +228,7 @@ void Excercit::update(){}
 
 int Excercit::getManteniment()
 {
+	calculaManteniment();
 	//Util::printInterface(to_string(mantenimentEx));
 	return mantenimentEx;
 }

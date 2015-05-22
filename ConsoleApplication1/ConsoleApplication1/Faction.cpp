@@ -7,11 +7,12 @@ Faction::Faction()
 }
 
 
-Faction::Faction(int idcap, int or, bool player, int id, string nom)
+Faction::Faction(int idcap, int or, bool player, int id, string nom, WORD color)
 {
 	this->id = id; this->or = or;
 	this->player = player; this->nom = nom;
 	id_capital = idcap;
+	this->color = color;
 
 }
 
@@ -56,6 +57,8 @@ void Faction::reclutar(Unitats* u, int idEx)
 		//un.push_back(&u);
 		ite->afegirUnitat(u);
 		or -= u->costRec;
+		gRec += u->costRec;
+
 		if (player)
 		{
 			Util::printInterface("Unitat reclutada correctament!", con::fgLoGreen);
@@ -124,16 +127,53 @@ void Faction::setTorn(bool t)
 
 void Faction::update()
 {
+	if (tornAcabat)
+	{
+		_or = or;
+		or = or - gMant + ingressos;
+		_ingressos = ingressos;
+		_gastos = gastos;
+		_gMant = gMant;
+		_gRec = gRec;
+		gRec = 0;
+		tornAcabat = false;
+	}
+
 	calculaManteniment();
 	calculaGastos();
 	calculaIngressos();
-	tornAcabat = false;
 
+}
 
+void Faction::getFinances( int torn)
+{
+	update();
+	Util::posyMas();
+	Util::printInterface("Or total: " + to_string(or));
+	Util::posyMas();
+	Util::printInterface("Or total previst el torn seguent: " + to_string(or - gastos + ingressos));
+	Util::posyMas();
+	if (torn > 1)
+	{
+		Util::printInterface("Despeses el torn anterior: " + to_string(_gastos));
+		Util::posyMas();
+		Util::printInterface("	- Reclutament: " + to_string(_gRec));
+		Util::posyMas();
+		Util::printInterface("	- Manteniment: " + to_string(_gMant));
+		Util::posyMas();
+		Util::printInterface("Ingressos el torn anterior: " + to_string(_ingressos));
+	}
+	Util::posyMas();
+	Util::printInterface("Despeses previstes aqest torn: " + to_string(gastos));
+	Util::posyMas();
+	Util::printInterface("	- Reclutament: " + to_string(gRec));
+	Util::posyMas();
+	Util::printInterface("	- Manteniment: " + to_string(gMant));
+	Util::posyMas();
+	Util::printInterface("Ingressos previstos aquest torn: " + to_string(gRec));
+	Util::posyMas();
 
-
-
-
+	system("pause>null");
 }
 
 bool Faction::getPlayer()
@@ -163,7 +203,7 @@ int Faction::getIngressos()
 
 void Faction::calculaIngressos()
 {
-
+	ingressos = 250 * no_ter;
 }
 
 void Faction::setGastos(int gas)
@@ -176,10 +216,26 @@ int Faction::getGastos()
 	return gastos;
 }
 
-void Faction::calculaGastos(){}
+void Faction::calculaGastos()
+{
+	
+	gastos = gMant + gRec;
+
+}
 
 void Faction::calculaManteniment()
 {
+	int gMant = 0;
+	for (ite = excercits.begin(); ite != excercits.end(); ite++)
+	{
+		ite->calculaManteniment();
+		gMant += ite->getManteniment();
+	}
 
+}
+
+WORD Faction::getColor()
+{
+	return color;
 }
 

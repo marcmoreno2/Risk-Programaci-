@@ -101,14 +101,14 @@ list<Faction>::iterator itf;
 
 void inicialitzaFaccions()
 {
-	Faction p(1, 500, false, 2, "Portugal");
-	Faction e(2, 500, true, 1, "Espanya");
-	Faction f(3, 500, false, 3, "Francia");
-	Faction i(4, 500, false, 4, "Italia");
-	Faction a(5, 500, false, 5, "Alemania");
-	Faction r(6, 500, false, 6, "Russia");
-	Faction g(7, 500, false, 7, "Grecia");
-	Faction t(8, 500, false, 8, "Turquia");
+	Faction p(1, 500, false, 2, "Portugal", bgHiRed);
+	Faction e(2, 500, true, 1, "Espanya", bgHiYellow);
+	Faction f(3, 500, false, 3, "Francia", bgLoBlue);
+	Faction i(4, 500, false, 4, "Italia", bgHiGreen);
+	Faction a(5, 500, false, 5, "Alemania", bgLoRed);
+	Faction r(6, 500, false, 6, "Russia", bgHiWhite);
+	Faction g(7, 500, false, 7, "Grecia", bgLoMagenta);
+	Faction t(8, 500, false, 8, "Turquia", bgLoGreen);
 	faccions.push_back(p);
 	faccions.push_back(e);
 	faccions.push_back(f);
@@ -226,12 +226,15 @@ void menuUnitats(list<Faction>::iterator itf, int numEx)
 
 int menuPrinc()
 {
-	int op = 1, opA, nO = 4;
+	int op = 1, opA, nO = 5;
 	bool fiMenu = false;
 	string op1 = "Mostrar Unitats d'un excercit";
 	string op2 = "Moure un excercit d'un territori a un altre";
 	string op3 = "Reclutar unitats per a un excercit";
-	string op4 = "Acabar el torn";
+	string op4 = "Revisa les finances";
+	string op5 = "Acabar el torn";
+	U.flushInterface();
+	U.resetPosY();
 	while (!fiMenu)
 	{
 		switch (op)
@@ -245,6 +248,8 @@ int menuPrinc()
 			U.posyMas();
 			U.printInterface(op4);
 			U.posyMas();
+			U.printInterface(op5);
+			U.posyMas();
 			break;
 		case 2:
 			U.printInterface(op1, fgHiWhite);
@@ -254,6 +259,8 @@ int menuPrinc()
 			U.printInterface(op3, fgHiWhite);
 			U.posyMas();
 			U.printInterface(op4);
+			U.posyMas();
+			U.printInterface(op5);
 			U.posyMas();
 			break;
 		case 3:
@@ -265,6 +272,8 @@ int menuPrinc()
 			U.posyMas();
 			U.printInterface(op4, fgHiWhite);
 			U.posyMas();
+			U.printInterface(op5);
+			U.posyMas();
 			break;
 		case 4:
 			U.printInterface(op1, fgHiWhite);
@@ -275,8 +284,20 @@ int menuPrinc()
 			U.posyMas();
 			U.printInterfacebg(op4, fgBlack);
 			U.posyMas();
+			U.printInterface(op5, fgHiWhite);
+			U.posyMas();
 			break;
 		case 5:
+			U.printInterface(op1, fgHiWhite);
+			U.posyMas();
+			U.printInterface(op2);
+			U.posyMas();
+			U.printInterface(op3);
+			U.posyMas();
+			U.printInterface(op4);
+			U.posyMas();
+			U.printInterfacebg(op5, fgBlack);
+			U.posyMas();
 			break;
 		default:
 			break;
@@ -290,7 +311,7 @@ int menuPrinc()
 	return opA;
 }
 
-bool tornJugador(int num)
+bool tornJugador(int num, int torn)
 {
 	bool fi = false;
 	int op;
@@ -355,6 +376,18 @@ bool tornJugador(int num)
 		menuUnitats(itf, numEx);
 		break;
 	case 4:
+		for (itf = faccions.begin(); itf != faccions.end(); itf++)
+		{
+			if (itf->getId() == num)
+				break;
+		}
+
+		U.printInterface("Les finances de la teva faccio son les seguents:", con::fgHiCyan);
+		U.posyMas;
+
+		itf->getFinances(torn);
+		break;
+	case 5:
 		fi = true;
 		break;
 	}

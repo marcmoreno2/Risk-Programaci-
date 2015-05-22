@@ -21,6 +21,15 @@ Mapa::~Mapa()
 }
 
 
+list<Territoris>::iterator Mapa::getIterTerr(int id)
+{
+	for (itt = territoris.begin(); itt != territoris.end(); itt++)
+	{
+		if (itt->id == id)
+			return itt;
+	}
+}
+
 void Mapa::print(){
 	WORD propietat[8];
 	int i = 0;

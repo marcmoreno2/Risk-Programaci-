@@ -8,11 +8,12 @@ using namespace std;
 namespace con = JadedHoboConsole;
 using namespace con;
 
+int torn;
 
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-
+	torn = 0;
 	U.fin = false;
 	U.resetPosY();
 	Mapa a(mapa);
@@ -32,11 +33,12 @@ int _tmain(int argc, _TCHAR* argv[])
 	//menuPrinc();
 	while (!U.fin)
 	{
+		torn++;
 		//update(a, faccions);
 		torn_acabat = false;
 		while (!torn_acabat)
 		{
-			torn_acabat = tornJugador(1);
+			torn_acabat = tornJugador(1, torn);
 		}
 		//tornJugador(2);
 

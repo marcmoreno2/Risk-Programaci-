@@ -30,6 +30,7 @@ public:
 	~Mapa();
 
 	void iniciaTerritoris();
+	list<Territoris>::iterator getIterTerr(int id);
 	void update();
 	void pintaNoms();
 };

@@ -6,6 +6,7 @@
 #include <list>
 //#include "Util.h"
 #include "Excercit.h"
+#include "Console.h"
 
 using namespace std;
 //using namespace Util;
@@ -13,7 +14,7 @@ using namespace std;
 
 class Faction{
 private:
-	int or, ingressos, gastos, id;
+	int or, ingressos, gastos, id, _or, _ingressos, _gastos, gMant, gRec, _gMant, _gRec;
 	bool player, viva, tornAcabat;
 	
 	list <Excercit> excercits;
@@ -22,7 +23,7 @@ private:
 	int no_ter;
 	int territoris[12];
 	int id_capital;
-	string color;
+	WORD color;
 public:
 	list<Excercit>::iterator getIterEx(int idEx);
 	void setExcercit(Excercit e);
@@ -47,8 +48,10 @@ public:
 	void calculaManteniment();
 	bool getTorn();
 	void setTorn(bool);
+	void getFinances(int torn);
+	WORD getColor();
 	Faction();
-	Faction(int idcap, int or, bool player, int id, string nom);
+	Faction(int idcap, int or, bool player, int id, string nom, WORD color);
 	~Faction();
 
 };
