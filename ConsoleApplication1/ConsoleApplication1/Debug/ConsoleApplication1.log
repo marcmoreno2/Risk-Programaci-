@@ -1,180 +1,36 @@
-﻿Compilación iniciada a las 21/05/2015 21:16:31.
-     1>Proyecto "C:\Users\marc.moreno\Desktop\Risk-Programaci-\ConsoleApplication1\ConsoleApplication1\ConsoleApplication1.vcxproj" en el nodo 2 (Build destinos).
+﻿Compilación iniciada a las 22/05/2015 12:33:06.
+     1>Proyecto "J:\marc\Treballs programacio\Risk-Programaci-\ConsoleApplication1\ConsoleApplication1\ConsoleApplication1.vcxproj" en el nodo 2 (Build destinos).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\ConsoleApplication1.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ConsoleApplication1.cpp
+         D:\Archivos de programa (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\ConsoleApplication1.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ConsoleApplication1.cpp
          ConsoleApplication1.cpp
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(120): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(121): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(166): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(167): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(170): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(212): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(213): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(217): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(218): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(259): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(263): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(264): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(265): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(304): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(309): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(310): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(311): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(22): error C2065: 'faccions' : identificador no declarado
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(22): error C2228: el operando izquierdo de '.push_back' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(23): error C2065: 'faccions' : identificador no declarado
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(23): error C2228: el operando izquierdo de '.push_back' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(24): error C2065: 'faccions' : identificador no declarado
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(24): error C2228: el operando izquierdo de '.push_back' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(25): error C2065: 'faccions' : identificador no declarado
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(25): error C2228: el operando izquierdo de '.push_back' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(26): error C2065: 'faccions' : identificador no declarado
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(26): error C2228: el operando izquierdo de '.push_back' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(27): error C2065: 'faccions' : identificador no declarado
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(27): error C2228: el operando izquierdo de '.push_back' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(28): error C2065: 'faccions' : identificador no declarado
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(28): error C2228: el operando izquierdo de '.push_back' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(29): error C2065: 'faccions' : identificador no declarado
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(29): error C2228: el operando izquierdo de '.push_back' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(65): error C2065: 'U' : identificador no declarado
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(65): error C2228: el operando izquierdo de '.flushInterface' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(66): error C2065: 'U' : identificador no declarado
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(66): error C2228: el operando izquierdo de '.resetPosY' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(67): error C2065: 'U' : identificador no declarado
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(67): error C2228: el operando izquierdo de '.printInterface' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(68): error C2065: 'U' : identificador no declarado
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(68): error C2228: el operando izquierdo de '.posyMas' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(81): error C2065: 'U' : identificador no declarado
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(81): error C2228: el operando izquierdo de '.printInterfacebg' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(82): error C2065: 'U' : identificador no declarado
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(82): error C2228: el operando izquierdo de '.posyMas' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(83): error C2065: 'U' : identificador no declarado
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(83): error C2228: el operando izquierdo de '.printInterface' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(84): error C2065: 'U' : identificador no declarado
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(84): error C2228: el operando izquierdo de '.posyMas' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(85): error C2065: 'U' : identificador no declarado
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(85): error C2228: el operando izquierdo de '.printInterface' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(86): error C2065: 'U' : identificador no declarado
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(86): error C2228: el operando izquierdo de '.posyMas' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(87): error C2065: 'U' : identificador no declarado
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(87): error C2228: el operando izquierdo de '.printInterface' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(88): error C2065: 'U' : identificador no declarado
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(88): error C2228: el operando izquierdo de '.posyMas' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(89): error C2065: 'U' : identificador no declarado
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(89): error C2228: el operando izquierdo de '.printInterface' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(90): error C2065: 'U' : identificador no declarado
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(90): error C2228: el operando izquierdo de '.posyMas' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(93): error C2065: 'U' : identificador no declarado
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(93): error C2228: el operando izquierdo de '.printInterface' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(94): error C2065: 'U' : identificador no declarado
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(94): error C2228: el operando izquierdo de '.posyMas' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(95): error C2065: 'U' : identificador no declarado
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(95): error C2228: el operando izquierdo de '.printInterfacebg' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(96): error C2065: 'U' : identificador no declarado
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(96): error C2228: el operando izquierdo de '.posyMas' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(97): error C2065: 'U' : identificador no declarado
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(97): error C2228: el operando izquierdo de '.printInterface' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(98): error C2065: 'U' : identificador no declarado
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(98): error C2228: el operando izquierdo de '.posyMas' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(99): error C2065: 'U' : identificador no declarado
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(99): error C2228: el operando izquierdo de '.printInterface' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(100): error C2065: 'U' : identificador no declarado
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(100): error C2228: el operando izquierdo de '.posyMas' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(101): error C2065: 'U' : identificador no declarado
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(101): error C2228: el operando izquierdo de '.printInterface' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(102): error C2065: 'U' : identificador no declarado
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(102): error C2228: el operando izquierdo de '.posyMas' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(105): error C2065: 'U' : identificador no declarado
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(105): error C2228: el operando izquierdo de '.printInterface' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(106): error C2065: 'U' : identificador no declarado
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(106): error C2228: el operando izquierdo de '.posyMas' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(107): error C2065: 'U' : identificador no declarado
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(107): error C2228: el operando izquierdo de '.printInterface' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(108): error C2065: 'U' : identificador no declarado
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(108): error C2228: el operando izquierdo de '.posyMas' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(109): error C2065: 'U' : identificador no declarado
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(109): error C2228: el operando izquierdo de '.printInterfacebg' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(110): error C2065: 'U' : identificador no declarado
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(110): error C2228: el operando izquierdo de '.posyMas' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(111): error C2065: 'U' : identificador no declarado
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(111): error C2228: el operando izquierdo de '.printInterface' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(112): error C2065: 'U' : identificador no declarado
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(112): error C2228: el operando izquierdo de '.posyMas' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(113): error C2065: 'U' : identificador no declarado
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(113): error C2228: el operando izquierdo de '.printInterface' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(114): error C2065: 'U' : identificador no declarado
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(114): error C2228: el operando izquierdo de '.posyMas' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(117): error C2065: 'U' : identificador no declarado
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(117): error C2228: el operando izquierdo de '.printInterface' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(118): error C2065: 'U' : identificador no declarado
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(118): error C2228: el operando izquierdo de '.posyMas' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(119): error C2065: 'U' : identificador no declarado
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(119): error C2228: el operando izquierdo de '.printInterface' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(120): error C2065: 'U' : identificador no declarado
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(120): error C2228: el operando izquierdo de '.posyMas' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(121): error C2065: 'U' : identificador no declarado
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(121): error C2228: el operando izquierdo de '.printInterface' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(122): error C2065: 'U' : identificador no declarado
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(122): error C2228: el operando izquierdo de '.posyMas' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(123): error C2065: 'U' : identificador no declarado
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(123): error C2228: el operando izquierdo de '.printInterfacebg' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(124): error C2065: 'U' : identificador no declarado
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(124): error C2228: el operando izquierdo de '.posyMas' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(125): error C2065: 'U' : identificador no declarado
-     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\main.h(125): fatal error C1003: el recuento de errores supera 100; se detiene la compilación
-     1>cl : Línea de comandos warning D9028: error de recompilación mínimo, revirtiendo a la compilación normal
-     1>Compilación del proyecto terminada "C:\Users\marc.moreno\Desktop\Risk-Programaci-\ConsoleApplication1\ConsoleApplication1\ConsoleApplication1.vcxproj" (Build destinos) -- ERROR.
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(120): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(121): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(166): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(167): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(170): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(212): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(213): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(217): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(218): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(259): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(263): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(264): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(265): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(304): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(309): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(310): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(311): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+       Link:
+         D:\Archivos de programa (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"J:\marc\Treballs programacio\Risk-Programaci-\ConsoleApplication1\Debug\ConsoleApplication1.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"J:\marc\Treballs programacio\Risk-Programaci-\ConsoleApplication1\Debug\ConsoleApplication1.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"J:\marc\Treballs programacio\Risk-Programaci-\ConsoleApplication1\Debug\ConsoleApplication1.lib" /MACHINE:X86 Debug\ConsoleApplication1.res
+         Debug\ConsoleApplication1.obj
+         Debug\Excercit.obj
+         Debug\Faction.obj
+         Debug\Mapa.obj
+         Debug\stdafx.obj
+         Debug\Util.obj
+         ConsoleApplication1.vcxproj -> J:\marc\Treballs programacio\Risk-Programaci-\ConsoleApplication1\Debug\ConsoleApplication1.exe
+     1>Compilación del proyecto terminada "J:\marc\Treballs programacio\Risk-Programaci-\ConsoleApplication1\ConsoleApplication1\ConsoleApplication1.vcxproj" (Build destinos).
 
-ERROR al compilar.
+Compilación correcta.
 
-Tiempo transcurrido 00:00:00.52
+Tiempo transcurrido 00:00:01.89
