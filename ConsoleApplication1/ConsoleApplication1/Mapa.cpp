@@ -237,7 +237,7 @@ void Mapa::update()
 {
 	for (itt = territoris.begin(); itt != territoris.end(); itt++)
 	{
-
+		
 	}
 }
 void Mapa::pintaNoms()

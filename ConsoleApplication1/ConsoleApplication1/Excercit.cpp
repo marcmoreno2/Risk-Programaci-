@@ -9,9 +9,8 @@ Excercit::Excercit()
 }
 
 
-Excercit::Excercit(int terAct, General gen, list<Unitats *>uni, int ide)
+Excercit::Excercit(General gen, list<Unitats *>uni, int ide)
 {
-	territoriActual = terAct;
 	general = gen;
 	units = uni;
 	id = ide;
@@ -69,7 +68,7 @@ void Excercit::setUnitats(list<Unitats *> u)
 
 void Excercit::moure()
 {
-	int posTid[4];
+	vector<int> posTid;
 	switch (territoriActual)
 	{
 	case 1:
@@ -111,7 +110,7 @@ void Excercit::moure()
 	}
 
 	int idDe = 1;
-	bool menuok = false;
+	bool menuok = false, menuokA = false;
 	Util::printInterface("Selecciona el territori de desti de l'excercit:", con::fgHiCyan);
 	Util::posyMas();
 	while (!menuok){
@@ -140,10 +139,34 @@ void Excercit::moure()
 	}
 	else if (corr)
 	{
-		Util::printInterface("L'excercit es mou al territori objectiu", con::fgHiGreen);
-		Util::resetPosY();
-		territoriActual = idDe;
-		movimentD = false;
+		bool nok = false;
+		if (!otherExPresent(idDe, idPropietari))// (nok)
+		{
+			Util::printInterface("L'excercit es mou al territori objectiu", con::fgHiGreen);
+			Util::resetPosY();
+			territoriActual = idDe;
+			movimentD = false;
+		}
+		else
+		{
+			Util::printInterface("Al territori de destí hi ha un excercit enemic.", con::fgHiYellow);
+			Util::printInterface("Desitges atacar?");
+			int at = 0;
+			//Util::posyMas();
+			while (!menuokA){
+				Util::resetPosY(16);
+				if (at == 0){
+					Util::printInterfacebg("Si", con::fgLoGreen);
+					Util::printInterface("No", con::fgHiRed);
+				}
+				else
+				{
+					Util::printInterface("Si", con::fgLoGreen);
+					Util::printInterfacebg("No", con::fgHiRed);
+				}
+				menuokA = Util::teclado(at, 2);
+			}
+		}
 	}
 	else {
 		Util::printInterface("L'excercit no es pot moure al territori desitjat,", con::fgHiRed);
@@ -216,7 +239,10 @@ void Excercit::desbandar(string u, int q)
 	Util::flushInterface();
 	Util::resetPosY();
 }
-void Excercit::desbandar(){}
+void Excercit::desbandar()
+{
+
+}
 void Excercit::calculaBonusDef(){}
 void Excercit::calculaBonusOff(){}
 bool Excercit::atacar(Excercit e)
@@ -224,7 +250,23 @@ bool Excercit::atacar(Excercit e)
 	bool result = false;
 	return result;
 }
-void Excercit::update(){}
+void Excercit::update()
+{
+	for (itu = units.begin(); itu != units.end(); itu++)
+	{
+		(*itu)->exp += 150;
+	}
+}
+
+void Excercit::setIdPropietari(int idP)
+{
+	idPropietari = idP;
+}
+
+int Excercit::getIdPropietari()
+{
+	return idPropietari;
+}
 
 int Excercit::getManteniment()
 {
