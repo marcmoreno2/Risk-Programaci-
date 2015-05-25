@@ -1,10 +1,11 @@
 #pragma once
 
-//#include "stdafx.h"
+#include "stdafx.h"
 //#include "Console.h"
 #include <string>
 #include <list>
-//#include "Util.h"
+#include <iostream>
+#include "Util.h"
 #include "Excercit.h"
 #include "Console.h"
 
@@ -21,7 +22,7 @@ private:
 	list <Excercit>::iterator ite;
 	string nom;
 	int no_ter;
-	int territoris[12];
+	vector<int> territoris;
 	int id_capital;
 	WORD color;
 public:
@@ -50,6 +51,7 @@ public:
 	void setTorn(bool);
 	void getFinances(int torn);
 	WORD getColor();
+	void imprPropEx();
 	Faction();
 	Faction(int idcap, int or, bool player, int id, string nom, WORD color);
 	~Faction();
