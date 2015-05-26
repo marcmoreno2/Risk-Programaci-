@@ -68,6 +68,7 @@ void Mapa::print(){
 		}
 		propietat[i] = itt->color;
 	}
+	Util::gotoxy(0, 0);
 	for (int i = 0; i < 80; i++){
 		for (int j = 0; j < 210; j++){
 			switch (mapa[i][j])

@@ -9,9 +9,8 @@ Excercit::Excercit()
 }
 
 
-Excercit::Excercit(int terAct, General gen, list<Unitats *>uni, int ide)
+Excercit::Excercit(General gen, list<Unitats *>uni, int ide)
 {
-	territoriActual = terAct;
 	general = gen;
 	units = uni;
 	id = ide;
@@ -225,6 +224,16 @@ bool Excercit::atacar(Excercit e)
 	return result;
 }
 void Excercit::update(){}
+
+void Excercit::setIdPropietari(int id)
+{
+	idPropietari = id;
+}
+
+int Excercit::getIdPropietari()
+{
+	return idPropietari;
+}
 
 int Excercit::getManteniment()
 {

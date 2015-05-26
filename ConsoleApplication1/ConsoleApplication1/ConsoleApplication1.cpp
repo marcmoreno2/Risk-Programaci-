@@ -28,19 +28,20 @@ int _tmain(int argc, _TCHAR* argv[])
 	inicialitzaFaccions();
 	inicialitzaExcercits();
 	U.flushInterface();
-	bool torn_acabat;
+	bool torn_acabat = false;
 
 	//menuPrinc();
 	while (!U.fin)
 	{
 		torn++;
-		//update(a, faccions);
-		torn_acabat = false;
+
 		while (!torn_acabat)
 		{
 			torn_acabat = tornJugador(1, torn);
 		}
 		//tornJugador(2);
+		update(a, torn_acabat);
+		torn_acabat = false;
 
 
 

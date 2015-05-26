@@ -39,7 +39,9 @@ public:
 	void calculaBonusOff();
 	bool atacar(Excercit e);
 	void update();
+	void setIdPropietari(int);
+	int getIdPropietari();
 	Excercit();
-	Excercit(int terAct, General gen, list<Unitats *>uni, int ide);
+	Excercit(General gen, list<Unitats *>uni, int ide);
 	~Excercit();
 };
