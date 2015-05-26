@@ -139,10 +139,40 @@ void Excercit::moure()
 	}
 	else if (corr)
 	{
+		if (!otherExPresent(idDe, idPropietari))
+		{
 		Util::printInterface("L'excercit es mou al territori objectiu", con::fgHiGreen);
 		Util::resetPosY();
 		territoriActual = idDe;
 		movimentD = false;
+		}
+		else
+		{
+		menuok = false;
+		Util::printInterface("Hi ha un excercit enemic al territori objectiu.", con::fgHiYellow);
+		Util::printInterface("Atacar?");
+
+		while (!menuok){
+		Util::resetPosY(16);
+		switch (idDe)
+		{
+		case 1:
+		Util::printInterfacebg("Si",con::fgHiYellow);
+		Util::posyMas();
+		Util::printInterface("No");
+		break;
+		case 2:
+		Util::printInterface("Si", con::fgHiYellow);
+		Util::posyMas();
+		Util::printInterfacebg("No", con::fgHiYellow);
+		break;
+		}
+		Util::printInterface(to_string(idDe));
+		menuok = Util::teclado(idDe, 2);
+		}
+
+		Util::resetPosY();
+		}
 	}
 	else {
 		Util::printInterface("L'excercit no es pot moure al territori desitjat,", con::fgHiRed);

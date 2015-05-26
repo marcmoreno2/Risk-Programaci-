@@ -255,4 +255,3 @@ void Faction::imprPropEx()
 		ite->setTerritoriAct(id_capital);
 	}
 }
-

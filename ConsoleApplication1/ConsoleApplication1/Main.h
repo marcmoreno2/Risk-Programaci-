@@ -434,11 +434,12 @@ void update(Mapa &a, bool t)
 	a.pintaNoms();
 }
 
-/*static bool otherExPresent(int terrAt, int idFacc)
+static bool otherExPresent(int terrAt, int idFac)
 {
+	list<Faction>::iterator itf;
 	for (itf = faccions.begin(); itf != faccions.end(); itf++)
 	{
-		if (itf->getId() != idFacc)
+		if (itf->getId() != idFac)
 		{
 			if (itf->getIterEx(1)->getTerritoriAct() == terrAt || itf->getIterEx(2)->getTerritoriAct() == terrAt)
 			{
@@ -447,4 +448,4 @@ void update(Mapa &a, bool t)
 		}
 	}
 	return false;
-}*/
+}
