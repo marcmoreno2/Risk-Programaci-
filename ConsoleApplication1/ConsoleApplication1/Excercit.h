@@ -2,11 +2,9 @@
 
 #include <string>
 #include <list>
-#include <vector>
 #include "Unitats.h"
 #include <memory>
 #include "Mapa.h"
-#include "Main.h"
 
 namespace con = JadedHoboConsole;
 using namespace std;
@@ -41,9 +39,7 @@ public:
 	void calculaBonusOff();
 	bool atacar(Excercit e);
 	void update();
-	void setIdPropietari(int);
-	int getIdPropietari();
 	Excercit();
-	Excercit(General gen, list<Unitats *>uni, int ide);
+	Excercit(int terAct, General gen, list<Unitats *>uni, int ide);
 	~Excercit();
 };

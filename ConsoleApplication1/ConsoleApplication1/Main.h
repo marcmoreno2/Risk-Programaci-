@@ -229,7 +229,7 @@ int menuPrinc()
 	int op = 1, opA, nO = 5;
 	bool fiMenu = false;
 	string op1 = "Mostrar Unitats d'un excercit";
-	string op2 = "Moure un excercit d'un territori a un altre / atacar un territori";
+	string op2 = "Moure un excercit d'un territori a un altre";
 	string op3 = "Reclutar unitats per a un excercit";
 	string op4 = "Revisa les finances";
 	string op5 = "Acabar el torn";
@@ -383,7 +383,7 @@ bool tornJugador(int num, int torn)
 		}
 
 		U.printInterface("Les finances de la teva faccio son les seguents:", con::fgHiCyan);
-		U.posyMas();
+		U.posyMas;
 
 		itf->getFinances(torn);
 		break;
@@ -394,12 +394,13 @@ bool tornJugador(int num, int torn)
 	return fi;
 }
 
+
 void inicialitzaExcercits()
 {
 	General g;
 	list<Unitats *> u;
-	Excercit e(g, u, 1);
-	Excercit b(g, u, 2);
+	Excercit e(1, g, u, 1);
+	Excercit b(1, g, u, 2);
 	u.push_back(new Arquer);
 	u.push_back(new Arquer);
 	u.emplace_back(new Soldat);
@@ -421,28 +422,15 @@ void inicialitzaExcercits()
 
 }
 
-void update(Mapa &a)
+void update(Mapa &a, list<Faction> &l)
 {
-	for (itf = faccions.begin(); itf != faccions.end(); itf++)
+	list<Faction>::iterator it;
+	for (it = l.begin(); it != l.end(); it++)
 	{
-		itf->update();
-		//itf->getIterEx(0)->getTerritoriAct();
+		it->update();
+		//if ()
+		it->getIterEx(0)->getTerritoriAct();
 	}
-	//a.update();
+	a.update();
 	a.print();
-}
-
-static bool otherExPresent(int terrAt, int idFacc)
-{
-	for (itf = faccions.begin(); itf != faccions.end(); itf++)
-	{
-		if (itf->getId() != idFacc)
-		{
-			if (itf->getIterEx(1)->getTerritoriAct() == terrAt || itf->getIterEx(2)->getTerritoriAct() == terrAt)
-			{
-				return true;
-			}
-		}
-	}
-	return false;
 }

@@ -34,7 +34,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	while (!U.fin)
 	{
 		torn++;
-		update(a);
+		//update(a, faccions);
 		torn_acabat = false;
 		while (!torn_acabat)
 		{
