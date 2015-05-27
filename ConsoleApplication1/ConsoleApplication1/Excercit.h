@@ -3,8 +3,10 @@
 #include <string>
 #include <list>
 #include "Unitats.h"
+#include <vector>
 #include <memory>
-#include "Mapa.h"
+#include "Util.h"
+//#include "Mapa.h"
 //#include "Main.h"
 
 namespace con = JadedHoboConsole;
@@ -16,10 +18,10 @@ private:
 	list<Unitats *>units;
 	list<Unitats *>::iterator itu;
 	General general;
-	float bonus;
+	float bonusOf[5];
 	int totalUnits, idPropietari, id;
-	bool movimentD = true;
-	float fTotal, dTotal;
+	bool movimentD = true, castell;
+	float fTotal, dTotal, bonusDef;
 public:
 	void calculaManteniment();
 	int getManteniment();
@@ -30,7 +32,7 @@ public:
 	General getGeneral();
 	list<Unitats *> getUnitats();
 	void setUnitats(list<Unitats *> u);
-	void moure();
+	void moure(vector<Excercit*> posEx);
 	void afegirUnitat(Unitats* u);
 	void afegirUnitats(list<Unitats *> u);
 	void mostrarUnits();
@@ -38,9 +40,13 @@ public:
 	void desbandar(string, int);
 	void calculaBonusDef();
 	void calculaBonusOff();
-	bool atacar(Excercit e);
+	void calculaAtT();
+	void calculaDeT();
+	bool atacar(Excercit *e);
 	void update();
 	void setIdPropietari(int);
+	void setCastell(bool);
+	bool getCastell();
 	int getIdPropietari();
 	Excercit();
 	Excercit(General gen, list<Unitats *>uni, int ide);

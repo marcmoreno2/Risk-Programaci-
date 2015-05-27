@@ -4,6 +4,8 @@
 #include <iostream>
 #include <string>
 #include <list>
+#include <vector>
+#include "Excercit.h"
 #include <array>
 //#include "Console.h"
 #include "Util.h"
@@ -31,6 +33,6 @@ public:
 
 	void iniciaTerritoris();
 	list<Territoris>::iterator getIterTerr(int id);
-	void update();
+	void update(vector<Excercit*>posEx);
 	void pintaNoms();
 };

@@ -22,14 +22,13 @@ int _tmain(int argc, _TCHAR* argv[])
 	a.pintaNoms();
 	U.printInterface("Inicialitzacio de mapa completa,", fgLoCyan);
 	U.printInterface("inicialitzant faccions...");
-	Sleep(600);
+	Sleep(500);
 	U.flushInterface();
 	U.resetPosY();
 	inicialitzaFaccions();
 	inicialitzaExcercits();
 	U.flushInterface();
 	bool torn_acabat = false;
-
 	//menuPrinc();
 	while (!U.fin)
 	{

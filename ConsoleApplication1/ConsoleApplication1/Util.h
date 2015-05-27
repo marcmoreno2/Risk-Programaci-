@@ -22,7 +22,7 @@ using namespace std;
 		static bool teclado(int &ord, int nO);
 		static void printInterface(string, WORD);
 		static void printInterface(string);
-		static void printInterfacebg(string, WORD);
+		static void printInterfacebg(string, WORD, WORD);
 		static void printMenu(int);
 		static void resetPosY();
 		static void resetPosY(int);

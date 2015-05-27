@@ -45,10 +45,10 @@ void Util::printInterface(string frase, WORD color)
 	cout << bg_black << frase;
 	Util::posy++; //Util::posy++;
 }
-void Util::printInterfacebg(string frase, WORD color)
+void Util::printInterfacebg(string frase, WORD color, WORD colorbg)
 {
 	Util::gotoxy(158, posy);
-	console.SetColor(bgHiWhite, fgMask);
+	console.SetColor(colorbg, fgMask);
 	//cout << bg_white;
 	console.SetColor(color, bgMask);
 	cout << frase;

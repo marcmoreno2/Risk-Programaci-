@@ -80,6 +80,12 @@ public:
 		costRec = 0;
 		Update();
 	}
+
+	void Update()
+	{
+		Unitats::Update();
+		comandament = comandament + lvl - 1;
+	}
 };
 
 class Arquer : public Unitats{

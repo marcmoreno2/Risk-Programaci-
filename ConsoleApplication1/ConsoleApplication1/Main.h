@@ -97,6 +97,7 @@ Util U;
 
 list<Faction> faccions;
 list<Faction>::iterator itf;
+vector<Excercit*> posEx;
 
 
 void inicialitzaFaccions()
@@ -137,7 +138,7 @@ void menuUnitats(list<Faction>::iterator itf, int numEx)
 		switch (op)
 		{
 		case 1:
-			U.printInterfacebg(op1, fgBlack);
+			U.printInterfacebg(op1, fgBlack, bgHiWhite);
 			U.posyMas();
 			U.printInterface(op2, fgHiCyan);
 			U.posyMas();
@@ -151,7 +152,7 @@ void menuUnitats(list<Faction>::iterator itf, int numEx)
 		case 2:
 			U.printInterface(op1, fgHiCyan);
 			U.posyMas();
-			U.printInterfacebg(op2, fgBlack);
+			U.printInterfacebg(op2, fgBlack, bgHiWhite);
 			U.posyMas();
 			U.printInterface(op3, fgHiCyan);
 			U.posyMas();
@@ -165,7 +166,7 @@ void menuUnitats(list<Faction>::iterator itf, int numEx)
 			U.posyMas();
 			U.printInterface(op2);
 			U.posyMas();
-			U.printInterfacebg(op3, fgBlack);
+			U.printInterfacebg(op3, fgBlack, bgHiWhite);
 			U.posyMas();
 			U.printInterface(op4, fgHiCyan);
 			U.posyMas();
@@ -179,7 +180,7 @@ void menuUnitats(list<Faction>::iterator itf, int numEx)
 			U.posyMas();
 			U.printInterface(op3);
 			U.posyMas();
-			U.printInterfacebg(op4, fgBlack);
+			U.printInterfacebg(op4, fgBlack, bgHiWhite);
 			U.posyMas();
 			U.printInterface(op5, fgHiCyan);
 			U.posyMas();
@@ -193,7 +194,7 @@ void menuUnitats(list<Faction>::iterator itf, int numEx)
 			U.posyMas();
 			U.printInterface(op4);
 			U.posyMas();
-			U.printInterfacebg(op5, fgBlack);
+			U.printInterfacebg(op5, fgBlack, bgHiWhite);
 			U.posyMas();
 			break;
 		default:
@@ -240,7 +241,7 @@ int menuPrinc()
 		switch (op)
 		{
 		case 1:
-			U.printInterfacebg(op1, fgBlack);
+			U.printInterfacebg(op1, fgBlack, bgHiWhite);
 			U.posyMas();
 			U.printInterface(op2, fgHiWhite);
 			U.posyMas();
@@ -254,7 +255,7 @@ int menuPrinc()
 		case 2:
 			U.printInterface(op1, fgHiWhite);
 			U.posyMas();
-			U.printInterfacebg(op2, fgBlack);
+			U.printInterfacebg(op2, fgBlack, bgHiWhite);
 			U.posyMas();
 			U.printInterface(op3, fgHiWhite);
 			U.posyMas();
@@ -268,7 +269,7 @@ int menuPrinc()
 			U.posyMas();
 			U.printInterface(op2);
 			U.posyMas();
-			U.printInterfacebg(op3, fgBlack);
+			U.printInterfacebg(op3, fgBlack, bgHiWhite);
 			U.posyMas();
 			U.printInterface(op4, fgHiWhite);
 			U.posyMas();
@@ -282,7 +283,7 @@ int menuPrinc()
 			U.posyMas();
 			U.printInterface(op3);
 			U.posyMas();
-			U.printInterfacebg(op4, fgBlack);
+			U.printInterfacebg(op4, fgBlack, bgHiWhite);
 			U.posyMas();
 			U.printInterface(op5, fgHiWhite);
 			U.posyMas();
@@ -296,7 +297,7 @@ int menuPrinc()
 			U.posyMas();
 			U.printInterface(op4);
 			U.posyMas();
-			U.printInterfacebg(op5, fgBlack);
+			U.printInterfacebg(op5, fgBlack, bgHiWhite);
 			U.posyMas();
 			break;
 		default:
@@ -354,7 +355,7 @@ bool tornJugador(int num, int torn)
 				break;
 		}
 
-		itf->getIterEx(numEx)->moure();
+		itf->getIterEx(numEx)->moure(posEx);
 
 		break;
 	case 3:
@@ -418,23 +419,13 @@ void inicialitzaExcercits()
 		itf->setExcercit(e);
 		itf->setExcercit(b);
 		itf->imprPropEx();
+		posEx.push_back(&(*itf->getIterEx(1)));
+		posEx.push_back(&(*itf->getIterEx(2)));
 	}
 
 }
 
-void update(Mapa &a, bool t)
-{
-	for (itf = faccions.begin(); itf != faccions.end(); itf++)
-	{
-		itf->update(t);
-		//itf->getIterEx(0)->getTerritoriAct();
-	}
-	//a.update();
-	a.print();
-	a.pintaNoms();
-}
-
-static bool otherExPresent(int terrAt, int idFac)
+bool otherExPresent(int terrAt, int idFac)
 {
 	list<Faction>::iterator itf;
 	for (itf = faccions.begin(); itf != faccions.end(); itf++)
@@ -448,4 +439,19 @@ static bool otherExPresent(int terrAt, int idFac)
 		}
 	}
 	return false;
+}
+
+void update(Mapa &a, bool t)
+{
+	posEx.clear();
+	for (itf = faccions.begin(); itf != faccions.end(); itf++)
+	{
+		itf->update(t);
+		posEx.push_back(&(*itf->getIterEx(1)));
+		posEx.push_back(&(*itf->getIterEx(2)));
+	}
+	//otherExPresent();
+	a.update(posEx);
+	a.print();
+	a.pintaNoms();
 }

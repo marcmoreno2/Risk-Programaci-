@@ -137,8 +137,8 @@ void Mapa::iniciaTerritoris(){
 	s.color = bgHiYellow;
 	s.posX_Ex1 = 20;
 	s.posY_Ex1 = 50;
-	s.posX_Ex2 = 40;
-	s.posY_Ex2 = 50;
+	s.posX_Ex2 = 23;
+	s.posY_Ex2 = 52;
 
 	Territoris p;
 	p.nom = "Portugal";
@@ -149,7 +149,7 @@ void Mapa::iniciaTerritoris(){
 	p.color = bgHiRed;
 	p.posX_Ex1 = 7;
 	p.posY_Ex1 = 57;
-	p.posX_Ex2 = 25;
+	p.posX_Ex2 = 10;
 	p.posY_Ex2 = 55;
 
 	Territoris f;
@@ -161,8 +161,8 @@ void Mapa::iniciaTerritoris(){
 	f.color = bgLoBlue;
 	f.posX_Ex1 = 50;
 	f.posY_Ex1 = 20;
-	f.posX_Ex2 = 58;
-	f.posY_Ex2 = 20;
+	f.posX_Ex2 = 53;
+	f.posY_Ex2 = 22;
 
 	Territoris i;
 	i.nom = "Italia";
@@ -173,8 +173,8 @@ void Mapa::iniciaTerritoris(){
 	i.color = bgHiGreen;
 	i.posX_Ex1 = 72;
 	i.posY_Ex1 = 40;
-	i.posX_Ex2 = 78;
-	i.posY_Ex2 = 40;
+	i.posX_Ex2 = 75;
+	i.posY_Ex2 = 42;
 
 	Territoris a;
 	a.nom = "Alemania";
@@ -185,8 +185,8 @@ void Mapa::iniciaTerritoris(){
 	a.color = bgLoRed;
 	a.posX_Ex1 = 70;
 	a.posY_Ex1 = 15;
-	a.posX_Ex2 = 109;
-	a.posY_Ex2 = 15;
+	a.posX_Ex2 = 74;
+	a.posY_Ex2 = 17;
 
 	Territoris r;
 	r.nom = "Russia";
@@ -197,8 +197,8 @@ void Mapa::iniciaTerritoris(){
 	r.color = bgHiWhite;
 	r.posX_Ex1 = 128;
 	r.posY_Ex1 = 15;
-	r.posX_Ex2 = 135;
-	r.posY_Ex2 = 15;
+	r.posX_Ex2 = 130;
+	r.posY_Ex2 = 17;
 
 	Territoris g;
 	g.nom = "Grecia";
@@ -209,8 +209,8 @@ void Mapa::iniciaTerritoris(){
 	g.color = bgLoMagenta;
 	g.posX_Ex1 = 108;
 	g.posY_Ex1 = 50;
-	g.posX_Ex2 = 125;
-	g.posY_Ex2 = 40;
+	g.posX_Ex2 = 110;
+	g.posY_Ex2 = 52;
 
 	Territoris t;
 	t.nom = "Turquia";
@@ -221,8 +221,8 @@ void Mapa::iniciaTerritoris(){
 	t.color = bgLoGreen;
 	t.posX_Ex1 = 145;
 	t.posY_Ex1 = 70;
-	t.posX_Ex2 = 150;
-	t.posY_Ex2 = 60;
+	t.posX_Ex2 = 147;
+	t.posY_Ex2 = 72;
 
 	territoris.push_back(s);
 	territoris.push_back(p);
@@ -234,11 +234,19 @@ void Mapa::iniciaTerritoris(){
 	territoris.push_back(t);
 
 }
-void Mapa::update()
+void Mapa::update(vector<Excercit*>posEx)
 {
 	for (itt = territoris.begin(); itt != territoris.end(); itt++)
 	{
-
+		for (int i = 0; i < posEx.size(); i++)
+		{
+			if (itt->id == posEx[i]->getTerritoriAct())
+			{
+				itt->exPresent = true;
+			}
+			if (itt->castell)
+				posEx[i]->castell
+		}
 	}
 }
 void Mapa::pintaNoms()
@@ -246,7 +254,7 @@ void Mapa::pintaNoms()
 	for (itt = territoris.begin(); itt != territoris.end(); itt++)
 	{
 		if (itt->exPresent){
-			Util::gotoxy(itt->posX_Ex1, itt->posY_Ex1);
+			Util::gotoxy(itt->posX_Ex2, itt->posY_Ex2);
 			cout << con::bg_black << ' ';
 		}
 		Util::gotoxy(itt->posX_Ex1, itt->posY_Ex1);

@@ -66,7 +66,7 @@ void Excercit::setUnitats(list<Unitats *> u)
 	units = u;
 }
 
-void Excercit::moure()
+void Excercit::moure(vector<Excercit*> posEx)
 {
 	int posTid[4];
 	switch (territoriActual)
@@ -139,37 +139,61 @@ void Excercit::moure()
 	}
 	else if (corr)
 	{
-		if (!otherExPresent(idDe, idPropietari))
+		bool exPres = false;
+		Excercit *defensor;
+
+		for (int i = 0; i < posEx.size(); i++)
 		{
-		Util::printInterface("L'excercit es mou al territori objectiu", con::fgHiGreen);
-		Util::resetPosY();
-		territoriActual = idDe;
-		movimentD = false;
+			if (posEx[i]->getTerritoriAct() == idDe && posEx[i]->getIdPropietari() != idPropietari)
+			{
+				exPres = true;
+				defensor = posEx[1];
+				break;
+			}
+		}
+
+
+		if (!exPres)
+		{
+			Util::printInterface("L'excercit es mou al territori objectiu", con::fgHiGreen);
+			Util::resetPosY();
+			territoriActual = idDe;
+			movimentD = false;
 		}
 		else
 		{
-		menuok = false;
-		Util::printInterface("Hi ha un excercit enemic al territori objectiu.", con::fgHiYellow);
-		Util::printInterface("Atacar?");
+			menuok = false;
+			Util::printInterface("Hi ha un excercit enemic al territori objectiu.", con::fgHiYellow);
+			Util::printInterface("Atacar?");
 
-		while (!menuok){
-		Util::resetPosY(16);
-		switch (idDe)
-		{
-		case 1:
-		Util::printInterfacebg("Si",con::fgHiYellow);
-		Util::posyMas();
-		Util::printInterface("No");
-		break;
-		case 2:
-		Util::printInterface("Si", con::fgHiYellow);
-		Util::posyMas();
-		Util::printInterfacebg("No", con::fgHiYellow);
-		break;
-		}
-		Util::printInterface(to_string(idDe));
-		menuok = Util::teclado(idDe, 2);
-		}
+			while (!menuok){
+				Util::resetPosY(14);
+				switch (idDe)
+				{
+				case 1:
+					Util::printInterfacebg("Si", con::fgBlack, con::bgHiYellow);
+					Util::posyMas();
+					Util::printInterface("No", con::fgHiYellow);
+					break;
+				case 2:
+					Util::printInterface("Si", con::fgHiYellow);
+					Util::posyMas();
+					Util::printInterfacebg("No", con::fgBlack, con::bgHiYellow);
+					break;
+				}
+				//Util::printInterface(to_string(idDe));
+				menuok = Util::teclado(idDe, 2);
+			}
+
+			switch (idDe)
+			{
+			case 1:
+				atacar(defensor);
+				break;
+			case 2:
+				Util::printInterface("L'excercit cancela el seu moviment", con::fgHiRed);
+				break;
+			}
 
 		Util::resetPosY();
 		}
@@ -246,14 +270,98 @@ void Excercit::desbandar(string u, int q)
 	Util::resetPosY();
 }
 void Excercit::desbandar(){}
-void Excercit::calculaBonusDef(){}
-void Excercit::calculaBonusOff(){}
-bool Excercit::atacar(Excercit e)
+
+void Excercit::setCastell(bool c){	castell = c; }
+bool Excercit::getCastell(){ return castell; }
+
+void Excercit::calculaBonusDef()
+{ 
+	bonusDef = 0;
+	if (castell)
+		bonusDef = 100;
+	bonusDef *= (general.comandament / 7);
+}
+void Excercit::calculaBonusOff()
+{
+	for (int i = 0; i < 5; i++)
+	{
+		bonusOf[i] = 0;
+	}
+	for (itu = units.begin(); itu != units.end(); itu++)
+	{
+		bonusOf[0] += (*itu)->bonusVsArq;
+		bonusOf[1] += (*itu)->bonusVsInf;
+		bonusOf[2] += (*itu)->bonusVsSpear;
+		bonusOf[3] += (*itu)->bonusVsCav;
+		bonusOf[4] += (*itu)->bonusVsBuild;
+	}
+
+	for (int i = 0; i < 5; i++)
+	{
+		bonusOf[i] *= (general.comandament/10);
+	}
+}
+
+bool Excercit::atacar(Excercit *e)
 {
 	bool result = false;
+	int noTypeUnits[5];
+	for (int i = 0; i < 5; i++)
+	{
+		noTypeUnits[i] = 0;
+	}
+
+	e->update();
+	update();
+
+	for (itu = units.begin(); itu != units.end(); itu++)
+	{
+		if ((*itu)->nom == "Arquer")
+			noTypeUnits[0] += 1;
+		else if ((*itu)->nom == "Soldat")
+			noTypeUnits[1] += 1;
+		else if ((*itu)->nom == "Llancer")
+			noTypeUnits[2] += 1;
+		else if ((*itu)->nom == "Cavaller")
+			noTypeUnits[3] += 1;
+		else if ((*itu)->nom == "Arma de setge")
+			noTypeUnits[4] += 1;
+	}
+
+
+
+
+
+
 	return result;
 }
-void Excercit::update(){}
+
+void Excercit::update()
+{
+	calculaBonusDef();
+	calculaBonusOff();
+	calculaAtT();
+	calculaDeT();
+	//
+}
+
+void Excercit::calculaAtT()
+{
+	fTotal = 0;
+	for (itu = units.begin(); itu != units.end(); itu++)
+	{
+		fTotal += (*itu)->atack;
+	}
+}
+
+void Excercit::calculaDeT()
+{
+	dTotal = 0;
+	for (itu = units.begin(); itu != units.end(); itu++)
+	{
+		dTotal += (*itu)->def;
+	}
+}
 
 void Excercit::setIdPropietari(int id)
 {
