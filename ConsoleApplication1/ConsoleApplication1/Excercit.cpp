@@ -56,9 +56,9 @@ General Excercit::getGeneral()
 	return general;
 }
 
-list<Unitats *> Excercit::getUnitats()
+list<Unitats *>* Excercit::getUnitats()
 {
-	return units;
+	return &units;
 }
 
 void Excercit::setUnitats(list<Unitats *> u)
@@ -279,14 +279,15 @@ void Excercit::calculaBonusDef()
 	bonusDef = 0;
 	if (castell)
 		bonusDef = 100;
-	bonusDef *= (general.comandament / 7);
+	bonusDef *= (1 + general.comandament / 7);
 }
 void Excercit::calculaBonusOff()
 {
-	for (int i = 0; i < 5; i++)
+	for each (int var in bonusOf)
 	{
-		bonusOf[i] = 0;
+		var = 0;
 	}
+
 	for (itu = units.begin(); itu != units.end(); itu++)
 	{
 		bonusOf[0] += (*itu)->bonusVsArq;
@@ -296,23 +297,98 @@ void Excercit::calculaBonusOff()
 		bonusOf[4] += (*itu)->bonusVsBuild;
 	}
 
-	for (int i = 0; i < 5; i++)
+	for each (int var in bonusOf)
 	{
-		bonusOf[i] *= (general.comandament/10);
+		var *= (1 + general.comandament/10);
 	}
+}
+
+vector<float> Excercit::getBonusOf()
+{
+	vector<float> bonus;
+
+	for each(int var in bonusOf)
+	{
+		bonus.push_back(var);
+	}
+
+	return bonus;
+}
+
+vector<float> Excercit::getBonusDef()
+{
+	vector<float> bonus;
+
+	for each (int var in bonusOf)
+	{
+		bonus.push_back(var);
+	}
+
+	return bonus;
+}
+
+float Excercit::getFTot()
+{
+	return fTotal;
+}
+
+float Excercit::getDTot()
+{
+	return dTotal;
+}
+
+vector<int> Excercit::getNoUnitTypes()
+{
+	vector<int> noUnits;
+
+	for each (int var in noTypeUnits)
+	{
+		noUnits.push_back(var);
+	}
+
+	return noUnits;
 }
 
 bool Excercit::atacar(Excercit *e)
 {
 	bool result = false;
-	int noTypeUnits[5];
-	for (int i = 0; i < 5; i++)
-	{
-		noTypeUnits[i] = 0;
-	}
+	
 
 	e->update();
 	update();
+
+	vector<float> bE = e->getBonusDef();
+	vector<float> bA = getBonusOf();
+	vector<int> noE = e->getNoUnitTypes();
+	vector<int> noA = getNoUnitTypes();
+	
+	list<Unitats *>* uE = e->getUnitats();
+	list<Unitats *>* uA = getUnitats();
+	list<Unitats *>::iterator itu;
+	
+	for (itu = uE->begin(); itu != uE->end(); itu++)
+	{
+
+	}
+
+	for (itu = uE->begin(); itu != uE->end(); itu++)
+	{
+
+	}
+
+
+
+
+	return result;
+}
+
+void Excercit::update()
+{
+	int noTypeUnits[5];
+	for each(int var in noTypeUnits)
+	{
+		var = 0;
+	}
 
 	for (itu = units.begin(); itu != units.end(); itu++)
 	{
@@ -328,16 +404,6 @@ bool Excercit::atacar(Excercit *e)
 			noTypeUnits[4] += 1;
 	}
 
-
-
-
-
-
-	return result;
-}
-
-void Excercit::update()
-{
 	calculaBonusDef();
 	calculaBonusOff();
 	calculaAtT();

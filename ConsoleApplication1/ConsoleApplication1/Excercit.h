@@ -18,7 +18,8 @@ private:
 	list<Unitats *>units;
 	list<Unitats *>::iterator itu;
 	General general;
-	float bonusOf[5];
+	float bonusOf[5], totalBonus[5];
+	int noTypeUnits[5];
 	int totalUnits, idPropietari, id;
 	bool movimentD = true, castell;
 	float fTotal, dTotal, bonusDef;
@@ -30,7 +31,7 @@ public:
 	void setTerritoriAct(int idT);
 	void setGeneral(General g);
 	General getGeneral();
-	list<Unitats *> getUnitats();
+	list<Unitats *>* getUnitats();
 	void setUnitats(list<Unitats *> u);
 	void moure(vector<Excercit*> posEx);
 	void afegirUnitat(Unitats* u);
@@ -48,6 +49,11 @@ public:
 	void setCastell(bool);
 	bool getCastell();
 	int getIdPropietari();
+	float getFTot();
+	float getDTot();
+	vector<float> getBonusOf();
+	vector<float> getBonusDef();
+	vector<int> getNoUnitTypes();
 	Excercit();
 	Excercit(General gen, list<Unitats *>uni, int ide);
 	~Excercit();

@@ -10,7 +10,7 @@ public:
 
 	float def, atack;
 	int exp, costRec, costMan, lvl;
-	float bonusVsCav, bonusVsInf, bonusVsSpear, bonusVsArq, bonusVsBuild;
+	float bonusVsCav, bonusVsInf, bonusVsSpear, bonusVsArq, bonusVsBuild, vida;
 	string nom;
 
 	virtual void setCostMan(int cost)
@@ -95,6 +95,7 @@ public:
 	{
 		nom = "Arquer";
 		def = 10;
+		vida = 20;
 		atack = 25;
 		costRec = 50;
 		costMan = 15;
@@ -109,6 +110,7 @@ public:
 	{
 		nom = "Arquer";
 		def = 10;
+		vida = 20;
 		atack = 25;
 		costRec = 50;
 		costMan = 15;
@@ -124,6 +126,7 @@ public:
 	{
 		Unitats::Update();
 		def += 0.5 * (lvl - 1);
+		vida += 5 * (lvl - 1);
 		atack += 1.5 * (lvl - 1);
 		costRec += 25 * (lvl - 1);
 		costMan += 5 * (lvl - 1);
@@ -142,6 +145,7 @@ public:
 	{
 		nom = "Soldat";
 		def = 20;
+		vida = 50;
 		atack = 10;
 		costRec = 30;
 		costMan = 10;
@@ -155,6 +159,7 @@ public:
 	{
 		nom = "Soldat";
 		def = 20;
+		vida = 50;
 		atack = 10;
 		costRec = 30;
 		costMan = 10;
@@ -170,6 +175,7 @@ public:
 	{
 		Unitats::Update();
 		def += 1.5 * (lvl - 1);
+		vida += 10 * (lvl - 1);
 		atack += 0.5 * (lvl - 1);
 		costRec += 15 * (lvl - 1);
 		costMan += 5 * (lvl - 1);
@@ -188,6 +194,7 @@ public:
 	{
 		nom = "Cavaller";
 		def = 30;
+		vida = 70;
 		atack = 20;
 		costRec = 100;
 		costMan = 40;
@@ -201,6 +208,7 @@ public:
 	{
 		nom = "Cavaller";
 		def = 30;
+		vida = 70;
 		atack = 20;
 		costRec = 100;
 		costMan = 40;
@@ -216,6 +224,7 @@ public:
 	{
 		Unitats::Update();
 		def += 1.5 * (lvl - 1);
+		vida += 15 * (lvl - 1);
 		atack += 1.5 * (lvl - 1);
 		costRec += 40 * (lvl - 1);
 		costMan += 10 * (lvl - 1);
@@ -234,6 +243,7 @@ public:
 	{
 		nom = "Llancer";
 		def = 10;
+		vida = 30;
 		atack = 20;
 		costRec = 25;
 		costMan = 7;
@@ -247,6 +257,7 @@ public:
 	{
 		nom = "Llancer";
 		def = 10;
+		vida = 30;
 		atack = 20;
 		costRec = 25;
 		costMan = 7;
@@ -262,6 +273,7 @@ public:
 	{
 		Unitats::Update();
 		def += 1 * (lvl - 1);
+		vida += 7 * (lvl - 1);
 		atack += 1.5 * (lvl - 1);
 		costRec += 5 * (lvl - 1);
 		costMan += 3 * (lvl - 1);
@@ -280,6 +292,7 @@ public:
 	{
 		nom = "Arma de setge";
 		def = 2;
+		vida = 5;
 		atack = 50;
 		costRec = 150;
 		costMan = 50;
@@ -293,6 +306,7 @@ public:
 	{
 		nom = "Arma de setge";
 		def = 2;
+		vida = 5;
 		atack = 50;
 		costRec = 150;
 		costMan = 50;
@@ -308,6 +322,7 @@ public:
 	{
 		Unitats::Update();
 		def += 0.5 * (lvl - 1);
+		vida += 2 * (lvl - 1);
 		atack += 3 * (lvl - 1);
 		costRec += 35 * (lvl - 1);
 		costMan += 10 * (lvl - 1);

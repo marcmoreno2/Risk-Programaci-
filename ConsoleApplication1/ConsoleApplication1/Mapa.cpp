@@ -245,7 +245,7 @@ void Mapa::update(vector<Excercit*>posEx)
 				itt->exPresent = true;
 			}
 			if (itt->castell)
-				posEx[i]->castell
+				posEx[i]->setCastell(true);
 		}
 	}
 }

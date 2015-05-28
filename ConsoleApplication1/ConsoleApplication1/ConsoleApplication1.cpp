@@ -7,7 +7,7 @@ using namespace std;
 //using namespace Util;
 namespace con = JadedHoboConsole;
 using namespace con;
-
+using namespace main;
 int torn;
 
 
