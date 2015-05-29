@@ -22,13 +22,13 @@ struct Territoris{
 
 class Mapa {
 private:
-	char mapa[80][210];
+	char mapa[80][225];
 	list<Territoris> territoris;
 	list<Territoris>::iterator itt;
 public:
 
 	void print();
-	Mapa(char m[][210]);
+	Mapa(char m[][225]);
 	~Mapa();
 
 	void iniciaTerritoris();

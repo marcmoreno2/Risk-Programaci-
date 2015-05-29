@@ -147,7 +147,7 @@ void Excercit::moure(vector<Excercit*> posEx)
 			if (posEx[i]->getTerritoriAct() == idDe && posEx[i]->getIdPropietari() != idPropietari)
 			{
 				exPres = true;
-				defensor = posEx[1];
+				defensor = posEx[i];
 				break;
 			}
 		}
@@ -166,9 +166,10 @@ void Excercit::moure(vector<Excercit*> posEx)
 			Util::printInterface("Hi ha un excercit enemic al territori objectiu.", con::fgHiYellow);
 			Util::printInterface("Atacar?");
 
+			int opAt = 1;
 			while (!menuok){
 				Util::resetPosY(14);
-				switch (idDe)
+				switch (opAt)
 				{
 				case 1:
 					Util::printInterfacebg("Si", con::fgBlack, con::bgHiYellow);
@@ -181,18 +182,25 @@ void Excercit::moure(vector<Excercit*> posEx)
 					Util::printInterfacebg("No", con::fgBlack, con::bgHiYellow);
 					break;
 				}
-				//Util::printInterface(to_string(idDe));
-				menuok = Util::teclado(idDe, 2);
+				menuok = Util::teclado(opAt, 2);
 			}
-
-			switch (idDe)
+			bool result;
+			switch (opAt)
 			{
 			case 1:
-				atacar(defensor);
+				result = atacar(defensor);
+				movimentD = false;
 				break;
 			case 2:
 				Util::printInterface("L'excercit cancela el seu moviment", con::fgHiRed);
 				break;
+			}
+
+			if (result)
+			{
+				Util::printInterface("L'excercit es mou al territori objectiu", con::fgHiGreen);
+				Util::resetPosY();
+				territoriActual = idDe;
 			}
 
 		Util::resetPosY();
@@ -229,14 +237,17 @@ void Excercit::afegirUnitats(list<Unitats *> u)
 void Excercit::mostrarUnits()
 {
 	Util::printInterface("Unitats de l'excercit " + to_string(id) + ":", con::fgHiCyan);
+
 	for (itu = units.begin(); itu != units.end(); itu++)
 	{
+		Util::posyMas();
 		Util::printInterface((*itu)->nom);
+		Util::printInterface("Salut: " + to_string((*itu)->vida));
 		Util::printInterface("Nivell: " + to_string((*itu)->lvl));
 		Util::printInterface("Experiencia: " + to_string((*itu)->exp));
 		Util::printInterface("Atac: " + to_string((*itu)->atack));
 		Util::printInterface("Defensa: " + to_string((*itu)->def));
-		Util::printInterface("                                              ");
+
 	}
 	system("pause>>null");
 	Util::resetPosY();
@@ -278,12 +289,13 @@ void Excercit::calculaBonusDef()
 { 
 	bonusDef = 0;
 	if (castell)
-		bonusDef = 100;
-	bonusDef *= (1 + general.comandament / 7);
+		bonusDef += 100;
+	bonusDef += 100;
+	bonusDef = bonusDef * (1 + general.comandament / 7) + 25*general.comandament;
 }
 void Excercit::calculaBonusOff()
 {
-	for each (int var in bonusOf)
+	for each (float var in bonusOf)
 	{
 		var = 0;
 	}
@@ -297,7 +309,7 @@ void Excercit::calculaBonusOff()
 		bonusOf[4] += (*itu)->bonusVsBuild;
 	}
 
-	for each (int var in bonusOf)
+	for each (float var in bonusOf)
 	{
 		var *= (1 + general.comandament/10);
 	}
@@ -315,16 +327,10 @@ vector<float> Excercit::getBonusOf()
 	return bonus;
 }
 
-vector<float> Excercit::getBonusDef()
+float Excercit::getBonusDef()
 {
-	vector<float> bonus;
 
-	for each (int var in bonusOf)
-	{
-		bonus.push_back(var);
-	}
-
-	return bonus;
+	return bonusDef;
 }
 
 float Excercit::getFTot()
@@ -351,43 +357,110 @@ vector<int> Excercit::getNoUnitTypes()
 
 bool Excercit::atacar(Excercit *e)
 {
-	bool result = false;
+	//bool result = false;
 	
+	vector<Unitats> perduesA;
+	vector<Unitats> perduesE;
 
 	e->update();
 	update();
 
-	vector<float> bE = e->getBonusDef();
+	float bE = e->getBonusDef();
 	vector<float> bA = getBonusOf();
 	vector<int> noE = e->getNoUnitTypes();
 	vector<int> noA = getNoUnitTypes();
 	
 	list<Unitats *>* uE = e->getUnitats();
 	list<Unitats *>* uA = getUnitats();
-	list<Unitats *>::iterator itu;
+	list<Unitats *>::iterator ituE;
+	list<Unitats *>::iterator ituA;
 	
-	for (itu = uE->begin(); itu != uE->end(); itu++)
-	{
+	list<Unitats *> uEP = *uE;
+	list<Unitats *> uAP = *uA;
 
+	float puntuacioA = 0, puntuacioE = 0;
+	float bonusATAvgA = 0;
+
+	for (int i = 0; i < 5; i++)
+	{
+		bonusATAvgA += noE[i] * bA[i];
+	}
+	
+	//bonusATAvgA /= uE->size();
+	float fTotA = getFTot();
+	int uESize = uE->size();
+	float fTotE = e->getFTot();
+	int uASize = uA->size();
+	for (ituE = uE->begin(); ituE != uE->end();)
+	{
+		(*ituE)->vida -= (((fTotA + bonusATAvgA) / uESize) - ((*ituE)->def + (bE / uASize)));
+		puntuacioE += (*ituE)->vida;
+		if ((*ituE)->vida <= 0)
+		{
+			Unitats *a = *ituE;
+			perduesE.emplace_back(*a);
+			ituE = uE->erase(ituE);
+		}
+		else ituE++;
+	}
+	
+	for (ituA = uA->begin(); ituA != uA->end();)
+	{
+		(*ituA)->vida -= (((fTotE + bE) / uASize) - ((*ituA)->def + (bonusATAvgA / uESize)));
+		puntuacioA += (*ituA)->vida;
+		if ((*ituA)->vida <= 0)
+		{
+			Unitats *a = *ituA;
+			perduesA.emplace_back(*a);
+			ituA = uA->erase(ituA);
+		}
+		else  ituA++;
 	}
 
-	for (itu = uE->begin(); itu != uE->end(); itu++)
+	if (puntuacioA > puntuacioE)
 	{
-
+		if (player)
+		{
+			Util::posyMas();
+			Util::printInterface("--------------------------------------------------------------", con::fgHiGreen);
+			Util::printInterface("     L'excercit ha derrotat a l'excercit defensor enemic:");
+			Util::printInterface("--------------------------------------------------------------");
+			//Util::resetPosY();
+		}
+		return true;
 	}
+	else
+	{
+		if (player)
+		{
+			Util::posyMas();
+			Util::printInterface("---------------------------------------------------------------", con::fgHiRed);
+			Util::printInterface("  L'excercit ha estat derrotat per l'excercit defensor enemic:");
+			Util::printInterface("---------------------------------------------------------------");
+		}
+		return false;
+	}
+	
+	//return result;
+}
 
+bool Excercit::getPlayer()
+{
+	return player;
+}
 
-
-
-	return result;
+void Excercit::setPlayer(bool p)
+{
+	player = p;
 }
 
 void Excercit::update()
 {
-	int noTypeUnits[5];
-	for each(int var in noTypeUnits)
+	noTypeUnits[5];
+	//for each(int var in noTypeUnits)
+	for (int elem : noTypeUnits)
 	{
-		var = 0;
+		elem = 0;
 	}
 
 	for (itu = units.begin(); itu != units.end(); itu++)

@@ -253,5 +253,6 @@ void Faction::imprPropEx()
 	{
 		ite->setIdPropietari(id);
 		ite->setTerritoriAct(id_capital);
+		ite->setPlayer(player);
 	}
 }

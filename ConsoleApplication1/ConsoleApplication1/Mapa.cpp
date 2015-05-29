@@ -9,9 +9,9 @@ namespace con = JadedHoboConsole;
 using namespace con;
 
 
-Mapa::Mapa(char m[][210])
+Mapa::Mapa(char m[][225])
 {
-	int cb = sizeof(char) * 80 * 210;
+	int cb = sizeof(char) * 80 * 225;
 	memcpy(mapa, m, cb);
 }
 
@@ -70,7 +70,7 @@ void Mapa::print(){
 	}
 	Util::gotoxy(0, 0);
 	for (int i = 0; i < 80; i++){
-		for (int j = 0; j < 210; j++){
+		for (int j = 0; j < 225; j++){
 			switch (mapa[i][j])
 			{
 			case 'X':

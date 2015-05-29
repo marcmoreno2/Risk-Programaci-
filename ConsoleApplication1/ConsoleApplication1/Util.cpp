@@ -117,7 +117,7 @@ void Util::flushInterface()
 	console.SetColor(bgBlack, fgMask);
 	for (int i = 2; i < 78; i++)
 	{
-		Util::gotoxy(158, i); cout << "                                                  ";
+		Util::gotoxy(158, i); cout << "                                                                 ";
 	}
 }
 
@@ -126,7 +126,7 @@ void Util::flushMenu(int L)
 	console.SetColor(bgBlack, fgMask);
 	for (int i = 2; i < L * 2; i++)
 	{
-		Util::gotoxy(158, i); cout << "                                                  ";
+		Util::gotoxy(158, i); cout << "                                                                 ";
 		i++;
 	}
 }
@@ -136,7 +136,7 @@ void Util::flushMenu(int O, int L)
 	console.SetColor(bgBlack, fgMask);
 	for (int i = O; i < (O + (L * 2)); i++)
 	{
-		Util::gotoxy(158, i); cout << "                                                  ";
+		Util::gotoxy(158, i); cout << "                                                                 ";
 		i++;
 	}
 }
@@ -145,7 +145,7 @@ void Util::flushInterface(bool f)
 {
 	for (int i = 2; i < 78; i++)
 	{
-		Util::gotoxy(158, i); cout << "                                                  ";
+		Util::gotoxy(158, i); cout << "                                                                 ";
 	}
 }
 

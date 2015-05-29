@@ -21,7 +21,7 @@ private:
 	float bonusOf[5], totalBonus[5];
 	int noTypeUnits[5];
 	int totalUnits, idPropietari, id;
-	bool movimentD = true, castell;
+	bool movimentD = true, castell, player;
 	float fTotal, dTotal, bonusDef;
 public:
 	void calculaManteniment();
@@ -51,8 +51,10 @@ public:
 	int getIdPropietari();
 	float getFTot();
 	float getDTot();
+	bool getPlayer();
+	void setPlayer(bool);
 	vector<float> getBonusOf();
-	vector<float> getBonusDef();
+	float getBonusDef();
 	vector<int> getNoUnitTypes();
 	Excercit();
 	Excercit(General gen, list<Unitats *>uni, int ide);
