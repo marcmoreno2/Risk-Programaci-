@@ -95,7 +95,7 @@ public:
 	{
 		nom = "Arquer";
 		def = 10;
-		vida = 20;
+		vida = 30;
 		atack = 25;
 		costRec = 50;
 		costMan = 15;
@@ -110,7 +110,7 @@ public:
 	{
 		nom = "Arquer";
 		def = 10;
-		vida = 20;
+		vida = 30;
 		atack = 25;
 		costRec = 50;
 		costMan = 15;
@@ -193,7 +193,7 @@ public:
 	Cavalleria() :Unitats()
 	{
 		nom = "Cavaller";
-		def = 30;
+		def = 25;
 		vida = 70;
 		atack = 20;
 		costRec = 100;
@@ -207,7 +207,7 @@ public:
 	Cavalleria(int lvl, int exp) :Unitats(lvl, exp)
 	{
 		nom = "Cavaller";
-		def = 30;
+		def = 25;
 		vida = 70;
 		atack = 20;
 		costRec = 100;
@@ -242,8 +242,8 @@ public:
 	Llancer() :Unitats()
 	{
 		nom = "Llancer";
-		def = 10;
-		vida = 30;
+		def = 15;
+		vida = 35;
 		atack = 20;
 		costRec = 25;
 		costMan = 7;
@@ -256,8 +256,8 @@ public:
 	Llancer(int lvl, int exp) :Unitats(lvl, exp)
 	{
 		nom = "Llancer";
-		def = 10;
-		vida = 30;
+		def = 15;
+		vida = 35;
 		atack = 20;
 		costRec = 25;
 		costMan = 7;
@@ -291,8 +291,8 @@ public:
 	Siege() :Unitats()
 	{
 		nom = "Arma de setge";
-		def = 2;
-		vida = 5;
+		def = 5;
+		vida = 50;
 		atack = 50;
 		costRec = 150;
 		costMan = 50;
@@ -305,8 +305,8 @@ public:
 	Siege(int lvl, int exp) :Unitats(lvl, exp)
 	{
 		nom = "Arma de setge";
-		def = 2;
-		vida = 5;
+		def = 5;
+		vida = 50;
 		atack = 50;
 		costRec = 150;
 		costMan = 50;

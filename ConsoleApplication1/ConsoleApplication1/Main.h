@@ -3,6 +3,7 @@
 #include "stdafx.h"
 #include <iostream>
 #include "Faction.h"
+#include "Mapa.h"
 
 using namespace std;
 //using namespace Util;
@@ -94,11 +95,19 @@ namespace main{
 		"YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY"
 	};
 
+	Mapa a;
+
 	Util U;
 
 	list<Faction> faccions;
 	list<Faction>::iterator itf;
 	vector<Excercit*> posEx;
+
+	void inicialitzaMapa()
+	{
+		Mapa I(mapa);
+		a = I;
+	}
 
 
 	void inicialitzaFaccions()
@@ -318,8 +327,15 @@ namespace main{
 		bool fi = false;
 		int op;
 
+		for (itf = faccions.begin(); itf != faccions.end(); itf++)
+		{
+			if (itf->getId() == num)
+				break;
+		}
+
+
 		op = menuPrinc();
-		int numEx = 1;
+		int numEx = 1, conquerit = 0;
 		bool menuok = false;
 		switch (op)
 		{
@@ -332,11 +348,6 @@ namespace main{
 				menuok = U.teclado(numEx, 2);
 			}
 			U.posyMas();
-			for (itf = faccions.begin(); itf != faccions.end(); itf++)
-			{
-				if (itf->getId() == num)
-					break;
-			}
 
 			itf->getIterEx(numEx)->mostrarUnits();
 
@@ -350,13 +361,15 @@ namespace main{
 				menuok = U.teclado(numEx, 2);
 			}
 			U.posyMas();
-			for (itf = faccions.begin(); itf != faccions.end(); itf++)
-			{
-				if (itf->getId() == num)
-					break;
+			
+			conquerit = itf->getIterEx(numEx)->moure(posEx);
+
+			if (conquerit != 0){
+				a.update(conquerit, itf->getId());
+				a.print();
+				a.pintaNoms();
 			}
 
-			itf->getIterEx(numEx)->moure(posEx);
 
 			break;
 		case 3:
@@ -369,21 +382,10 @@ namespace main{
 			}
 			U.posyMas();
 
-			for (itf = faccions.begin(); itf != faccions.end(); itf++)
-			{
-				if (itf->getId() == num)
-					break;
-			}
-
 			menuUnitats(itf, numEx);
 			break;
 		case 4:
-			for (itf = faccions.begin(); itf != faccions.end(); itf++)
-			{
-				if (itf->getId() == num)
-					break;
-			}
-
+			
 			U.printInterface("Les finances de la teva faccio son les seguents:", con::fgHiCyan);
 			U.posyMas();
 
@@ -398,25 +400,26 @@ namespace main{
 
 	void inicialitzaExcercits()
 	{
-		General g;
-		list<Unitats *> u;
-		Excercit e(g, u, 1);
-		Excercit b(g, u, 2);
-		u.push_back(new Arquer);
-		u.push_back(new Arquer);
-		u.emplace_back(new Soldat);
-		u.emplace_back(new Cavalleria);
-		u.emplace_back(new Llancer);
-		u.emplace_back(new Llancer);
-		e.afegirUnitats(u);
-		u.clear();
-		u.push_back(new Llancer);
-		u.emplace_back(new Siege);
-		u.emplace_back(new Arquer);
-		u.emplace_back(new Soldat);
-		b.afegirUnitats(u);
 		for (itf = faccions.begin(); itf != faccions.end(); itf++)
 		{
+			General g;
+			list<Unitats *> u;
+			Excercit e(g, u, 1);
+			Excercit b(g, u, 2);
+			u.push_back(new Arquer);
+			u.push_back(new Arquer);
+			u.emplace_back(new Soldat);
+			u.emplace_back(new Cavalleria);
+			u.emplace_back(new Llancer);
+			u.emplace_back(new Llancer);
+			e.afegirUnitats(u);
+			u.clear();
+			u.push_back(new Llancer);
+			u.emplace_back(new Siege);
+			u.emplace_back(new Arquer);
+			u.emplace_back(new Soldat);
+			b.afegirUnitats(u);
+		
 			itf->setExcercit(e);
 			itf->setExcercit(b);
 			itf->imprPropEx();
@@ -442,7 +445,7 @@ namespace main{
 		return false;
 	}
 
-	void update(Mapa &a, bool t)
+	void update(bool t)
 	{
 		posEx.clear();
 		for (itf = faccions.begin(); itf != faccions.end(); itf++)

@@ -66,7 +66,7 @@ void Excercit::setUnitats(list<Unitats *> u)
 	units = u;
 }
 
-void Excercit::moure(vector<Excercit*> posEx)
+int Excercit::moure(vector<Excercit*> posEx)
 {
 	int posTid[4];
 	switch (territoriActual)
@@ -110,7 +110,7 @@ void Excercit::moure(vector<Excercit*> posEx)
 	}
 
 	int idDe = 1;
-	bool menuok = false;
+	bool menuok = false, result;
 	Util::printInterface("Selecciona el territori de desti de l'excercit:", con::fgHiCyan);
 	Util::posyMas();
 	while (!menuok){
@@ -140,15 +140,14 @@ void Excercit::moure(vector<Excercit*> posEx)
 	else if (corr)
 	{
 		bool exPres = false;
-		Excercit *defensor;
+		vector<Excercit *>defensor;
 
 		for (int i = 0; i < posEx.size(); i++)
 		{
 			if (posEx[i]->getTerritoriAct() == idDe && posEx[i]->getIdPropietari() != idPropietari)
 			{
 				exPres = true;
-				defensor = posEx[i];
-				break;
+				defensor.push_back(posEx[i]);
 			}
 		}
 
@@ -184,23 +183,28 @@ void Excercit::moure(vector<Excercit*> posEx)
 				}
 				menuok = Util::teclado(opAt, 2);
 			}
-			bool result;
-			switch (opAt)
+
+
+			if (opAt == 1)
 			{
-			case 1:
 				result = atacar(defensor);
 				movimentD = false;
-				break;
-			case 2:
-				Util::printInterface("L'excercit cancela el seu moviment", con::fgHiRed);
-				break;
 			}
-
+			else
+			{
+				Util::printInterface("L'excercit cancela el seu moviment", con::fgHiRed);
+			}
+			Util::posyMas();
 			if (result)
 			{
 				Util::printInterface("L'excercit es mou al territori objectiu", con::fgHiGreen);
+				Util::printInterface("Captures el territori");
 				Util::resetPosY();
 				territoriActual = idDe;
+			}
+			else {
+				Util::printInterface("L'excercit es retira al territori d'origen despres de la derrota", con::fgHiRed);
+				Util::resetPosY();
 			}
 
 		Util::resetPosY();
@@ -219,6 +223,10 @@ void Excercit::moure(vector<Excercit*> posEx)
 
 	system("pause>>null");
 	Util::flushInterface();
+	if (result)
+		return idDe;
+	else return 0;
+
 }
 
 void Excercit::afegirUnitat(Unitats* u)
@@ -355,24 +363,53 @@ vector<int> Excercit::getNoUnitTypes()
 	return noUnits;
 }
 
-bool Excercit::atacar(Excercit *e)
+bool Excercit::atacar(vector<Excercit *>exe)
 {
 	//bool result = false;
-	
+	srand(time(NULL));
+
+
+
 	vector<Unitats> perduesA;
 	vector<Unitats> perduesE;
+	Unitats *a;
+	float bE = 0;
+	int noE[5];
+	list<Unitats *>* uE = getUnitats();
+	uE->clear();
+	list<Unitats *>::iterator ituE;
+	float fTotE = 0;
+	for (int i = 0; i < 5; i++)
+		noE[i] = 0;
+	for (int i = 0; i < exe.size(); i++)
+	{
+		exe[i]->update();
+		bE += exe[i]->getBonusDef();
 
-	e->update();
+		vector<int> noEAux;
+		noEAux = exe[i]->getNoUnitTypes();
+		noE[0] += noEAux[0];
+		noE[1] += noEAux[1];
+		noE[2] += noEAux[2];
+		noE[3] += noEAux[3];
+		noE[4] += noEAux[4];
+		fTotE += exe[i]->getFTot();
+		list<Unitats *>* uEAux = exe[i]->getUnitats();
+		for (ituE = uEAux->begin(); ituE != uEAux->end(); ituE++)
+			uE->push_back(*ituE);
+		
+	}
 	update();
 
-	float bE = e->getBonusDef();
+	
 	vector<float> bA = getBonusOf();
-	vector<int> noE = e->getNoUnitTypes();
 	vector<int> noA = getNoUnitTypes();
 	
-	list<Unitats *>* uE = e->getUnitats();
+
+	
+	//e->getUnitats();
 	list<Unitats *>* uA = getUnitats();
-	list<Unitats *>::iterator ituE;
+	
 	list<Unitats *>::iterator ituA;
 	
 	list<Unitats *> uEP = *uE;
@@ -381,40 +418,55 @@ bool Excercit::atacar(Excercit *e)
 	float puntuacioA = 0, puntuacioE = 0;
 	float bonusATAvgA = 0;
 
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < bA.size(); i++)
 	{
 		bonusATAvgA += noE[i] * bA[i];
 	}
 	
-	//bonusATAvgA /= uE->size();
+	bonusATAvgA /= (uE->size()/5);
 	float fTotA = getFTot();
 	int uESize = uE->size();
-	float fTotE = e->getFTot();
+	
 	int uASize = uA->size();
 	for (ituE = uE->begin(); ituE != uE->end();)
 	{
-		(*ituE)->vida -= (((fTotA + bonusATAvgA) / uESize) - ((*ituE)->def + (bE / uASize)));
-		puntuacioE += (*ituE)->vida;
+		float randA = rand() % 50 + 25;
+		float randE = rand() % 50 + 50;
+
+		float vidAnt = (*ituE)->vida;
+		float vidaPost = (*ituE)->vida - (((fTotA + bonusATAvgA + randA) / uESize) - ((*ituE)->def + ((bE + randE) / (uASize))));
+
+		if (vidaPost < vidAnt)
+			(*ituE)->vida = vidaPost;
+
+		
 		if ((*ituE)->vida <= 0)
 		{
-			Unitats *a = *ituE;
+			a = *ituE;
 			perduesE.emplace_back(*a);
 			ituE = uE->erase(ituE);
 		}
-		else ituE++;
+		else { puntuacioE += (*ituE)->vida; ituE++; }
 	}
 	
 	for (ituA = uA->begin(); ituA != uA->end();)
 	{
-		(*ituA)->vida -= (((fTotE + bE) / uASize) - ((*ituA)->def + (bonusATAvgA / uESize)));
-		puntuacioA += (*ituA)->vida;
+		float randA = rand() % 50 + 25;
+		float randE = rand() % 50 + 50;
+		float vidAnt = (*ituA)->vida;
+		float vidaPost = (*ituA)->vida - (((fTotE + bE + randE) / uASize) - ((*ituA)->def + ((randA) / (uESize))));
+
+		if (vidaPost < vidAnt)
+			(*ituA)->vida = vidaPost;
+		
+
 		if ((*ituA)->vida <= 0)
 		{
-			Unitats *a = *ituA;
+			a = *ituA;
 			perduesA.emplace_back(*a);
 			ituA = uA->erase(ituA);
 		}
-		else  ituA++;
+		else { puntuacioA += (*ituA)->vida; ituA++; }
 	}
 
 	if (puntuacioA > puntuacioE)
@@ -425,7 +477,21 @@ bool Excercit::atacar(Excercit *e)
 			Util::printInterface("--------------------------------------------------------------", con::fgHiGreen);
 			Util::printInterface("     L'excercit ha derrotat a l'excercit defensor enemic:");
 			Util::printInterface("--------------------------------------------------------------");
-			//Util::resetPosY();
+			Util::posyMas();
+			Util::printInterface("  Estadistiques:", con::fgHiCyan);
+			Util::posyMas();
+			Util::printInterface("     -Unitats perdudes:" + to_string(perduesA.size()));
+			for each(Unitats uni in perduesA)
+			{
+				Util::printInterface("        " + uni.nom + " lvl: " + to_string(uni.lvl));
+			}
+			Util::posyMas();
+			Util::printInterface("     -Unitats eliminades:" + to_string(perduesE.size()));
+			for each(Unitats uni in perduesE)
+			{
+				Util::printInterface("        " + uni.nom + " lvl: " + to_string(uni.lvl));
+			}
+			Util::posyMas();
 		}
 		return true;
 	}
@@ -437,6 +503,21 @@ bool Excercit::atacar(Excercit *e)
 			Util::printInterface("---------------------------------------------------------------", con::fgHiRed);
 			Util::printInterface("  L'excercit ha estat derrotat per l'excercit defensor enemic:");
 			Util::printInterface("---------------------------------------------------------------");
+			Util::posyMas();
+			Util::printInterface("  Estadistiques:", con::fgHiCyan);
+			Util::posyMas();
+			Util::printInterface("     -Unitats perdudes:" + to_string(perduesA.size()));
+			for each(Unitats uni in perduesA)
+			{
+				Util::printInterface("        " + uni.nom + " nivell: " + to_string(uni.lvl));
+			}
+			Util::posyMas();
+			Util::printInterface("     -Unitats eliminades:" + to_string(perduesE.size()));
+			for each(Unitats uni in perduesE)
+			{
+				Util::printInterface("        " + uni.nom + " nivell: " + to_string(uni.lvl));
+			}
+			Util::posyMas();
 		}
 		return false;
 	}

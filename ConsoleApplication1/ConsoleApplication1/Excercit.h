@@ -6,6 +6,8 @@
 #include <vector>
 #include <memory>
 #include "Util.h"
+#include "time.h"
+//#include "Territoris.h"
 //#include "Mapa.h"
 //#include "Main.h"
 
@@ -33,7 +35,7 @@ public:
 	General getGeneral();
 	list<Unitats *>* getUnitats();
 	void setUnitats(list<Unitats *> u);
-	void moure(vector<Excercit*> posEx);
+	int moure(vector<Excercit*> posEx);
 	void afegirUnitat(Unitats* u);
 	void afegirUnitats(list<Unitats *> u);
 	void mostrarUnits();
@@ -43,7 +45,7 @@ public:
 	void calculaBonusOff();
 	void calculaAtT();
 	void calculaDeT();
-	bool atacar(Excercit *e);
+	bool atacar(vector<Excercit *>e);
 	void update();
 	void setIdPropietari(int);
 	void setCastell(bool);

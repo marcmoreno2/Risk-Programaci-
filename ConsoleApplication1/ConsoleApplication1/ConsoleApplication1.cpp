@@ -15,11 +15,11 @@ int _tmain(int argc, _TCHAR* argv[])
 {
 	torn = 0;
 	U.fin = false;
-	U.resetPosY();
-	Mapa a(mapa);
+	inicialitzaMapa();
 	a.iniciaTerritoris();
 	a.print();
 	a.pintaNoms();
+	U.resetPosY();
 	U.printInterface("Inicialitzacio de mapa completa,", fgLoCyan);
 	U.printInterface("inicialitzant faccions...");
 	Sleep(500);
@@ -39,7 +39,7 @@ int _tmain(int argc, _TCHAR* argv[])
 			torn_acabat = tornJugador(1, torn);
 		}
 		//tornJugador(2);
-		update(a, torn_acabat);
+		update(torn_acabat);
 		torn_acabat = false;
 
 

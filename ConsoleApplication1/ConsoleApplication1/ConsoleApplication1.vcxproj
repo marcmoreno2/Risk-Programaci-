@@ -87,6 +87,7 @@
     <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="Territoris.h" />
     <ClInclude Include="Unitats.h" />
     <ClInclude Include="Util.h" />
   </ItemGroup>

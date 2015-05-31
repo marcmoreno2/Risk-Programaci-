@@ -1,38 +1,31 @@
 #pragma once
 
-//#include "stdafx.h"
 #include <iostream>
-#include <string>
 #include <list>
 #include <vector>
 #include "Excercit.h"
 #include <array>
-//#include "Console.h"
 #include "Util.h"
+#include "Territoris.h"
 
 using namespace std;
 
-struct Territoris{
-	string nom;
-	WORD color;
-	int posX_Ex1, posY_Ex1, posX_Ex2, posY_Ex2, id;
-	int idPropietari, idPropietariTornAnt;
-	bool exPresent = false , castell;
-};
 
 class Mapa {
-private:
+public:
 	char mapa[80][225];
 	list<Territoris> territoris;
 	list<Territoris>::iterator itt;
-public:
+
 
 	void print();
 	Mapa(char m[][225]);
+	Mapa();
 	~Mapa();
-
+	
 	void iniciaTerritoris();
 	list<Territoris>::iterator getIterTerr(int id);
+	void update(int idTerr, int idFaccio);
 	void update(vector<Excercit*>posEx);
 	void pintaNoms();
 };

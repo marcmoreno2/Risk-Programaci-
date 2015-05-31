@@ -1,4 +1,4 @@
-﻿Compilación iniciada a las 29/05/2015 22:29:57.
+﻿Compilación iniciada a las 31/05/2015 23:39:18.
      1>Proyecto "J:\marc\Treballs programacio\Risk-Programaci-\ConsoleApplication1\ConsoleApplication1\ConsoleApplication1.vcxproj" en el nodo 2 (Build destinos).
      1>ClCompile:
          D:\Archivos de programa (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\ConsoleApplication1.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Excercit.cpp
@@ -21,7 +21,14 @@
      1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(331): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
      1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(332): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
      1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\excercit.cpp(145): warning C4018: '<' : no coinciden signed/unsigned
-     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\excercit.cpp(324): warning C4244: 'argumento' : conversión de 'int' a 'const float'; posible pérdida de datos
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\excercit.cpp(332): warning C4244: 'argumento' : conversión de 'int' a 'const float'; posible pérdida de datos
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\excercit.cpp(369): warning C4244: 'argumento' : conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\excercit.cpp(384): warning C4018: '<' : no coinciden signed/unsigned
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\excercit.cpp(421): warning C4018: '<' : no coinciden signed/unsigned
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\excercit.cpp(433): warning C4244: 'inicializando' : conversión de 'int' a 'float'; posible pérdida de datos
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\excercit.cpp(434): warning C4244: 'inicializando' : conversión de 'int' a 'float'; posible pérdida de datos
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\excercit.cpp(454): warning C4244: 'inicializando' : conversión de 'int' a 'float'; posible pérdida de datos
+     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\excercit.cpp(455): warning C4244: 'inicializando' : conversión de 'int' a 'float'; posible pérdida de datos
        Link:
          D:\Archivos de programa (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"J:\marc\Treballs programacio\Risk-Programaci-\ConsoleApplication1\Debug\ConsoleApplication1.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"J:\marc\Treballs programacio\Risk-Programaci-\ConsoleApplication1\Debug\ConsoleApplication1.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"J:\marc\Treballs programacio\Risk-Programaci-\ConsoleApplication1\Debug\ConsoleApplication1.lib" /MACHINE:X86 Debug\ConsoleApplication1.res
          Debug\ConsoleApplication1.obj
@@ -35,4 +42,4 @@
 
 Compilación correcta.
 
-Tiempo transcurrido 00:00:01.67
+Tiempo transcurrido 00:00:01.79

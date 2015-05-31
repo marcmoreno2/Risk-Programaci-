@@ -15,6 +15,11 @@ Mapa::Mapa(char m[][225])
 	memcpy(mapa, m, cb);
 }
 
+Mapa::Mapa()
+{
+
+}
+
 
 Mapa::~Mapa()
 {
@@ -133,7 +138,7 @@ void Mapa::iniciaTerritoris(){
 	s.castell = true;
 	s.exPresent = true;
 	s.idPropietari = 1;
-	s.id = 1;
+	s.id = 2;
 	s.color = bgHiYellow;
 	s.posX_Ex1 = 20;
 	s.posY_Ex1 = 50;
@@ -145,7 +150,7 @@ void Mapa::iniciaTerritoris(){
 	p.castell = false;
 	p.exPresent = true;
 	p.idPropietari = 2;
-	p.id = 2;
+	p.id = 1;
 	p.color = bgHiRed;
 	p.posX_Ex1 = 7;
 	p.posY_Ex1 = 57;
@@ -234,6 +239,20 @@ void Mapa::iniciaTerritoris(){
 	territoris.push_back(t);
 
 }
+void Mapa::update(int idTerr, int idFaccio)
+{
+	for (itt = territoris.begin(); itt != territoris.end(); itt++)
+	{
+		if (itt->id == idTerr)
+		{
+			itt->idPropietariTornAnt = itt->idPropietari;
+			itt->idPropietari = idFaccio;
+			break;
+		}
+
+	}
+}
+
 void Mapa::update(vector<Excercit*>posEx)
 {
 	for (itt = territoris.begin(); itt != territoris.end(); itt++)
