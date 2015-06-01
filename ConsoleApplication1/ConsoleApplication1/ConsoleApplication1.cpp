@@ -38,6 +38,11 @@ int _tmain(int argc, _TCHAR* argv[])
 		{
 			torn_acabat = tornJugador(1, torn);
 		}
+		torn_acabat = false;
+		while (!torn_acabat)
+		{
+			torn_acabat = tornJugador(7, torn);
+		}
 		//tornJugador(2);
 		update(torn_acabat);
 		torn_acabat = false;

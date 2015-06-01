@@ -28,6 +28,8 @@ using namespace std;
 		static void resetPosY(int);
 		static void posyMas();
 		static void flushInterface();
+		static void flushInterface(int);
+		static void flushInterface(int, int);
 		static void flushMenu(int L);
 		static void flushMenu(int O, int L);
 		static void iniciaFi();

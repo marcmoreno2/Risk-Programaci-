@@ -45,7 +45,8 @@ public:
 	void calculaBonusOff();
 	void calculaAtT();
 	void calculaDeT();
-	bool atacar(vector<Excercit *>e);
+	bool atacar(Excercit *e, Excercit *d);
+	bool atacar(Excercit *e);
 	void update();
 	void setIdPropietari(int);
 	void setCastell(bool);

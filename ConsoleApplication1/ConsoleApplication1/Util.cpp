@@ -121,6 +121,24 @@ void Util::flushInterface()
 	}
 }
 
+void Util::flushInterface(int Origen)
+{
+	console.SetColor(bgBlack, fgMask);
+	for (int i = Origen; i < 78; i++)
+	{
+		Util::gotoxy(158, i); cout << "                                                                 ";
+	}
+}
+
+void Util::flushInterface(int Origen, int Desti)
+{
+	console.SetColor(bgBlack, fgMask);
+	for (int i = Origen; i < Desti; i++)
+	{
+		Util::gotoxy(158, i); cout << "                                                                 ";
+	}
+}
+
 void Util::flushMenu(int L)
 {
 	console.SetColor(bgBlack, fgMask);

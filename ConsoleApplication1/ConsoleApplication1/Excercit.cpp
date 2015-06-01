@@ -144,7 +144,7 @@ int Excercit::moure(vector<Excercit*> posEx)
 
 		for (int i = 0; i < posEx.size(); i++)
 		{
-			if (posEx[i]->getTerritoriAct() == idDe && posEx[i]->getIdPropietari() != idPropietari)
+			if ((posEx[i]->getTerritoriAct() == idDe) && (posEx[i]->getIdPropietari() != this->idPropietari))
 			{
 				exPres = true;
 				defensor.push_back(posEx[i]);
@@ -187,7 +187,10 @@ int Excercit::moure(vector<Excercit*> posEx)
 
 			if (opAt == 1)
 			{
-				result = atacar(defensor);
+				if (defensor.size() == 2){
+					result = this->atacar(defensor[0], defensor[1]);
+				}
+				else { result = this->atacar(defensor[0]); }
 				movimentD = false;
 			}
 			else
@@ -363,44 +366,61 @@ vector<int> Excercit::getNoUnitTypes()
 	return noUnits;
 }
 
-bool Excercit::atacar(vector<Excercit *>exe)
+bool Excercit::atacar(Excercit *e, Excercit *d)
 {
 	//bool result = false;
 	srand(time(NULL));
 
 
-
+	list<Unitats *>* uA = this->getUnitats();
 	vector<Unitats> perduesA;
 	vector<Unitats> perduesE;
 	Unitats *a;
 	float bE = 0;
-	int noE[5];
-	list<Unitats *>* uE = getUnitats();
-	uE->clear();
+	vector<float> bEAux;
+	vector<int> noE;
+	// = getUnitats();
+	//uE->clear();
 	list<Unitats *>::iterator ituE;
 	float fTotE = 0;
-	for (int i = 0; i < 5; i++)
+	list<Unitats *>* uE1 = e->getUnitats();
+	list<Unitats *> uE1P = *uE1;
+	list<Unitats *>* uE2 = d->getUnitats();
+	list<Unitats *> uE2P = *uE2;
+	/*for (int i = 0; i < 5; i++){
 		noE[i] = 0;
-	for (int i = 0; i < exe.size(); i++)
-	{
-		exe[i]->update();
-		bE += exe[i]->getBonusDef();
+		bEAux[i] = 0;
+	}*/
+	
+		e->update();
+		d->update();
+
+		bE += e->getBonusDef();
+		bE += d->getBonusDef();
+
+		vector<float>bEAux2;
+		bEAux = e->getBonusOf();
+		bEAux2 = d->getBonusOf();
+		bEAux[0] += bEAux2[0];
+		bEAux[1] += bEAux2[1];
+		bEAux[2] += bEAux2[2];
+		bEAux[3] += bEAux2[3];
+		bEAux[4] += bEAux2[4];
 
 		vector<int> noEAux;
-		noEAux = exe[i]->getNoUnitTypes();
+		noE = e->getNoUnitTypes();
+		noEAux = d->getNoUnitTypes();
 		noE[0] += noEAux[0];
 		noE[1] += noEAux[1];
 		noE[2] += noEAux[2];
 		noE[3] += noEAux[3];
 		noE[4] += noEAux[4];
-		fTotE += exe[i]->getFTot();
-		list<Unitats *>* uEAux = exe[i]->getUnitats();
-		for (ituE = uEAux->begin(); ituE != uEAux->end(); ituE++)
-			uE->push_back(*ituE);
-		
-	}
-	update();
 
+		fTotE += e->getFTot() + d->getFTot();
+		
+	
+	update();
+	
 	
 	vector<float> bA = getBonusOf();
 	vector<int> noA = getNoUnitTypes();
@@ -408,11 +428,11 @@ bool Excercit::atacar(vector<Excercit *>exe)
 
 	
 	//e->getUnitats();
-	list<Unitats *>* uA = getUnitats();
+	
 	
 	list<Unitats *>::iterator ituA;
 	
-	list<Unitats *> uEP = *uE;
+	
 	list<Unitats *> uAP = *uA;
 
 	float puntuacioA = 0, puntuacioE = 0;
@@ -420,18 +440,22 @@ bool Excercit::atacar(vector<Excercit *>exe)
 
 	for (int i = 0; i < bA.size(); i++)
 	{
+		bE += noA[i] * bEAux[i];
 		bonusATAvgA += noE[i] * bA[i];
 	}
 	
-	bonusATAvgA /= (uE->size()/5);
-	float fTotA = getFTot();
-	int uESize = uE->size();
-	
+	int uESize = uE1->size() + uE2->size();
 	int uASize = uA->size();
-	for (ituE = uE->begin(); ituE != uE->end();)
+
+	bonusATAvgA /= (uESize / 5);
+	bE /= (uASize);
+	float fTotA = getFTot();
+	
+
+	for (ituE = uE1->begin(); ituE != uE1->end();)
 	{
-		float randA = rand() % 50 + 25;
-		float randE = rand() % 50 + 50;
+		float randA = rand() % 50 + 50;
+		float randE = rand() % 50;
 
 		float vidAnt = (*ituE)->vida;
 		float vidaPost = (*ituE)->vida - (((fTotA + bonusATAvgA + randA) / uESize) - ((*ituE)->def + ((bE + randE) / (uASize))));
@@ -444,17 +468,38 @@ bool Excercit::atacar(vector<Excercit *>exe)
 		{
 			a = *ituE;
 			perduesE.emplace_back(*a);
-			ituE = uE->erase(ituE);
+			ituE = uE1->erase(ituE);
+		}
+		else { puntuacioE += (*ituE)->vida; ituE++; }
+	}
+
+	for (ituE = uE2->begin(); ituE != uE2->end();)
+	{
+		float randA = rand() % 50 + 50;
+		float randE = rand() % 50;
+
+		float vidAnt = (*ituE)->vida;
+		float vidaPost = (*ituE)->vida - (((fTotA + bonusATAvgA + randA) / uESize) - ((*ituE)->def + ((bE + randE) / (uASize))));
+
+		if (vidaPost < vidAnt)
+			(*ituE)->vida = vidaPost;
+
+
+		if ((*ituE)->vida <= 0)
+		{
+			a = *ituE;
+			perduesE.emplace_back(*a);
+			ituE = uE2->erase(ituE);
 		}
 		else { puntuacioE += (*ituE)->vida; ituE++; }
 	}
 	
 	for (ituA = uA->begin(); ituA != uA->end();)
 	{
-		float randA = rand() % 50 + 25;
-		float randE = rand() % 50 + 50;
+		float randA = rand() % 75 + 50;
+		float randE = rand() % 50;
 		float vidAnt = (*ituA)->vida;
-		float vidaPost = (*ituA)->vida - (((fTotE + bE + randE) / uASize) - ((*ituA)->def + ((randA) / (uESize))));
+		float vidaPost = (*ituA)->vida - (((fTotE + bE + randE) / uASize) - ((*ituA)->def + ((bonusATAvgA + randA) / (uESize))));
 
 		if (vidaPost < vidAnt)
 			(*ituA)->vida = vidaPost;
@@ -468,6 +513,9 @@ bool Excercit::atacar(vector<Excercit *>exe)
 		}
 		else { puntuacioA += (*ituA)->vida; ituA++; }
 	}
+
+
+
 
 	if (puntuacioA > puntuacioE)
 	{
@@ -524,6 +572,158 @@ bool Excercit::atacar(vector<Excercit *>exe)
 	
 	//return result;
 }
+
+
+
+bool Excercit::atacar(Excercit *e)
+{
+	//bool result = false;
+	srand(time(NULL));
+
+
+	list<Unitats *>* uA = this->getUnitats();
+	vector<Unitats> perduesA;
+	vector<Unitats> perduesE;
+	Unitats *a;
+	float bE = 0, fTotE = 0;
+	vector<float> bEAux;
+	vector<int> noE;
+
+	list<Unitats *>::iterator ituE;
+	list<Unitats *>* uE = e->getUnitats();
+	list<Unitats *> uEP = *uE;
+	
+	e->update();
+	update();
+
+	bE = e->getBonusDef();
+	bEAux = e->getBonusOf();
+	fTotE = e->getFTot();
+	noE = e->getNoUnitTypes();
+
+
+	vector<float> bA = getBonusOf();
+	vector<int> noA = getNoUnitTypes();
+	list<Unitats *>::iterator ituA;
+	list<Unitats *> uAP = *uA;
+
+	float puntuacioA = 0, puntuacioE = 0;
+	float bonusATAvgA = 0;
+
+	for (int i = 0; i < bA.size(); i++)
+	{
+		bE += noA[i] * bEAux[i];
+		bonusATAvgA += noE[i] * bA[i];
+	}
+
+	int uESize = uE->size();
+	int uASize = uA->size();
+
+	bonusATAvgA /= (uESize / 5);
+	bE /= (uASize / 5);
+	float fTotA = getFTot();
+
+
+	for (ituE = uE->begin(); ituE != uE->end();)
+	{
+		float randA = rand() % 50 + 50;
+		float randE = rand() % 50;
+
+		float vidAnt = (*ituE)->vida;
+		float vidaPost = (*ituE)->vida - (((fTotA + bonusATAvgA + randA) / uESize) - ((*ituE)->def + ((bE + randE) / (uASize))));
+
+		if (vidaPost < vidAnt)
+			(*ituE)->vida = vidaPost;
+
+
+		if ((*ituE)->vida <= 0)
+		{
+			a = *ituE;
+			perduesE.emplace_back(*a);
+			ituE = uE->erase(ituE);
+		}
+		else { puntuacioE += (*ituE)->vida; ituE++; }
+	}
+
+	for (ituA = uA->begin(); ituA != uA->end();)
+	{
+		float randA = rand() % 75 + 50;
+		float randE = rand() % 50;
+		float vidAnt = (*ituA)->vida;
+		float vidaPost = (*ituA)->vida - (((fTotE + bE + randE) / uASize) - ((*ituA)->def + ((bonusATAvgA + randA) / (uESize))));
+
+		if (vidaPost < vidAnt)
+			(*ituA)->vida = vidaPost;
+
+
+		if ((*ituA)->vida <= 0)
+		{
+			a = *ituA;
+			perduesA.emplace_back(*a);
+			ituA = uA->erase(ituA);
+		}
+		else { puntuacioA += (*ituA)->vida; ituA++; }
+	}
+
+
+
+	if (puntuacioA > puntuacioE)
+	{
+		if (player)
+		{
+			Util::posyMas();
+			Util::printInterface("--------------------------------------------------------------", con::fgHiGreen);
+			Util::printInterface("     L'excercit ha derrotat a l'excercit defensor enemic:");
+			Util::printInterface("--------------------------------------------------------------");
+			Util::posyMas();
+			Util::printInterface("  Estadistiques:", con::fgHiCyan);
+			Util::posyMas();
+			Util::printInterface("     -Unitats perdudes:" + to_string(perduesA.size()));
+			for each(Unitats uni in perduesA)
+			{
+				Util::printInterface("        " + uni.nom + " lvl: " + to_string(uni.lvl));
+			}
+			Util::posyMas();
+			Util::printInterface("     -Unitats eliminades:" + to_string(perduesE.size()));
+			for each(Unitats uni in perduesE)
+			{
+				Util::printInterface("        " + uni.nom + " lvl: " + to_string(uni.lvl));
+			}
+			Util::posyMas();
+		}
+		return true;
+	}
+	else
+	{
+		if (player)
+		{
+			Util::posyMas();
+			Util::printInterface("---------------------------------------------------------------", con::fgHiRed);
+			Util::printInterface("  L'excercit ha estat derrotat per l'excercit defensor enemic:");
+			Util::printInterface("---------------------------------------------------------------");
+			Util::posyMas();
+			Util::printInterface("  Estadistiques:", con::fgHiCyan);
+			Util::posyMas();
+			Util::printInterface("     -Unitats perdudes:" + to_string(perduesA.size()));
+			for each(Unitats uni in perduesA)
+			{
+				Util::printInterface("        " + uni.nom + " nivell: " + to_string(uni.lvl));
+			}
+			Util::posyMas();
+			Util::printInterface("     -Unitats eliminades:" + to_string(perduesE.size()));
+			for each(Unitats uni in perduesE)
+			{
+				Util::printInterface("        " + uni.nom + " nivell: " + to_string(uni.lvl));
+			}
+			Util::posyMas();
+		}
+		return false;
+	}
+
+	//return result;
+}
+
+
 
 bool Excercit::getPlayer()
 {

@@ -118,7 +118,7 @@ namespace main{
 		Faction i(4, 500, false, 4, "Italia", bgHiGreen);
 		Faction a(5, 500, false, 5, "Alemania", bgLoRed);
 		Faction r(6, 500, false, 6, "Russia", bgHiWhite);
-		Faction g(7, 500, false, 7, "Grecia", bgLoMagenta);
+		Faction g(7, 500, true, 7, "Grecia", bgLoMagenta);
 		Faction t(8, 500, false, 8, "Turquia", bgLoGreen);
 		faccions.push_back(p);
 		faccions.push_back(e);
@@ -136,13 +136,14 @@ namespace main{
 		U.resetPosY();
 		U.printInterface("Reclutar unitat:", fgHiCyan);
 		U.posyMas();
-		int op = 1, opA, nO = 5;
+		int op = 1, opA, nO = 6;
 		bool fiMenu = false;
 		string op1 = "Arquer";
 		string op2 = "Soldat";
 		string op3 = "Llancer";
 		string op4 = "Cavaller";
 		string op5 = "Arma de setge";
+		string op6 = "Cancelar";
 		while (!fiMenu)
 		{
 			switch (op)
@@ -158,6 +159,8 @@ namespace main{
 				U.posyMas();
 				U.printInterface(op5);
 				U.posyMas();
+				U.printInterface(op6);
+				U.posyMas();
 				break;
 			case 2:
 				U.printInterface(op1, fgHiCyan);
@@ -169,6 +172,8 @@ namespace main{
 				U.printInterface(op4);
 				U.posyMas();
 				U.printInterface(op5);
+				U.posyMas();
+				U.printInterface(op6);
 				U.posyMas();
 				break;
 			case 3:
@@ -182,6 +187,8 @@ namespace main{
 				U.posyMas();
 				U.printInterface(op5);
 				U.posyMas();
+				U.printInterface(op6);
+				U.posyMas();
 				break;
 			case 4:
 				U.printInterface(op1, fgHiCyan);
@@ -194,6 +201,8 @@ namespace main{
 				U.posyMas();
 				U.printInterface(op5, fgHiCyan);
 				U.posyMas();
+				U.printInterface(op6);
+				U.posyMas();
 				break;
 			case 5:
 				U.printInterface(op1, fgHiCyan);
@@ -205,6 +214,22 @@ namespace main{
 				U.printInterface(op4);
 				U.posyMas();
 				U.printInterfacebg(op5, fgBlack, bgHiWhite);
+				U.posyMas();
+				U.printInterface(op6, fgHiCyan);
+				U.posyMas();
+				break;
+			case 6:
+				U.printInterface(op1, fgHiCyan);
+				U.posyMas();
+				U.printInterface(op2);
+				U.posyMas();
+				U.printInterface(op3);
+				U.posyMas();
+				U.printInterface(op4);
+				U.posyMas();
+				U.printInterface(op5);
+				U.posyMas();
+				U.printInterfacebg(op6, fgBlack, bgHiWhite);
 				U.posyMas();
 				break;
 			default:
@@ -232,10 +257,12 @@ namespace main{
 		case 5:
 			itf->reclutar(new Siege, numEx);
 			break;
+		default:
+			break;
 		}
 	}
 
-	int menuPrinc()
+	int menuPrinc(list<Faction>::iterator itf)
 	{
 		int op = 1, opA, nO = 5;
 		bool fiMenu = false;
@@ -246,8 +273,13 @@ namespace main{
 		string op5 = "Acabar el torn";
 		U.flushInterface();
 		U.resetPosY();
+
+
+		
 		while (!fiMenu)
 		{
+			U.printInterfacebg("                          " + itf->getNom() + "                            ", fgBlack, bgHiWhite);
+			U.posyMas();
 			switch (op)
 			{
 			case 1:
@@ -334,7 +366,7 @@ namespace main{
 		}
 
 
-		op = menuPrinc();
+		op = menuPrinc(itf);
 		int numEx = 1, conquerit = 0;
 		bool menuok = false;
 		switch (op)
@@ -406,15 +438,15 @@ namespace main{
 			list<Unitats *> u;
 			Excercit e(g, u, 1);
 			Excercit b(g, u, 2);
-			u.push_back(new Arquer);
-			u.push_back(new Arquer);
+			u.emplace_back(new Arquer);
+			u.emplace_back(new Arquer);
 			u.emplace_back(new Soldat);
 			u.emplace_back(new Cavalleria);
 			u.emplace_back(new Llancer);
 			u.emplace_back(new Llancer);
 			e.afegirUnitats(u);
 			u.clear();
-			u.push_back(new Llancer);
+			u.emplace_back(new Llancer);
 			u.emplace_back(new Siege);
 			u.emplace_back(new Arquer);
 			u.emplace_back(new Soldat);
