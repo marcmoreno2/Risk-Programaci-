@@ -7,8 +7,10 @@
 
 using namespace std;
 //using namespace Util;
-namespace con = JadedHoboConsole;
-using namespace con;
+namespace cons = JadedHoboConsole;
+using namespace cons;
+using namespace Utilitats;
+
 
 namespace main{
 
@@ -97,8 +99,6 @@ namespace main{
 
 	Mapa a;
 
-	Util U;
-
 	list<Faction> faccions;
 	list<Faction>::iterator itf;
 	vector<Excercit*> posEx;
@@ -132,133 +132,146 @@ namespace main{
 
 	void menuUnitats(list<Faction>::iterator itf, int numEx)
 	{
-		U.flushInterface();
-		U.resetPosY();
-		U.printInterface("Reclutar unitat:", fgHiCyan);
-		U.posyMas();
-		int op = 1, opA, nO = 6;
+		flushInterface();
+		
+		
+		int op = 1, opA = 0, nO = 6;
 		bool fiMenu = false;
-		string op1 = "Arquer";
-		string op2 = "Soldat";
-		string op3 = "Llancer";
-		string op4 = "Cavaller";
-		string op5 = "Arma de setge";
+		Arquer a;
+		Soldat s;
+		Llancer l;
+		Cavalleria c;
+		Siege si;
+
+		string op1 = "Arquer - Reclutament: " + to_string(a.costRec) + " Manteniment: " + to_string(a.costMan);
+		string op2 = "Soldat - Reclutament: " + to_string(s.costRec) + " Manteniment: " + to_string(s.costMan);
+		string op3 = "Llancer - Reclutament: " + to_string(l.costRec) + " Manteniment: " + to_string(l.costMan);
+		string op4 = "Cavaller - Reclutament: " + to_string(c.costRec) + " Manteniment: " + to_string(c.costMan);
+		string op5 = "Arma de setge - Reclutament: " + to_string(si.costRec) + " Manteniment: " + to_string(si.costMan);
 		string op6 = "Cancelar";
-		while (!fiMenu)
+		while (opA != 6)
 		{
-			switch (op)
+			resetPosY();
+			printInterface("Reclutar unitats:                          Or disponible: " + to_string(itf->getOr()), fgHiCyan);
+			posyMas();
+			fiMenu = false;
+			while (!fiMenu)
 			{
+				posyMas();
+				switch (op)
+				{
+				case 1:
+					printInterfacebg(op1, fgBlack, bgHiWhite);
+					posyMas();
+					printInterface(op2, fgHiCyan);
+					posyMas();
+					printInterface(op3);
+					posyMas();
+					printInterface(op4);
+					posyMas();
+					printInterface(op5);
+					posyMas();
+					printInterface(op6);
+					posyMas();
+					break;
+				case 2:
+					printInterface(op1, fgHiCyan);
+					posyMas();
+					printInterfacebg(op2, fgBlack, bgHiWhite);
+					posyMas();
+					printInterface(op3, fgHiCyan);
+					posyMas();
+					printInterface(op4);
+					posyMas();
+					printInterface(op5);
+					posyMas();
+					printInterface(op6);
+					posyMas();
+					break;
+				case 3:
+					printInterface(op1, fgHiCyan);
+					posyMas();
+					printInterface(op2);
+					posyMas();
+					printInterfacebg(op3, fgBlack, bgHiWhite);
+					posyMas();
+					printInterface(op4, fgHiCyan);
+					posyMas();
+					printInterface(op5);
+					posyMas();
+					printInterface(op6);
+					posyMas();
+					break;
+				case 4:
+					printInterface(op1, fgHiCyan);
+					posyMas();
+					printInterface(op2);
+					posyMas();
+					printInterface(op3);
+					posyMas();
+					printInterfacebg(op4, fgBlack, bgHiWhite);
+					posyMas();
+					printInterface(op5, fgHiCyan);
+					posyMas();
+					printInterface(op6);
+					posyMas();
+					break;
+				case 5:
+					printInterface(op1, fgHiCyan);
+					posyMas();
+					printInterface(op2);
+					posyMas();
+					printInterface(op3);
+					posyMas();
+					printInterface(op4);
+					posyMas();
+					printInterfacebg(op5, fgBlack, bgHiWhite);
+					posyMas();
+					printInterface(op6, fgHiCyan);
+					posyMas();
+					break;
+				case 6:
+					printInterface(op1, fgHiCyan);
+					posyMas();
+					printInterface(op2);
+					posyMas();
+					printInterface(op3);
+					posyMas();
+					printInterface(op4);
+					posyMas();
+					printInterface(op5);
+					posyMas();
+					printInterfacebg(op6, fgBlack, bgHiWhite);
+					posyMas();
+					break;
+				default:
+					break;
+				}
+				opA = op;
+				fiMenu = teclado(op, nO);
+				resetPosY(2);
+				//flushMenu(nO);
+			}
+
+			switch (opA) {
 			case 1:
-				U.printInterfacebg(op1, fgBlack, bgHiWhite);
-				U.posyMas();
-				U.printInterface(op2, fgHiCyan);
-				U.posyMas();
-				U.printInterface(op3);
-				U.posyMas();
-				U.printInterface(op4);
-				U.posyMas();
-				U.printInterface(op5);
-				U.posyMas();
-				U.printInterface(op6);
-				U.posyMas();
+				itf->reclutar(new Arquer, numEx);
 				break;
 			case 2:
-				U.printInterface(op1, fgHiCyan);
-				U.posyMas();
-				U.printInterfacebg(op2, fgBlack, bgHiWhite);
-				U.posyMas();
-				U.printInterface(op3, fgHiCyan);
-				U.posyMas();
-				U.printInterface(op4);
-				U.posyMas();
-				U.printInterface(op5);
-				U.posyMas();
-				U.printInterface(op6);
-				U.posyMas();
+				itf->reclutar(new Soldat, numEx);
 				break;
 			case 3:
-				U.printInterface(op1, fgHiCyan);
-				U.posyMas();
-				U.printInterface(op2);
-				U.posyMas();
-				U.printInterfacebg(op3, fgBlack, bgHiWhite);
-				U.posyMas();
-				U.printInterface(op4, fgHiCyan);
-				U.posyMas();
-				U.printInterface(op5);
-				U.posyMas();
-				U.printInterface(op6);
-				U.posyMas();
+				itf->reclutar(new Llancer, numEx);
 				break;
 			case 4:
-				U.printInterface(op1, fgHiCyan);
-				U.posyMas();
-				U.printInterface(op2);
-				U.posyMas();
-				U.printInterface(op3);
-				U.posyMas();
-				U.printInterfacebg(op4, fgBlack, bgHiWhite);
-				U.posyMas();
-				U.printInterface(op5, fgHiCyan);
-				U.posyMas();
-				U.printInterface(op6);
-				U.posyMas();
+				itf->reclutar(new Cavalleria, numEx);
 				break;
 			case 5:
-				U.printInterface(op1, fgHiCyan);
-				U.posyMas();
-				U.printInterface(op2);
-				U.posyMas();
-				U.printInterface(op3);
-				U.posyMas();
-				U.printInterface(op4);
-				U.posyMas();
-				U.printInterfacebg(op5, fgBlack, bgHiWhite);
-				U.posyMas();
-				U.printInterface(op6, fgHiCyan);
-				U.posyMas();
-				break;
-			case 6:
-				U.printInterface(op1, fgHiCyan);
-				U.posyMas();
-				U.printInterface(op2);
-				U.posyMas();
-				U.printInterface(op3);
-				U.posyMas();
-				U.printInterface(op4);
-				U.posyMas();
-				U.printInterface(op5);
-				U.posyMas();
-				U.printInterfacebg(op6, fgBlack, bgHiWhite);
-				U.posyMas();
+				itf->reclutar(new Siege, numEx);
 				break;
 			default:
 				break;
 			}
-			opA = op;
-			fiMenu = U.teclado(op, nO);
-			U.resetPosY(2);
-			U.flushMenu(nO);
-		}
-
-		switch (opA) {
-		case 1:
-			itf->reclutar(new Arquer, numEx);
-			break;
-		case 2:
-			itf->reclutar(new Soldat, numEx);
-			break;
-		case 3:
-			itf->reclutar(new Llancer, numEx);
-			break;
-		case 4:
-			itf->reclutar(new Cavalleria, numEx);
-			break;
-		case 5:
-			itf->reclutar(new Siege, numEx);
-			break;
-		default:
-			break;
 		}
 	}
 
@@ -271,86 +284,86 @@ namespace main{
 		string op3 = "Reclutar unitats per a un excercit";
 		string op4 = "Revisa les finances";
 		string op5 = "Acabar el torn";
-		U.flushInterface();
-		U.resetPosY();
+		flushInterface();
+		resetPosY();
 
 
 		
 		while (!fiMenu)
 		{
-			U.printInterfacebg("                          " + itf->getNom() + "                            ", fgBlack, bgHiWhite);
-			U.posyMas();
+			printInterfacebg("                          " + itf->getNom() + "                            ", fgBlack, bgHiWhite);
+			posyMas();
 			switch (op)
 			{
 			case 1:
-				U.printInterfacebg(op1, fgBlack, bgHiWhite);
-				U.posyMas();
-				U.printInterface(op2, fgHiWhite);
-				U.posyMas();
-				U.printInterface(op3);
-				U.posyMas();
-				U.printInterface(op4);
-				U.posyMas();
-				U.printInterface(op5);
-				U.posyMas();
+				printInterfacebg(op1, fgBlack, bgHiWhite);
+				posyMas();
+				printInterface(op2, fgHiWhite);
+				posyMas();
+				printInterface(op3);
+				posyMas();
+				printInterface(op4);
+				posyMas();
+				printInterface(op5);
+				posyMas();
 				break;
 			case 2:
-				U.printInterface(op1, fgHiWhite);
-				U.posyMas();
-				U.printInterfacebg(op2, fgBlack, bgHiWhite);
-				U.posyMas();
-				U.printInterface(op3, fgHiWhite);
-				U.posyMas();
-				U.printInterface(op4);
-				U.posyMas();
-				U.printInterface(op5);
-				U.posyMas();
+				printInterface(op1, fgHiWhite);
+				posyMas();
+				printInterfacebg(op2, fgBlack, bgHiWhite);
+				posyMas();
+				printInterface(op3, fgHiWhite);
+				posyMas();
+				printInterface(op4);
+				posyMas();
+				printInterface(op5);
+				posyMas();
 				break;
 			case 3:
-				U.printInterface(op1, fgHiWhite);
-				U.posyMas();
-				U.printInterface(op2);
-				U.posyMas();
-				U.printInterfacebg(op3, fgBlack, bgHiWhite);
-				U.posyMas();
-				U.printInterface(op4, fgHiWhite);
-				U.posyMas();
-				U.printInterface(op5);
-				U.posyMas();
+				printInterface(op1, fgHiWhite);
+				posyMas();
+				printInterface(op2);
+				posyMas();
+				printInterfacebg(op3, fgBlack, bgHiWhite);
+				posyMas();
+				printInterface(op4, fgHiWhite);
+				posyMas();
+				printInterface(op5);
+				posyMas();
 				break;
 			case 4:
-				U.printInterface(op1, fgHiWhite);
-				U.posyMas();
-				U.printInterface(op2);
-				U.posyMas();
-				U.printInterface(op3);
-				U.posyMas();
-				U.printInterfacebg(op4, fgBlack, bgHiWhite);
-				U.posyMas();
-				U.printInterface(op5, fgHiWhite);
-				U.posyMas();
+				printInterface(op1, fgHiWhite);
+				posyMas();
+				printInterface(op2);
+				posyMas();
+				printInterface(op3);
+				posyMas();
+				printInterfacebg(op4, fgBlack, bgHiWhite);
+				posyMas();
+				printInterface(op5, fgHiWhite);
+				posyMas();
 				break;
 			case 5:
-				U.printInterface(op1, fgHiWhite);
-				U.posyMas();
-				U.printInterface(op2);
-				U.posyMas();
-				U.printInterface(op3);
-				U.posyMas();
-				U.printInterface(op4);
-				U.posyMas();
-				U.printInterfacebg(op5, fgBlack, bgHiWhite);
-				U.posyMas();
+				printInterface(op1, fgHiWhite);
+				posyMas();
+				printInterface(op2);
+				posyMas();
+				printInterface(op3);
+				posyMas();
+				printInterface(op4);
+				posyMas();
+				printInterfacebg(op5, fgBlack, bgHiWhite);
+				posyMas();
 				break;
 			default:
 				break;
 			}
 			opA = op;
-			fiMenu = U.teclado(op, nO);
-			U.resetPosY();
-			U.flushMenu(nO);
+			fiMenu = teclado(op, nO);
+			resetPosY();
+			flushMenu(nO);
 		}
-		U.flushInterface();
+		flushInterface();
 		return opA;
 	}
 
@@ -372,27 +385,27 @@ namespace main{
 		switch (op)
 		{
 		case 1:
-			U.printInterface("Selecciona l'excercit que vols mostrar:", con::fgHiCyan);
-			U.posyMas();
+			printInterface("Selecciona l'excercit que vols mostrar:", fgHiCyan);
+			posyMas();
 			while (!menuok){
-				U.resetPosY(3);
-				U.printInterface(to_string(numEx));
-				menuok = U.teclado(numEx, 2);
+				resetPosY(3);
+				printInterface(to_string(numEx));
+				menuok = teclado(numEx, 2);
 			}
-			U.posyMas();
+			posyMas();
 
 			itf->getIterEx(numEx)->mostrarUnits();
 
 			break;
 		case 2:
-			U.printInterface("Selecciona l'excercit que vols moure:", con::fgHiCyan);
-			U.posyMas();
+			printInterface("Selecciona l'excercit que vols moure:", fgHiCyan);
+
 			while (!menuok){
-				U.resetPosY(3);
-				U.printInterface(to_string(numEx));
-				menuok = U.teclado(numEx, 2);
+				resetPosY(3);
+				printInterface(to_string(numEx));
+				menuok = teclado(numEx, 2);
 			}
-			U.posyMas();
+			posyMas();
 			
 			conquerit = itf->getIterEx(numEx)->moure(posEx);
 
@@ -405,21 +418,21 @@ namespace main{
 
 			break;
 		case 3:
-			U.printInterface("Selecciona l'excercit per al que vols reclutar:", con::fgHiCyan);
-			U.posyMas();
+			printInterface("Selecciona l'excercit per al que vols reclutar:", fgHiCyan);
+			posyMas();
 			while (!menuok){
-				U.resetPosY(3);
-				U.printInterface(to_string(numEx));
-				menuok = U.teclado(numEx, 2);
+				resetPosY(3);
+				printInterface(to_string(numEx));
+				menuok = teclado(numEx, 2);
 			}
-			U.posyMas();
+			posyMas();
 
 			menuUnitats(itf, numEx);
 			break;
 		case 4:
 			
-			U.printInterface("Les finances de la teva faccio son les seguents:", con::fgHiCyan);
-			U.posyMas();
+			printInterface("Les finances de la teva faccio son les seguents:", fgHiCyan);
+			posyMas();
 
 			itf->getFinances(torn);
 			break;
@@ -455,6 +468,8 @@ namespace main{
 			itf->setExcercit(e);
 			itf->setExcercit(b);
 			itf->imprPropEx();
+			itf->getIterEx(1)->update();
+			itf->getIterEx(2)->update();
 			posEx.push_back(&(*itf->getIterEx(1)));
 			posEx.push_back(&(*itf->getIterEx(2)));
 		}

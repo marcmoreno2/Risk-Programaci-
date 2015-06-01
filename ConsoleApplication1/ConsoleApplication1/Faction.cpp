@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Faction.h"
 
+using namespace Utilitats;
 
 Faction::Faction()
 {
@@ -46,9 +47,8 @@ void Faction::setExcercit(Excercit e)
 
 void Faction::update(bool t)
 {
-	if (t){
-		tornAcabat = true;
-	}
+	tornAcabat = t;
+
 	if (tornAcabat)
 	{
 		_or = or;
@@ -59,12 +59,24 @@ void Faction::update(bool t)
 		_gRec = gRec;
 		gRec = 0;
 		tornAcabat = false;
+		getIterEx(1)->update();
+		getIterEx(2)->update();
+		if (or < 0)
+		{
+			util.fin = true;
+			util.idPerdedor = id;
+		}
+		
 	}
 
 	calculaManteniment();
 	calculaGastos();
 	calculaIngressos();
 
+	
+
+
+	
 }
 
 void Faction::calculaGastos()
@@ -97,38 +109,38 @@ void Faction::calculaIngressos()
 void Faction::getFinances(int torn)
 {
 	update(false);
-	Util::posyMas();
-	Util::printInterface("Or total: " + to_string(or));
-	Util::posyMas();
-	Util::printInterface("Or total previst el torn seguent: " + to_string(or - gastos + ingressos));
-	Util::posyMas();
+	resetPosY(3);
+	printInterface("Or total: " + to_string(or));
+	posyMas();
+	printInterface("Or total previst el torn seguent: " + to_string(or - gastos + ingressos));
+	posyMas();
 	if (torn > 1)
 	{
-		Util::printInterface("Despeses el torn anterior: " + to_string(_gastos));
-		Util::posyMas();
-		Util::printInterface("	- Reclutament: " + to_string(_gRec));
-		Util::posyMas();
-		Util::printInterface("	- Manteniment: " + to_string(_gMant));
-		Util::posyMas();
-		Util::printInterface("Ingressos el torn anterior: " + to_string(_ingressos));
-		Util::posyMas();
+		printInterface("Despeses el torn anterior: " + to_string(_gastos));
+		posyMas();
+		printInterface("	- Reclutament: " + to_string(_gRec));
+		posyMas();
+		printInterface("	- Manteniment: " + to_string(_gMant));
+		posyMas();
+		printInterface("Ingressos el torn anterior: " + to_string(_ingressos));
+		posyMas();
 	}
-	Util::printInterface("Despeses previstes aqest torn: " + to_string(gastos));
-	Util::posyMas();
-	Util::printInterface("	- Reclutament: " + to_string(gRec));
-	Util::posyMas();
-	Util::printInterface("	- Manteniment: " + to_string(gMant));
-	Util::posyMas();
-	Util::printInterface("Ingressos previstos aquest torn: " + to_string(ingressos));
-	Util::posyMas();
+	printInterface("Despeses previstes aqest torn: " + to_string(gastos));
+	posyMas();
+	printInterface("	- Reclutament: " + to_string(gRec));
+	posyMas();
+	printInterface("	- Manteniment: " + to_string(gMant));
+	posyMas();
+	printInterface("Ingressos previstos aquest torn: " + to_string(ingressos));
+	posyMas();
+	resetPosY();
 
 	system("pause>null");
 }
 
 void Faction::reclutar(Unitats* u, int idEx)
 {
-	//list<Unitats *> un;
-	Util::resetPosY(13);
+	resetPosY(13);
 	if (or >= u->costRec)
 	{
 		for (ite = excercits.begin(); ite != excercits.end(); ite++)
@@ -136,25 +148,25 @@ void Faction::reclutar(Unitats* u, int idEx)
 			if (ite->getId() == idEx)
 				break;
 		}
-		//un.push_back(&u);
+
 		ite->afegirUnitat(u);
 		or -= u->costRec;
 		gRec += u->costRec;
 
 		if (player)
 		{
-			Util::printInterface("Unitat reclutada correctament!", con::fgLoGreen);
+			printInterface("Unitat reclutada correctament!", fgLoGreen);
 		}
 	}
 	else if (or < u->costRec)
 	{
 		if (player){
-			Util::printInterface("No tens prou or per a reclutar la unitat!", con::fgLoRed);
+			printInterface("No tens prou or per a reclutar la unitat!", fgLoRed);
 		}
 	}
 	system("pause>>null");
-	Util::resetPosY();
-	Util::flushInterface();
+	resetPosY();
+	flushInterface();
 }
 
 void Faction::mostrarUnitats(int idEx)

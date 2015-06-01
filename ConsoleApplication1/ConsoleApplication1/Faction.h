@@ -8,11 +8,11 @@
 #include <iostream>
 //#include "Util.h"
 //#include "Excercit.h"
-#include "Console.h"
+//#include "Console.h"
 #include "Mapa.h"
 
 using namespace std;
-//using namespace Util;
+
 
 
 class Faction{

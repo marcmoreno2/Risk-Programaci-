@@ -23,7 +23,7 @@ private:
 	float bonusOf[5], totalBonus[5];
 	int noTypeUnits[5];
 	int totalUnits, idPropietari, id;
-	bool movimentD = true, castell, player;
+public: bool movimentD = true, castell, player;
 	float fTotal, dTotal, bonusDef;
 public:
 	void calculaManteniment();
@@ -47,6 +47,7 @@ public:
 	void calculaDeT();
 	bool atacar(Excercit *e, Excercit *d);
 	bool atacar(Excercit *e);
+	bool resultat(float, float, vector<Unitats>, vector<Unitats>, vector<int>, vector<int>);
 	void update();
 	void setIdPropietari(int);
 	void setCastell(bool);

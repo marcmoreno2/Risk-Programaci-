@@ -5,8 +5,9 @@
 
 
 using namespace std;
-namespace con = JadedHoboConsole;
-using namespace con;
+namespace cons = JadedHoboConsole;
+using namespace cons;
+using namespace Utilitats;
 
 
 Mapa::Mapa(char m[][225])
@@ -67,13 +68,13 @@ void Mapa::print(){
 			itt->color = bgLoGreen;
 			break;
 		default:
-			Util::gotoxy(156, 50);
+			gotoxy(156, 50);
 			cout << fg_red << "Fatal Error!";
 			break;
 		}
 		propietat[i] = itt->color;
 	}
-	Util::gotoxy(0, 0);
+	gotoxy(0, 0);
 	for (int i = 0; i < 80; i++){
 		for (int j = 0; j < 225; j++){
 			switch (mapa[i][j])
@@ -273,10 +274,10 @@ void Mapa::pintaNoms()
 	for (itt = territoris.begin(); itt != territoris.end(); itt++)
 	{
 		if (itt->exPresent){
-			Util::gotoxy(itt->posX_Ex2, itt->posY_Ex2);
-			cout << con::bg_black << ' ';
+			gotoxy(itt->posX_Ex2, itt->posY_Ex2);
+			cout << bg_black << ' ';
 		}
-		Util::gotoxy(itt->posX_Ex1, itt->posY_Ex1);
-		cout << con::fg_white << itt->nom << endl;
+		gotoxy(itt->posX_Ex1, itt->posY_Ex1);
+		cout << fg_white << itt->nom << endl;
 	}
 }
