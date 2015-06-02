@@ -50,7 +50,6 @@ public:
 	virtual void lvlUp(int lvlup)
 	{
 		lvl += lvlup;
-		//Update();
 	}
 
 	Unitats(int lvl, int exp)
