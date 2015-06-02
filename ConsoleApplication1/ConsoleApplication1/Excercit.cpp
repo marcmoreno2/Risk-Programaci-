@@ -209,7 +209,7 @@ int Excercit::moure(vector<Excercit*> posEx)
 				resetPosY();
 				territoriActual = idDe;
 			}
-			else {
+			else if(!result){
 				printInterface("L'excercit es retira al territori d'origen despres de la derrota", fgHiRed);
 				resetPosY();
 			}
@@ -369,6 +369,11 @@ vector<int> Excercit::getNoUnitTypes()
 	}
 
 	return noUnits;
+}
+
+void Excercit::addExpGen(float exp)
+{
+	general.exp += exp;
 }
 
 bool Excercit::atacar(Excercit *e, Excercit *d)
@@ -592,7 +597,7 @@ bool Excercit::atacar(Excercit *e)
 		float randE = rand() % 50;
 
 		float vidAnt = (*ituE)->vida;
-		float vidaPost = (*ituE)->vida - (((fTotA + bonusATAvgA + randA) / uESize) - ((*ituE)->def + ((bE + randE) / (uASize))));
+		float vidaPost = (*ituE)->vida - (((fTotA + bonusATAvgA + randA) / uESize) - ((*ituE)->def + ((bE + randE) / (2*uASize))));
 
 		if (vidaPost < vidAnt)
 			(*ituE)->vida = vidaPost;
@@ -612,7 +617,7 @@ bool Excercit::atacar(Excercit *e)
 		float randA = rand() % 75 + 50;
 		float randE = rand() % 50;
 		float vidAnt = (*ituA)->vida;
-		float vidaPost = (*ituA)->vida - (((fTotE + bE + randE) / uASize) - ((*ituA)->def + ((bonusATAvgA + randA) / (uESize))));
+		float vidaPost = (*ituA)->vida - (((fTotE + bE + randE) / uASize) - ((*ituA)->def + ((bonusATAvgA + randA) / (2*uESize))));
 
 		if (vidaPost < vidAnt)
 			(*ituA)->vida = vidaPost;
@@ -634,13 +639,13 @@ bool Excercit::atacar(Excercit *e)
 		uni->exp += (perduesA.size() * 100 + (perduesE.size() * 25));
 		//uni->Update();
 	}
-
+	e->addExpGen(perduesA.size() * 100 + (perduesE.size() * 25));
 	for each(Unitats *uni in *uA)
 	{
 		uni->exp += (perduesE.size() * 100) + (perduesA.size() * 25);
 		//uni->Update();
 	}
-
+	this->addExpGen((perduesE.size() * 100) + (perduesA.size() * 25));
 	return result;
 }
 
@@ -758,15 +763,13 @@ void Excercit::setPlayer(bool p)
 	player = p;
 }
 
-void Excercit::update()
+void Excercit::update(vector<int> ter)
 {
-	//noTypeUnits[5];
-	//for each(int var in noTypeUnits)
 	for (int elem : noTypeUnits)
 	{
 		elem = 0;
 	}
-
+	general.Update();
 	for (itu = units.begin(); itu != units.end(); itu++)
 	{
 		(*itu)->Update();
@@ -787,7 +790,45 @@ void Excercit::update()
 	calculaAtT();
 	calculaDeT();
 	this->movimentD = true;
+	bool ok = false;
+	for each(int t in ter)
+	{
+		if (territoriActual == t)
+			ok = true;
+	}
+	
+	if (!ok)
+		territoriActual = ter[0];
 	//
+}
+
+void Excercit::update()
+{
+	for (int elem : noTypeUnits)
+	{
+		elem = 0;
+	}
+
+	for (itu = units.begin(); itu != units.end(); itu++)
+	{
+		//(*itu)->Update();
+		if ((*itu)->nom == "Arquer")
+			noTypeUnits[0] += 1;
+		else if ((*itu)->nom == "Soldat")
+			noTypeUnits[1] += 1;
+		else if ((*itu)->nom == "Llancer")
+			noTypeUnits[2] += 1;
+		else if ((*itu)->nom == "Cavaller")
+			noTypeUnits[3] += 1;
+		else if ((*itu)->nom == "Arma de setge")
+			noTypeUnits[4] += 1;
+	}
+
+	calculaBonusDef();
+	calculaBonusOff();
+	calculaAtT();
+	calculaDeT();
+	this->movimentD = true;
 }
 
 void Excercit::calculaAtT()

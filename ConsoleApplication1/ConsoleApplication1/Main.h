@@ -12,7 +12,7 @@ using namespace cons;
 using namespace Utilitats;
 
 
-namespace main{
+namespace maine{
 
 	char mapa[80][225] = {
 		"YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY",
@@ -97,40 +97,37 @@ namespace main{
 		"YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY"
 	};
 
-	Mapa a;
+	
 
-	list<Faction> faccions;
-	list<Faction>::iterator itf;
-	vector<Excercit*> posEx;
+	static struct Main{
+		Mapa a;
+
+		list<Faction*> faccions;
+		list<Faction*>::iterator itf;
+		vector<Excercit*> posEx;
+	} main;
+
 
 	void inicialitzaMapa()
 	{
 		Mapa I(mapa);
-		a = I;
+		main.a = I;
 	}
 
 
 	void inicialitzaFaccions()
 	{
-		Faction p(1, 500, false, 2, "Portugal", bgHiRed);
-		Faction e(2, 500, true, 1, "Espanya", bgHiYellow);
-		Faction f(3, 500, false, 3, "Francia", bgLoBlue);
-		Faction i(4, 500, false, 4, "Italia", bgHiGreen);
-		Faction a(5, 500, false, 5, "Alemania", bgLoRed);
-		Faction r(6, 500, false, 6, "Russia", bgHiWhite);
-		Faction g(7, 500, true, 7, "Grecia", bgLoMagenta);
-		Faction t(8, 500, false, 8, "Turquia", bgLoGreen);
-		faccions.push_back(p);
-		faccions.push_back(e);
-		faccions.push_back(f);
-		faccions.push_back(i);
-		faccions.push_back(a);
-		faccions.push_back(r);
-		faccions.push_back(g);
-		faccions.push_back(t);
+		main.faccions.emplace_back(new Faction(1, 500, false, 2, "Portugal", bgHiRed));
+		main.faccions.emplace_back(new Faction(2, 500, true, 1, "Espanya", bgHiYellow));
+		main.faccions.emplace_back(new Faction(3, 500, false, 3, "Francia", bgLoBlue));
+		main.faccions.emplace_back(new Faction(4, 500, false, 4, "Italia", bgHiGreen));
+		main.faccions.emplace_back(new Faction(5, 500, false, 5, "Alemania", bgLoRed));
+		main.faccions.emplace_back(new Faction(6, 500, false, 6, "Russia", bgHiWhite));
+		main.faccions.emplace_back(new Faction(7, 500, true, 7, "Grecia", bgLoMagenta));
+		main.faccions.emplace_back(new Faction(8, 500, false, 8, "Turquia", bgLoGreen));
 	}
 
-	void menuUnitats(list<Faction>::iterator itf, int numEx)
+	void menuUnitats(list<Faction*>::iterator itf, int numEx)
 	{
 		flushInterface();
 		
@@ -152,7 +149,7 @@ namespace main{
 		while (opA != 6)
 		{
 			resetPosY();
-			printInterface("Reclutar unitats:                          Or disponible: " + to_string(itf->getOr()), fgHiCyan);
+			printInterface("Reclutar unitats:                          Or disponible: " + to_string((*itf)->getOr()), fgHiCyan);
 			posyMas();
 			fiMenu = false;
 			while (!fiMenu)
@@ -255,19 +252,19 @@ namespace main{
 
 			switch (opA) {
 			case 1:
-				itf->reclutar(new Arquer, numEx);
+				(*itf)->reclutar(new Arquer, numEx);
 				break;
 			case 2:
-				itf->reclutar(new Soldat, numEx);
+				(*itf)->reclutar(new Soldat, numEx);
 				break;
 			case 3:
-				itf->reclutar(new Llancer, numEx);
+				(*itf)->reclutar(new Llancer, numEx);
 				break;
 			case 4:
-				itf->reclutar(new Cavalleria, numEx);
+				(*itf)->reclutar(new Cavalleria, numEx);
 				break;
 			case 5:
-				itf->reclutar(new Siege, numEx);
+				(*itf)->reclutar(new Siege, numEx);
 				break;
 			default:
 				break;
@@ -275,7 +272,7 @@ namespace main{
 		}
 	}
 
-	int menuPrinc(list<Faction>::iterator itf)
+	int menuPrinc(list<Faction*>::iterator itf)
 	{
 		int op = 1, opA, nO = 5;
 		bool fiMenu = false;
@@ -291,7 +288,7 @@ namespace main{
 		
 		while (!fiMenu)
 		{
-			printInterfacebg("                          " + itf->getNom() + "                            ", fgBlack, bgHiWhite);
+			printInterfacebg("                          " + (*itf)->getNom() + "                            ", fgBlack, bgHiWhite);
 			posyMas();
 			switch (op)
 			{
@@ -372,14 +369,14 @@ namespace main{
 		bool fi = false;
 		int op;
 
-		for (itf = faccions.begin(); itf != faccions.end(); itf++)
+		for (main.itf = main.faccions.begin(); main.itf != main.faccions.end(); main.itf++)
 		{
-			if (itf->getId() == num)
+			if ((*main.itf)->getId() == num)
 				break;
 		}
 
 
-		op = menuPrinc(itf);
+		op = menuPrinc(main.itf);
 		int numEx = 1, conquerit = 0;
 		bool menuok = false;
 		switch (op)
@@ -394,7 +391,7 @@ namespace main{
 			}
 			posyMas();
 
-			itf->getIterEx(numEx)->mostrarUnits();
+			(*main.itf)->getIterEx(numEx)->mostrarUnits();
 
 			break;
 		case 2:
@@ -407,12 +404,25 @@ namespace main{
 			}
 			posyMas();
 			
-			conquerit = itf->getIterEx(numEx)->moure(posEx);
+			conquerit = (*main.itf)->getIterEx(numEx)->moure(main.posEx);
 
 			if (conquerit != 0){
-				a.update(conquerit, itf->getId());
-				a.print();
-				a.pintaNoms();
+				int idFacProp = main.a.update(conquerit, (*main.itf)->getId());
+				(*main.itf)->addTErr(conquerit);
+				
+				main.a.print();
+				main.a.pintaNoms();
+
+				for (main.itf = main.faccions.begin(); main.itf != main.faccions.end(); main.itf++)
+				{
+					if ((*main.itf)->getId() == idFacProp)
+					{
+						//(*main.itf)->setNoTerr(-1);
+						(*main.itf)->updateTerr(conquerit);
+						if ((*main.itf)->getNoTerr() == 0)
+							(*main.itf)->muerte();
+					}
+				}
 			}
 
 
@@ -427,14 +437,14 @@ namespace main{
 			}
 			posyMas();
 
-			menuUnitats(itf, numEx);
+			menuUnitats(main.itf, numEx);
 			break;
 		case 4:
 			
 			printInterface("Les finances de la teva faccio son les seguents:", fgHiCyan);
 			posyMas();
 
-			itf->getFinances(torn);
+			(*main.itf)->getFinances(torn);
 			break;
 		case 5:
 			fi = true;
@@ -445,7 +455,7 @@ namespace main{
 
 	void inicialitzaExcercits()
 	{
-		for (itf = faccions.begin(); itf != faccions.end(); itf++)
+		for (main.itf = main.faccions.begin(); main.itf != main.faccions.end(); main.itf++)
 		{
 			General g;
 			list<Unitats *> u;
@@ -465,25 +475,25 @@ namespace main{
 			u.emplace_back(new Soldat);
 			b.afegirUnitats(u);
 		
-			itf->setExcercit(e);
-			itf->setExcercit(b);
-			itf->imprPropEx();
-			itf->getIterEx(1)->update();
-			itf->getIterEx(2)->update();
-			posEx.push_back(&(*itf->getIterEx(1)));
-			posEx.push_back(&(*itf->getIterEx(2)));
+			(*main.itf)->setExcercit(e);
+			(*main.itf)->setExcercit(b);
+			(*main.itf)->imprPropEx();
+			(*main.itf)->getIterEx(1)->update();
+			(*main.itf)->getIterEx(2)->update();
+			main.posEx.push_back(&(*(*main.itf)->getIterEx(1)));
+			main.posEx.push_back(&(*(*main.itf)->getIterEx(2)));
 		}
 
 	}
 
 	bool otherExPresent(int terrAt, int idFac)
 	{
-		list<Faction>::iterator itf;
-		for (itf = faccions.begin(); itf != faccions.end(); itf++)
+		list<Faction*>::iterator itf;
+		for (itf = main.faccions.begin(); itf != main.faccions.end(); itf++)
 		{
-			if (itf->getId() != idFac)
+			if ((*itf)->getId() != idFac && (*itf)->getViva())
 			{
-				if (itf->getIterEx(1)->getTerritoriAct() == terrAt || itf->getIterEx(2)->getTerritoriAct() == terrAt)
+				if ((*itf)->getIterEx(1)->getTerritoriAct() == terrAt || (*itf)->getIterEx(2)->getTerritoriAct() == terrAt)
 				{
 					return true;
 				}
@@ -494,16 +504,21 @@ namespace main{
 
 	void update(bool t)
 	{
-		posEx.clear();
-		for (itf = faccions.begin(); itf != faccions.end(); itf++)
+		main.posEx.clear();
+		for (main.itf = main.faccions.begin(); main.itf != main.faccions.end();)
 		{
-			itf->update(t);
-			posEx.push_back(&(*itf->getIterEx(1)));
-			posEx.push_back(&(*itf->getIterEx(2)));
+			if ((*main.itf)->getViva())
+			{
+				(*main.itf)->update(t);
+				main.posEx.push_back(&(*(*main.itf)->getIterEx(1)));
+				main.posEx.push_back(&(*(*main.itf)->getIterEx(2)));
+				main.itf++;
+			}
+			else main.itf = main.faccions.erase(main.itf);
 		}
 		//otherExPresent();
-		a.update(posEx);
-		a.print();
-		a.pintaNoms();
+		main.a.update(main.posEx);
+		//main.a.print();
+		main.a.pintaNoms();
 	}
 };

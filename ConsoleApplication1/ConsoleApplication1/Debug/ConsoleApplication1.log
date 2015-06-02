@@ -1,52 +1,99 @@
-﻿Compilación iniciada a las 01/06/2015 21:05:19.
-     1>Proyecto "J:\marc\Treballs programacio\Risk-Programaci-\ConsoleApplication1\ConsoleApplication1\ConsoleApplication1.vcxproj" en el nodo 2 (Build destinos).
+﻿Compilación iniciada a las 02/06/2015 21:15:15.
+     1>Proyecto "C:\Users\marc.moreno\Desktop\Risk-Programaci-\ConsoleApplication1\ConsoleApplication1\ConsoleApplication1.vcxproj" en el nodo 2 (Build destinos).
      1>ClCompile:
-         D:\Archivos de programa (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\ConsoleApplication1.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Excercit.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\ConsoleApplication1.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ConsoleApplication1.cpp Excercit.cpp Faction.cpp Mapa.cpp
          Excercit.cpp
-     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(39): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(136): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(139): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(188): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(191): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(194): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(240): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(243): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(247): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(248): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(295): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(299): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(300): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(301): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(344): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(351): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(352): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(353): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\excercit.cpp(148): warning C4018: '<' : no coinciden signed/unsigned
-     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\excercit.cpp(340): warning C4244: 'argumento' : conversión de 'int' a 'const float'; posible pérdida de datos
-     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\excercit.cpp(376): warning C4244: 'argumento' : conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\excercit.cpp(437): warning C4018: '<' : no coinciden signed/unsigned
-     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\excercit.cpp(453): warning C4244: 'inicializando' : conversión de 'int' a 'float'; posible pérdida de datos
-     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\excercit.cpp(454): warning C4244: 'inicializando' : conversión de 'int' a 'float'; posible pérdida de datos
-     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\excercit.cpp(474): warning C4244: 'inicializando' : conversión de 'int' a 'float'; posible pérdida de datos
-     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\excercit.cpp(475): warning C4244: 'inicializando' : conversión de 'int' a 'float'; posible pérdida de datos
-     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\excercit.cpp(495): warning C4244: 'inicializando' : conversión de 'int' a 'float'; posible pérdida de datos
-     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\excercit.cpp(496): warning C4244: 'inicializando' : conversión de 'int' a 'float'; posible pérdida de datos
-     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\excercit.cpp(543): warning C4244: 'argumento' : conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\excercit.cpp(575): warning C4018: '<' : no coinciden signed/unsigned
-     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\excercit.cpp(591): warning C4244: 'inicializando' : conversión de 'int' a 'float'; posible pérdida de datos
-     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\excercit.cpp(592): warning C4244: 'inicializando' : conversión de 'int' a 'float'; posible pérdida de datos
-     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\excercit.cpp(612): warning C4244: 'inicializando' : conversión de 'int' a 'float'; posible pérdida de datos
-     1>j:\marc\treballs programacio\risk-programaci-\consoleapplication1\consoleapplication1\excercit.cpp(613): warning C4244: 'inicializando' : conversión de 'int' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(39): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(136): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(139): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(188): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(191): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(194): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(240): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(243): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(247): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(248): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(295): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(299): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(300): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(301): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(344): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(351): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(352): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(353): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\excercit.cpp(148): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\excercit.cpp(340): warning C4244: 'argumento' : conversión de 'int' a 'const float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\excercit.cpp(376): warning C4244: '+=' : conversión de 'float' a 'int'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\excercit.cpp(381): warning C4244: 'argumento' : conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\excercit.cpp(442): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\excercit.cpp(458): warning C4244: 'inicializando' : conversión de 'int' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\excercit.cpp(459): warning C4244: 'inicializando' : conversión de 'int' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\excercit.cpp(479): warning C4244: 'inicializando' : conversión de 'int' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\excercit.cpp(480): warning C4244: 'inicializando' : conversión de 'int' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\excercit.cpp(500): warning C4244: 'inicializando' : conversión de 'int' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\excercit.cpp(501): warning C4244: 'inicializando' : conversión de 'int' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\excercit.cpp(548): warning C4244: 'argumento' : conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\excercit.cpp(580): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\excercit.cpp(596): warning C4244: 'inicializando' : conversión de 'int' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\excercit.cpp(597): warning C4244: 'inicializando' : conversión de 'int' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\excercit.cpp(617): warning C4244: 'inicializando' : conversión de 'int' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\excercit.cpp(618): warning C4244: 'inicializando' : conversión de 'int' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\excercit.cpp(642): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\excercit.cpp(648): warning C4244: 'argumento' : conversión de 'unsigned int' a 'float'; posible pérdida de datos
+         Generando código...
+         Compilando...
+         Faction.cpp
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(39): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(136): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(139): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(188): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(191): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(194): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(240): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(243): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(247): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(248): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(295): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(299): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(300): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(301): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(344): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(351): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(352): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(353): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\faction.cpp(141): warning C4018: '<=' : no coinciden signed/unsigned
+         ConsoleApplication1.cpp
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(39): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(136): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(139): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(188): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(191): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(194): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(240): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(243): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(247): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(248): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(295): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(299): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(300): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(301): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(344): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(351): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(352): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\marc.moreno\desktop\risk-programaci-\consoleapplication1\consoleapplication1\unitats.h(353): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+         Generando código...
+         Omitiendo... (no se detectaron cambios relevantes)
+         Mapa.cpp
        Link:
-         D:\Archivos de programa (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"J:\marc\Treballs programacio\Risk-Programaci-\ConsoleApplication1\Debug\ConsoleApplication1.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"J:\marc\Treballs programacio\Risk-Programaci-\ConsoleApplication1\Debug\ConsoleApplication1.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"J:\marc\Treballs programacio\Risk-Programaci-\ConsoleApplication1\Debug\ConsoleApplication1.lib" /MACHINE:X86 Debug\ConsoleApplication1.res
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\marc.moreno\Desktop\Risk-Programaci-\ConsoleApplication1\Debug\ConsoleApplication1.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\marc.moreno\Desktop\Risk-Programaci-\ConsoleApplication1\Debug\ConsoleApplication1.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\marc.moreno\Desktop\Risk-Programaci-\ConsoleApplication1\Debug\ConsoleApplication1.lib" /MACHINE:X86 Debug\ConsoleApplication1.res
          Debug\ConsoleApplication1.obj
          Debug\Excercit.obj
          Debug\Faction.obj
          Debug\Mapa.obj
          Debug\stdafx.obj
-         ConsoleApplication1.vcxproj -> J:\marc\Treballs programacio\Risk-Programaci-\ConsoleApplication1\Debug\ConsoleApplication1.exe
-     1>Compilación del proyecto terminada "J:\marc\Treballs programacio\Risk-Programaci-\ConsoleApplication1\ConsoleApplication1\ConsoleApplication1.vcxproj" (Build destinos).
+         ConsoleApplication1.vcxproj -> C:\Users\marc.moreno\Desktop\Risk-Programaci-\ConsoleApplication1\Debug\ConsoleApplication1.exe
+     1>Compilación del proyecto terminada "C:\Users\marc.moreno\Desktop\Risk-Programaci-\ConsoleApplication1\ConsoleApplication1\ConsoleApplication1.vcxproj" (Build destinos).
 
 Compilación correcta.
 
-Tiempo transcurrido 00:00:01.76
+Tiempo transcurrido 00:00:02.27

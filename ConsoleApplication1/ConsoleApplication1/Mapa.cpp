@@ -240,18 +240,21 @@ void Mapa::iniciaTerritoris(){
 	territoris.push_back(t);
 
 }
-void Mapa::update(int idTerr, int idFaccio)
+int Mapa::update(int idTerr, int idFaccio)
 {
+	int idAnt;
 	for (itt = territoris.begin(); itt != territoris.end(); itt++)
 	{
-		if (itt->id == idTerr)
+		if (itt->id == idTerr && idTerr != 0)
 		{
+			idAnt = itt->idPropietari;
 			itt->idPropietariTornAnt = itt->idPropietari;
 			itt->idPropietari = idFaccio;
 			break;
 		}
 
 	}
+	return idAnt;
 }
 
 void Mapa::update(vector<Excercit*>posEx)
@@ -263,9 +266,9 @@ void Mapa::update(vector<Excercit*>posEx)
 			if (itt->id == posEx[i]->getTerritoriAct())
 			{
 				itt->exPresent = true;
+				if (itt->castell)
+					posEx[i]->setCastell(true);
 			}
-			if (itt->castell)
-				posEx[i]->setCastell(true);
 		}
 	}
 }

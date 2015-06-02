@@ -7,7 +7,7 @@ using namespace std;
 //using namespace Util;
 namespace cons = JadedHoboConsole;
 using namespace cons;
-using namespace main;
+using namespace maine;
 using namespace Utilitats;
 int torn;
 
@@ -17,9 +17,9 @@ int _tmain(int argc, _TCHAR* argv[])
 	torn = 0;
 	util.fin = false;
 	inicialitzaMapa();
-	a.iniciaTerritoris();
-	a.print();
-	a.pintaNoms();
+	main.a.iniciaTerritoris();
+	main.a.print();
+	main.a.pintaNoms();
 	resetPosY();
 	printInterface("Inicialitzacio de mapa completa,", fgLoCyan);
 	printInterface("inicialitzant faccions...");

@@ -48,9 +48,15 @@ public:
 	void setGastos(int gas);
 	int getGastos();
 	void calculaGastos();
+	void addTErr(int);
+	void updateTerr(int);
 	void calculaManteniment();
 	bool getTorn();
+	int getNoTerr();
+	void setNoTerr(int);
 	void setTorn(bool);
+	void muerte();
+	bool getViva();
 	void getFinances(int torn);
 	WORD getColor();
 	void imprPropEx();

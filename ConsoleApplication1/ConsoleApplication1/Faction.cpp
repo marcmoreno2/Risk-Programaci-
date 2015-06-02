@@ -14,6 +14,7 @@ Faction::Faction(int idcap, int or, bool player, int id, string nom, WORD color)
 	this->player = player; this->nom = nom;
 	id_capital = idcap;
 	this->color = color;
+	viva = true;
 	territoris.push_back(idcap);
 }
 
@@ -59,24 +60,61 @@ void Faction::update(bool t)
 		_gRec = gRec;
 		gRec = 0;
 		tornAcabat = false;
-		getIterEx(1)->update();
-		getIterEx(2)->update();
+		getIterEx(1)->update(territoris);
+		getIterEx(2)->update(territoris);
 		if (or < 0)
 		{
 			util.fin = true;
 			util.idPerdedor = id;
-		}
-		
+		}		
 	}
+
+	no_ter = 0;
+	for each(int t in territoris)
+		no_ter++;
 
 	calculaManteniment();
 	calculaGastos();
 	calculaIngressos();
-
 	
+}
 
+int Faction::getNoTerr()
+{
+	return this->no_ter;
+}
 
-	
+void Faction::setNoTerr(int s)
+{
+	this->no_ter += s;
+}
+
+void Faction::muerte()
+{
+	viva = false;
+}
+
+bool Faction::getViva()
+{
+	return viva;
+}
+
+void Faction::updateTerr(int idT)
+{
+	vector<int>::iterator it;
+	no_ter = 0;
+	for (it = territoris.begin(); it != territoris.end();)
+	{
+		
+		if (*it == idT)
+			it = territoris.erase(it);
+		else { no_ter++; it++; }
+	}
+}
+
+void Faction::addTErr(int t)
+{
+	territoris.push_back(t);
 }
 
 void Faction::calculaGastos()

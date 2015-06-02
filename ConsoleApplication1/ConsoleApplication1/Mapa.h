@@ -25,7 +25,7 @@ public:
 	
 	void iniciaTerritoris();
 	list<Territoris>::iterator getIterTerr(int id);
-	void update(int idTerr, int idFaccio);
+	int update(int idTerr, int idFaccio);
 	void update(vector<Excercit*>posEx);
 	void pintaNoms();
 };

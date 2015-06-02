@@ -33,6 +33,7 @@ public:
 	void setTerritoriAct(int idT);
 	void setGeneral(General g);
 	General getGeneral();
+	void addExpGen(float);
 	list<Unitats *>* getUnitats();
 	void setUnitats(list<Unitats *> u);
 	int moure(vector<Excercit*> posEx);
@@ -48,6 +49,7 @@ public:
 	bool atacar(Excercit *e, Excercit *d);
 	bool atacar(Excercit *e);
 	bool resultat(float, float, vector<Unitats>, vector<Unitats>, vector<int>, vector<int>);
+	void update(vector<int>);
 	void update();
 	void setIdPropietari(int);
 	void setCastell(bool);
