@@ -105,11 +105,11 @@ public:
 		atack = 25;
 		costRec = 50;
 		costMan = 15;
-		bonusVsCav = 10;
+		bonusVsCav = 5;
 		bonusVsInf = 0;
-		bonusVsSpear = 15;
-		bonusVsArq = 10;
-		bonusVsBuild = 15;
+		bonusVsSpear = 10;
+		bonusVsArq = 5;
+		bonusVsBuild = 10;
 	}
 
 	Arquer(int lvl, int exp) :Unitats(lvl, exp)
@@ -121,11 +121,11 @@ public:
 		atack = 25;
 		costRec = 50;
 		costMan = 15;
-		bonusVsCav = 10;
+		bonusVsCav = 5;
 		bonusVsInf = 0;
-		bonusVsSpear = 15;
-		bonusVsArq = 10;
-		bonusVsBuild = 15;
+		bonusVsSpear = 10;
+		bonusVsArq = 5;
+		bonusVsBuild = 10;
 		Update();
 	}
 
@@ -133,7 +133,6 @@ public:
 	{
 		Unitats::Update();
 		def += 0.5 * (lvl - 1);
-		//vida += 5 * (lvl - 1);
 		vidaMax += 5 * (lvl - 1);
 		atack += 1.5 * (lvl - 1);
 		costRec += 25 * (lvl - 1);
@@ -160,8 +159,8 @@ public:
 		costMan = 10;
 		bonusVsCav = 0;
 		bonusVsInf = 0;
-		bonusVsSpear = 20;
-		bonusVsArq = 20;
+		bonusVsSpear = 10;
+		bonusVsArq = 15;
 		bonusVsBuild = 0;
 	}
 	Soldat(int lvl, int exp) :Unitats(lvl, exp)
@@ -175,8 +174,8 @@ public:
 		costMan = 10;
 		bonusVsCav = 0;
 		bonusVsInf = 0;
-		bonusVsSpear = 20;
-		bonusVsArq = 20;
+		bonusVsSpear = 10;
+		bonusVsArq = 15;
 		bonusVsBuild = 0;
 		Update();
 	}
@@ -185,7 +184,6 @@ public:
 	{
 		Unitats::Update();
 		def += 1.5 * (lvl - 1);
-		//vida += 10 * (lvl - 1);
 		vidaMax += 10 * (lvl - 1);
 		atack += 0.5 * (lvl - 1);
 		costRec += 15 * (lvl - 1);
@@ -210,10 +208,10 @@ public:
 		atack = 20;
 		costRec = 100;
 		costMan = 40;
-		bonusVsCav = 10;
-		bonusVsInf = 20;
+		bonusVsCav = 5;
+		bonusVsInf = 10;
 		bonusVsSpear = 0;
-		bonusVsArq = 10;
+		bonusVsArq = 5;
 		bonusVsBuild = 0;
 	}
 	Cavalleria(int lvl, int exp) :Unitats(lvl, exp)
@@ -225,10 +223,10 @@ public:
 		atack = 20;
 		costRec = 100;
 		costMan = 40;
-		bonusVsCav = 10;
-		bonusVsInf = 20;
+		bonusVsCav = 5;
+		bonusVsInf = 10;
 		bonusVsSpear = 0;
-		bonusVsArq = 10;
+		bonusVsArq = 5;
 		bonusVsBuild = 0;
 		Update();
 	}
@@ -237,7 +235,6 @@ public:
 	{
 		Unitats::Update();
 		def += 1.5 * (lvl - 1);
-		//vida += 15 * (lvl - 1);
 		vidaMax += 15 * (lvl - 1);
 		atack += 1.5 * (lvl - 1);
 		costRec += 40 * (lvl - 1);
@@ -262,7 +259,7 @@ public:
 		atack = 20;
 		costRec = 25;
 		costMan = 10;
-		bonusVsCav = 50;
+		bonusVsCav = 15;
 		bonusVsInf = 0;
 		bonusVsSpear = 0;
 		bonusVsArq = 0;
@@ -277,7 +274,7 @@ public:
 		atack = 20;
 		costRec = 25;
 		costMan = 10;
-		bonusVsCav = 50;
+		bonusVsCav = 15;
 		bonusVsInf = 0;
 		bonusVsSpear = 0;
 		bonusVsArq = 0;
@@ -289,7 +286,6 @@ public:
 	{
 		Unitats::Update();
 		def += 1 * (lvl - 1);
-		//vida += 7 * (lvl - 1);
 		vidaMax += 7 * (lvl - 1);
 		atack += 1.5 * (lvl - 1);
 		costRec += 5 * (lvl - 1);
@@ -318,7 +314,7 @@ public:
 		bonusVsInf = 0;
 		bonusVsSpear = 0;
 		bonusVsArq = 10;
-		bonusVsBuild = 200;
+		bonusVsBuild = 50;
 	}
 	Siege(int lvl, int exp) :Unitats(lvl, exp)
 	{
@@ -333,7 +329,7 @@ public:
 		bonusVsInf = 0;
 		bonusVsSpear = 0;
 		bonusVsArq = 10;
-		bonusVsBuild = 200;
+		bonusVsBuild = 50;
 		Update();
 	}
 
@@ -341,7 +337,6 @@ public:
 	{
 		Unitats::Update();
 		def += 0.5 * (lvl - 1);
-		//vida += 2 * (lvl - 1);
 		vidaMax += 2 * (lvl - 1);
 		atack += 3 * (lvl - 1);
 		costRec += 35 * (lvl - 1);

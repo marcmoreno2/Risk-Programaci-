@@ -28,18 +28,18 @@ namespace Utilitats
 			dwPos.Y = y;
 			SetConsoleCursorPosition(hcon, dwPos);
 		}
-			//agafem input de teclat (amunt i avall)
+			//agafem input de teclat (amunt i avall). Els paràmetres de la funció són la opció que sel·leccionem i el nombre d'opcions del menú des del qual s'ha cridat la funció
 		static bool teclado(int &ord, int nO){
 			bool fiM = false;
 			char tecla = _getch();
 			if (tecla == 'H' && ord > 1)
-			{
 				ord--;
-			}
 			else if (tecla == 'P' && ord < nO)
-			{
 				ord++;
-			}
+			else if (tecla == 'H' && ord == 1)
+				ord = nO;
+			else if (tecla == 'P' && ord == nO)
+				ord = 1;
 			else if (tecla == 13)
 				fiM = true;
 			return fiM;

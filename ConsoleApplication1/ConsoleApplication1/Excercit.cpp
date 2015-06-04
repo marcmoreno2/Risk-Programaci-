@@ -66,9 +66,10 @@ void Excercit::setUnitats(list<Unitats *> u)
 {
 	units = u;
 }
-
+	//Funció de moviment
 int Excercit::moure(vector<Excercit*> posEx)
 {
+		//Comprovem els territoris colindants al territori actual de l'excercit i els guardem en una array
 	int posTid[4];
 	switch (territoriActual)
 	{
@@ -111,7 +112,7 @@ int Excercit::moure(vector<Excercit*> posEx)
 		posTid[0] = 7;
 		break;
 	}
-
+		//Sel·leccionem el territori de destí
 	int idDe = 1;
 	bool menuok = false, result = false;
 	resetPosY(6);
@@ -122,6 +123,7 @@ int Excercit::moure(vector<Excercit*> posEx)
 		menuok = teclado(idDe, 8);
 	}
 	posyMas();
+		//Comprovem si el territori escollit està a l'array que hem creat abans
 	bool act1 = false, corr = false;
 	for (int i = 0; i < 4; i++)
 	{
@@ -142,6 +144,7 @@ int Excercit::moure(vector<Excercit*> posEx)
 	}
 	else if (corr)
 	{
+			//En cas de poder-s'hi moure, comprovem si hi ha algun excèrcit enemic present
 		bool exPres = false;
 		vector<Excercit *>defensor;
 
@@ -156,7 +159,8 @@ int Excercit::moure(vector<Excercit*> posEx)
 
 
 		if (!exPres)
-		{
+		{	
+			//En cas de no haber-hi cap excèrcit enemic, l'excèrcit s'hi mou
 			printInterface("L'excercit es mou al territori objectiu", fgHiGreen);
 			resetPosY();
 			territoriActual = idDe;
@@ -165,6 +169,7 @@ int Excercit::moure(vector<Excercit*> posEx)
 		}
 		else
 		{
+			//Si hi ha algun excèrcit enemic, es pregunta si es vol atacar
 			menuok = false;
 			printInterface("Hi ha un excercit enemic al territori objectiu.", fgHiYellow);
 			printInterface("Atacar?");
@@ -191,6 +196,7 @@ int Excercit::moure(vector<Excercit*> posEx)
 
 			if (opAt == 1)
 			{
+				//En cas de respondre afirmativament, s'executa la funció d'atac, que ens retorna un resultat booleà que indica victòria (true), o derrota (false)
 				if (defensor.size() == 2){
 					result = this->atacar(defensor[0], defensor[1]);
 				}
@@ -204,6 +210,7 @@ int Excercit::moure(vector<Excercit*> posEx)
 			posyMas();
 			if (result)
 			{
+				//En cas d'obtenir la victòria, l'excercit captura el territori
 				printInterface("L'excercit es mou al territori objectiu", fgHiGreen);
 				printInterface("Captures el territori");
 				resetPosY();
@@ -224,12 +231,10 @@ int Excercit::moure(vector<Excercit*> posEx)
 		resetPosY();
 	}
 
-	/*cout << endl;
-	for (int elem : posTid)
-	cout << elem << endl;*/
-
 	system("pause>>null");
 	flushInterface();
+
+		//Es retorna el territori de destí en cas d'haver obtingut victòria; en qualsevol dels altres casos, es retorna 0
 	if (result)
 		return idDe;
 	else return 0;
@@ -251,24 +256,45 @@ void Excercit::afegirUnitats(list<Unitats *> u)
 
 void Excercit::mostrarUnits()
 {
+	int i = 0;
 	resetPosY(6);
-	printInterface("Unitats de l'excercit " + to_string(id) + ":", fgHiCyan);
+	printInterface("Posicio actual de l'excercit " + to_string(id) + ": territori " + to_string(territoriActual), fgHiCyan);
+	printInterface("Unitats de l'excercit: ");
 
 	for (itu = units.begin(); itu != units.end(); itu++)
 	{
-		posyMas();
-		printInterface((*itu)->nom);
-		printInterface("Salut: " + to_string((*itu)->vida));
-		printInterface("Nivell: " + to_string((*itu)->lvl));
-		printInterface("Experiencia: " + to_string((*itu)->exp));
-		printInterface("Atac: " + to_string((*itu)->atack));
-		printInterface("Defensa: " + to_string((*itu)->def));
-
+		if (i < 9)
+		{
+			posyMas();
+			printInterface((*itu)->nom);
+			printInterface("Salut: " + to_string((*itu)->vida));
+			printInterface("Nivell: " + to_string((*itu)->lvl));
+			printInterface("Experiencia: " + to_string((*itu)->exp));
+			printInterface("Atac: " + to_string((*itu)->atack));
+			printInterface("Defensa: " + to_string((*itu)->def));
+			i++;
+		}
+		else 
+		{
+			system("pause>>null");
+			i = 0;
+			flushInterface(13);
+			resetPosY(8);
+			posyMas();
+			printInterface((*itu)->nom);
+			printInterface("Salut: " + to_string((*itu)->vida));
+			printInterface("Nivell: " + to_string((*itu)->lvl));
+			printInterface("Experiencia: " + to_string((*itu)->exp));
+			printInterface("Atac: " + to_string((*itu)->atack));
+			printInterface("Defensa: " + to_string((*itu)->def));
+			i++;
+		}
 	}
 	system("pause>>null");
 	resetPosY();
 	flushInterface();
 }
+	//En desús
 void Excercit::desbandar(string u, int q)
 {
 	bool elim = false;
@@ -362,7 +388,6 @@ float Excercit::getDTot()
 vector<int> Excercit::getNoUnitTypes()
 {
 	vector<int> noUnits;
-
 	for each (int var in noTypeUnits)
 	{
 		noUnits.push_back(var);
@@ -375,7 +400,7 @@ void Excercit::addExpGen(float exp)
 {
 	general.exp += exp;
 }
-
+	//Funció de simulació del combat, hi ha dues sobrecarregues; depenent de si lluitem contra un o dos excercits
 bool Excercit::atacar(Excercit *e, Excercit *d)
 {
 	srand(time(NULL));
@@ -396,9 +421,9 @@ bool Excercit::atacar(Excercit *e, Excercit *d)
 	list<Unitats *>* uE2 = d->getUnitats();
 	list<Unitats *> uE2P = *uE2;
 
-	/*e->update();
+	e->update();
 	d->update();
-	this->update();*/
+	this->update();
 
 	bE += e->getBonusDef();
 	bE += d->getBonusDef();
@@ -422,11 +447,7 @@ bool Excercit::atacar(Excercit *e, Excercit *d)
 	noE[4] += noEAux[4];
 
 	fTotE += e->getFTot() + d->getFTot();
-		
-	
-	
-	
-	
+
 	vector<float> bA = getBonusOf();
 	vector<int> noA = getNoUnitTypes();
 	
@@ -455,11 +476,11 @@ bool Excercit::atacar(Excercit *e, Excercit *d)
 
 	for (ituE = uE1->begin(); ituE != uE1->end();)
 	{
-		float randA = rand() % 50 + 50;
+		float randA = rand() % 50;
 		float randE = rand() % 50;
 
 		float vidAnt = (*ituE)->vida;
-		float vidaPost = (*ituE)->vida - (((fTotA + bonusATAvgA + randA) / uESize) - ((*ituE)->def + ((bE + randE) / (2*uASize))));
+		float vidaPost = (*ituE)->vida - (((4*fTotA/uESize) + bonusATAvgA + randA) - ((*ituE)->def + bE + randE));
 
 		if (vidaPost < vidAnt)
 			(*ituE)->vida = vidaPost;
@@ -476,11 +497,11 @@ bool Excercit::atacar(Excercit *e, Excercit *d)
 
 	for (ituE = uE2->begin(); ituE != uE2->end();)
 	{
-		float randA = rand() % 50 + 50;
+		float randA = rand() % 50;
 		float randE = rand() % 50;
 
 		float vidAnt = (*ituE)->vida;
-		float vidaPost = (*ituE)->vida - (((fTotA + bonusATAvgA + randA) / uESize) - ((*ituE)->def + ((bE + randE) / (2*uASize))));
+		float vidaPost = (*ituE)->vida - (((4*fTotA / uESize) + bonusATAvgA + randA) - ((*ituE)->def + bE + randE));
 
 		if (vidaPost < vidAnt)
 			(*ituE)->vida = vidaPost;
@@ -500,7 +521,7 @@ bool Excercit::atacar(Excercit *e, Excercit *d)
 		float randA = rand() % 75 + 50;
 		float randE = rand() % 50;
 		float vidAnt = (*ituA)->vida;
-		float vidaPost = (*ituA)->vida - (((fTotE + bE + randE) / uASize) - ((*ituA)->def + ((bonusATAvgA + randA) / (2*uESize))));
+		float vidaPost = vidAnt - (((4*fTotE/uASize) + bE + randE) - ((*ituA)->def + bonusATAvgA + randA));
 
 		if (vidaPost < vidAnt)
 			(*ituA)->vida = vidaPost;
@@ -519,32 +540,26 @@ bool Excercit::atacar(Excercit *e, Excercit *d)
 	for each(Unitats *uni in *uE1)
 	{
 		uni->exp += (perduesA.size() * 100) + (perduesE.size() * 25);
-		//uni->Update();
 	}
-
+	e->addExpGen(perduesA.size() * 100 + (perduesE.size() * 25));
 	for each(Unitats *uni in *uE2)
 	{
 		uni->exp += (perduesA.size() * 100) + (perduesE.size() * 25);
-		//uni->Update();
 	}
-
+	d->addExpGen(perduesA.size() * 100 + (perduesE.size() * 25));
 	for each(Unitats *uni in *uA)
 	{
 		uni->exp += (perduesE.size() * 100) + (perduesA.size() * 25);
-		//uni->Update();
 	}
+	this->addExpGen(perduesE.size() * 100 + (perduesA.size() * 25));
 
-
-	bool result = resultat(puntuacioA, puntuacioE, perduesA, perduesE, noE, noA);
+	bool result = resultat(puntuacioA, puntuacioE, perduesA, perduesE, noE, noA, uASize, uESize);
 
 	return result;
 }
 
-
-
 bool Excercit::atacar(Excercit *e)
 {
-	//bool result = false;
 	srand(time(NULL));
 
 
@@ -560,8 +575,8 @@ bool Excercit::atacar(Excercit *e)
 	list<Unitats *>* uE = e->getUnitats();
 	list<Unitats *> uEP = *uE;
 	
-	/*e->update();
-	update();*/
+	e->update();
+	update();
 
 	bE = e->getBonusDef();
 	bEAux = e->getBonusOf();
@@ -593,11 +608,11 @@ bool Excercit::atacar(Excercit *e)
 
 	for (ituE = uE->begin(); ituE != uE->end();)
 	{
-		float randA = rand() % 50 + 50;
+		float randA = rand() % 50;
 		float randE = rand() % 50;
 
 		float vidAnt = (*ituE)->vida;
-		float vidaPost = (*ituE)->vida - (((fTotA + bonusATAvgA + randA) / uESize) - ((*ituE)->def + ((bE + randE) / (2*uASize))));
+		float vidaPost = (*ituE)->vida - (((4 * fTotA / uESize) + bonusATAvgA + randA) - ((*ituE)->def + bE + randE));
 
 		if (vidaPost < vidAnt)
 			(*ituE)->vida = vidaPost;
@@ -617,7 +632,7 @@ bool Excercit::atacar(Excercit *e)
 		float randA = rand() % 75 + 50;
 		float randE = rand() % 50;
 		float vidAnt = (*ituA)->vida;
-		float vidaPost = (*ituA)->vida - (((fTotE + bE + randE) / uASize) - ((*ituA)->def + ((bonusATAvgA + randA) / (2*uESize))));
+		float vidaPost = (*ituA)->vida - (((4 * fTotE / uASize) + bE + randE) - ((*ituA)->def + bonusATAvgA + randA));
 
 		if (vidaPost < vidAnt)
 			(*ituA)->vida = vidaPost;
@@ -632,24 +647,22 @@ bool Excercit::atacar(Excercit *e)
 		else { puntuacioA += (*ituA)->vida; ituA++; }
 	}
 
-	bool result = resultat(puntuacioA, puntuacioE, perduesA, perduesE, noE, noA);
+	bool result = resultat(puntuacioA, puntuacioE, perduesA, perduesE, noE, noA, uASize, uESize);
 
 	for each(Unitats *uni in *uE)
 	{
 		uni->exp += (perduesA.size() * 100 + (perduesE.size() * 25));
-		//uni->Update();
 	}
 	e->addExpGen(perduesA.size() * 100 + (perduesE.size() * 25));
 	for each(Unitats *uni in *uA)
 	{
 		uni->exp += (perduesE.size() * 100) + (perduesA.size() * 25);
-		//uni->Update();
 	}
 	this->addExpGen((perduesE.size() * 100) + (perduesA.size() * 25));
 	return result;
 }
-
-bool Excercit::resultat(float PA, float PE, vector<Unitats> perduesA, vector<Unitats> perduesE, vector<int> noE, vector<int> noA)
+	//Funció que ens mostra el resultat de la batalla
+bool Excercit::resultat(float PA, float PE, vector<Unitats> perduesA, vector<Unitats> perduesE, vector<int> noE, vector<int> noA, int sizeA, int sizeE)
 {
 	if (PA > PE)
 	{
@@ -662,7 +675,7 @@ bool Excercit::resultat(float PA, float PE, vector<Unitats> perduesA, vector<Uni
 			posyMas();
 			printInterface("  Estadistiques:", fgHiCyan);
 			posyMas();
-			printInterface("     -Unitats desplegades:");
+			printInterface("     -Unitats desplegades: " + to_string(sizeA));
 			posyMas();
 			printInterface("	       -Arquers: " + to_string(noA[0]));
 			posyMas();
@@ -680,7 +693,7 @@ bool Excercit::resultat(float PA, float PE, vector<Unitats> perduesA, vector<Uni
 				printInterface("        " + uni.nom + " lvl: " + to_string(uni.lvl));
 			}
 			posyMas();
-			printInterface("     -Unitats desplegades per l'enemic:");
+			printInterface("     -Unitats desplegades per l'enemic: " + to_string(sizeE));
 			posyMas();
 			printInterface("	       -Arquers: " + to_string(noE[0]));
 			posyMas();
@@ -712,7 +725,7 @@ bool Excercit::resultat(float PA, float PE, vector<Unitats> perduesA, vector<Uni
 			posyMas();
 			printInterface("  Estadistiques:", fgHiCyan);
 			posyMas();
-			printInterface("     -Unitats desplegades:");
+			printInterface("     -Unitats desplegades: " + to_string(noA[0] + noA[1] + noA[2] + noA[3] + noA[4]));
 			posyMas();
 			printInterface("	       -Arquers: " + to_string(noA[0]));
 			posyMas();
@@ -730,7 +743,7 @@ bool Excercit::resultat(float PA, float PE, vector<Unitats> perduesA, vector<Uni
 				printInterface("        " + uni.nom + " lvl: " + to_string(uni.lvl));
 			}
 			posyMas();
-			printInterface("     -Unitats desplegades per l'enemic:");
+			printInterface("     -Unitats desplegades per l'enemic: " + to_string(noE[0] + noE[1] + noE[2] + noE[3] + noE[4]));
 			posyMas();
 			printInterface("	       -Arquers: " + to_string(noE[0]));
 			posyMas();
@@ -762,7 +775,7 @@ void Excercit::setPlayer(bool p)
 {
 	player = p;
 }
-
+	//Update de l'excèrcit, executat per l'update de la facció
 void Excercit::update(vector<int> ter)
 {
 	for (int elem : noTypeUnits)
@@ -790,18 +803,8 @@ void Excercit::update(vector<int> ter)
 	calculaAtT();
 	calculaDeT();
 	this->movimentD = true;
-	bool ok = false;
-	for each(int t in ter)
-	{
-		if (territoriActual == t)
-			ok = true;
-	}
-	
-	if (!ok)
-		territoriActual = ter[0];
-	//
 }
-
+	//Update de l'excèrcit, executat per 'atacar'
 void Excercit::update()
 {
 	for (int elem : noTypeUnits)
@@ -811,7 +814,6 @@ void Excercit::update()
 
 	for (itu = units.begin(); itu != units.end(); itu++)
 	{
-		//(*itu)->Update();
 		if ((*itu)->nom == "Arquer")
 			noTypeUnits[0] += 1;
 		else if ((*itu)->nom == "Soldat")
@@ -828,7 +830,6 @@ void Excercit::update()
 	calculaBonusOff();
 	calculaAtT();
 	calculaDeT();
-	this->movimentD = true;
 }
 
 void Excercit::calculaAtT()
@@ -862,6 +863,5 @@ int Excercit::getIdPropietari()
 int Excercit::getManteniment()
 {
 	calculaManteniment();
-	//Util::printInterface(to_string(mantenimentEx));
 	return mantenimentEx;
 }

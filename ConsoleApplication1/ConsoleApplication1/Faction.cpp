@@ -45,7 +45,7 @@ void Faction::setExcercit(Excercit e)
 	excercits.push_back(e);
 }
 
-
+	//Update de la facció cridada per l'update general
 void Faction::update(bool t)
 {
 	tornAcabat = t;
@@ -143,7 +143,7 @@ void Faction::calculaIngressos()
 		this->ingressos += 500;
 	}
 }
-
+	//Imprimeix per pantalla la 'situació financera' de la facció
 void Faction::getFinances(int torn)
 {
 	update(false);
@@ -175,10 +175,12 @@ void Faction::getFinances(int torn)
 
 	system("pause>null");
 }
-
+	//Funció que comprova el reclutament d'una unitat cap a un excèrcit en concret
 void Faction::reclutar(Unitats* u, int idEx)
 {
-	resetPosY(13);
+	resetPosY(15);
+	printInterface("                                                                 ");
+	resetPosY(15);
 	if (or >= u->costRec)
 	{
 		for (ite = excercits.begin(); ite != excercits.end(); ite++)
@@ -202,9 +204,7 @@ void Faction::reclutar(Unitats* u, int idEx)
 			printInterface("No tens prou or per a reclutar la unitat!", fgLoRed);
 		}
 	}
-	system("pause>>null");
 	resetPosY();
-	flushInterface();
 }
 
 void Faction::mostrarUnitats(int idEx)

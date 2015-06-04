@@ -48,7 +48,7 @@ public:
 	void calculaDeT();
 	bool atacar(Excercit *e, Excercit *d);
 	bool atacar(Excercit *e);
-	bool resultat(float, float, vector<Unitats>, vector<Unitats>, vector<int>, vector<int>);
+	bool resultat(float, float, vector<Unitats>, vector<Unitats>, vector<int>, vector<int>, int, int);
 	void update(vector<int>);
 	void update();
 	void setIdPropietari(int);

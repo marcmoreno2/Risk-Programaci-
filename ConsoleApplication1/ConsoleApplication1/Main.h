@@ -148,6 +148,7 @@ namespace maine{
 		string op6 = "Cancelar";
 		while (opA != 6)
 		{
+			flushMenu(5, nO);
 			resetPosY();
 			printInterface("Reclutar unitats:                          Or disponible: " + to_string((*itf)->getOr()), fgHiCyan);
 			posyMas();
@@ -247,7 +248,6 @@ namespace maine{
 				opA = op;
 				fiMenu = teclado(op, nO);
 				resetPosY(2);
-				//flushMenu(nO);
 			}
 
 			switch (opA) {
